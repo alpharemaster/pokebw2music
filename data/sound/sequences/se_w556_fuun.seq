@@ -1,0 +1,52 @@
+	note_wait 0
+	tempo 120
+	program 0
+	mod_depth 0
+	expression 127
+	pitch_bend 0
+	volume 127
+	pan 64
+	expression 83
+	bend_range 12
+	priority 64
+	mod_depth 15
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	note F4, 106, 9
+	wait 4
+	note E4, 107, 21
+	wait 13
+	note F4, 98, 26
+	wait 21
+	note E4, 108, 13
+	wait 9
+	note F4, 115, 19
+	wait 13
+	note E4, 104, 14
+	wait 12
+	note F4, 110, 25
+	wait 16
+	note E4, 110, 21
+	wait 15
+	note F4, 117, 42
+	wait 21
+	note D4, 114, 13
+	wait 19
+	note E4, 107, 16
+	wait 10
+	note F4, 127, 22
+	wait 18
+	note E4, 116, 12
+	wait 8
+	note D4, 116, 21
+	wait 17
+	note E4, 120, 16
+	wait 14
+	note F4, 123, 31
+	wait 13
+	note E4, 98, 49
+	wait 50
+	end
+	end

@@ -1,0 +1,17 @@
+	alloc_tracks 0x0007
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	tempo 75
+	pan 4
+	note C4, 100, 0
+	end
+Track_1:
+	program 0
+	tempo 75
+	wait 1
+	pan 124
+	note C4, 100, 0
+	end
+	end

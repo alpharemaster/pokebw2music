@@ -1,0 +1,11 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_MUS_WB_GF_LOGO" ],
+    "instruments": [
+        { "program": 0, "type": "pcm", "wave": 1, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 100, "pan": 64 },
+        { "program": 1, "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 100, "pan": 64 },
+        { "program": 2, "type": "pcm", "wave": 4, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 100, "pan": 64 },
+        { "program": 3, "type": "pcm", "wave": 2, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 100, "pan": 64 },
+        { "program": 4, "type": "pcm", "wave": 3, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 100, "pan": 64 }
+    ]
+}

@@ -1,0 +1,11 @@
+	note_wait 0
+	tempo 120
+	program 85
+	volume 127
+	pan 64
+	note C4, 127, 47
+	wait 24
+	note C4, 40, 47
+	wait 47
+	end
+	end

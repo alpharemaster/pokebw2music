@@ -1,0 +1,181 @@
+	alloc_tracks 0x07FF
+	open_track 1, Track_1
+	open_track 2, Track_2
+	open_track 3, Track_3
+	open_track 4, Track_4
+	open_track 5, Track_5
+	open_track 6, Track_6
+	open_track 7, Track_7
+	open_track 8, Track_8
+	open_track 9, Track_9
+	open_track 10, Track_10
+	note_wait 0
+	tempo 150
+	program 39
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 64
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	end
+Track_1:
+	note_wait 0
+	program 39
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 64
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	end
+Track_2:
+	note_wait 0
+	program 29
+	portamento_time 0
+	volume 120
+	pan 64
+	expression 127
+	bend_range 7
+	priority 62
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	end
+Track_3:
+	note_wait 0
+	program 18
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 60
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	end
+Track_4:
+	note_wait 0
+	program 0
+	volume 120
+	pan 64
+	bend_range 2
+	priority 64
+	mod_depth 0
+	mod_speed 19
+	mod_type 2
+	mod_range 3
+	mod_delay 0
+	expression 110
+	note A4, 120, 191
+	wait 191
+	end
+Track_5:
+	note_wait 0
+	program 3
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 56
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	end
+Track_6:
+	note_wait 0
+	program 70
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 54
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	end
+Track_7:
+	note_wait 0
+	program 70
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 52
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	end
+Track_8:
+	note_wait 0
+	program 0
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 50
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	end
+Track_9:
+	note_wait 0
+	program 126
+	portamento_time 0
+	volume 127
+	pan 64
+	expression 127
+	bend_range 12
+	priority 48
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	note C2, 120, 131
+	note G3, 120, 131
+	wait 131
+	end
+Track_10:
+	note_wait 0
+	program 0
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 46
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	end
+	end

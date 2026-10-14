@@ -1,0 +1,16 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	note D3, 127, 0
+	end
+Track_1:
+	random wait 95, 134
+	attack 84
+	random pan 40, 88
+	program 1
+	random volume 97, 60
+	note C4, 127, 0
+	end
+	end

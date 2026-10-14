@@ -1,0 +1,10 @@
+	note_wait 0
+	tempo 160
+	program 88
+	volume 127
+	note C5, 110, 6
+	wait 6
+	note B5, 127, 12
+	wait 12
+	end
+	end

@@ -1,0 +1,93 @@
+	note_wait 0
+	tempo 159
+	program 1
+	volume 127
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 64
+	mod_depth 0
+	expression 127
+	priority 127
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	call Sub_00E2
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 23
+	end
+Sub_00E2:
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	note Cs3, 127, 23
+	wait 24
+	return
+	end

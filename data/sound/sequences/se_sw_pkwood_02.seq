@@ -1,0 +1,36 @@
+	alloc_tracks 0x0007
+	open_track 0, Track_0
+	open_track 1, Track_1
+	open_track 2, Track_2
+Track_0:
+	attack 40
+	program 0
+	portamento_time 24
+	portamento_on 1
+	portamento 36
+	note C3, 127, 0
+	end
+Track_1:
+	attack 30
+	wait 28
+	mod_depth 28
+	mod_range 1
+	mod_speed 10
+	mod_type 2
+	portamento_time 24
+	portamento_on 1
+	portamento 48
+	program 0
+	note C4, 97, 0
+	end
+Track_2:
+	attack 52
+	mod_depth 13
+	mod_range 1
+	mod_speed 10
+	mod_type 1
+	program 1
+	release 90
+	note A3, 115, 70
+	end
+	end

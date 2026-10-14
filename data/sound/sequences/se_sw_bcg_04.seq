@@ -1,0 +1,91 @@
+	alloc_tracks 0x0007
+	open_track 0, Track_0
+	open_track 1, Track_1
+	open_track 2, Track_2
+Track_0:
+	tempo 75
+	call Sub_0042
+	note As1, 127, 48
+	call Sub_0042
+	note As1, 124, 50
+	call Sub_0042
+	note As1, 121, 50
+	call Sub_0042
+	note As1, 118, 50
+	call Sub_0042
+	note As1, 115, 50
+	call Sub_0042
+	release 55
+	note As1, 112, 100
+	end
+Sub_0042:
+	program 1
+	mod_depth 42
+	mod_range 2
+	mod_speed 1
+	mod_type 1
+	random pitch_bend -64, 64
+	portamento_time 0
+	portamento_on 1
+	portamento 36
+	release 127
+	return
+Track_1:
+	tempo 75
+	wait 64
+	call Sub_0097
+	pan 126
+	note F2, 127, 50
+	call Sub_0097
+	pan 118
+	note F2, 127, 50
+	call Sub_0097
+	pan 110
+	note F2, 127, 42
+	call Sub_0097
+	pan 102
+	note F2, 127, 44
+	call Sub_0097
+	pan 94
+	note F2, 127, 49
+	call Sub_0097
+	pan 86
+	note E2, 124, 0
+	end
+Sub_0097:
+	program 2
+	release 100
+	random transpose 0, 1
+	random pitch_bend 0, 127
+	random expression 120, 127
+	return
+Track_2:
+	tempo 75
+	wait 66
+	call Sub_00EA
+	pan 1
+	note F2, 127, 50
+	call Sub_00EA
+	pan 8
+	note F2, 127, 50
+	call Sub_00EA
+	pan 16
+	note F2, 127, 42
+	call Sub_00EA
+	pan 24
+	note F2, 127, 40
+	call Sub_00EA
+	pan 32
+	note F2, 127, 50
+	call Sub_00EA
+	pan 40
+	note E2, 124, 0
+	end
+Sub_00EA:
+	program 2
+	release 100
+	random transpose -2, -1
+	random pitch_bend -64, 64
+	random expression 120, 127
+	return
+	end

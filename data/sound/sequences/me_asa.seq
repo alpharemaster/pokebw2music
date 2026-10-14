@@ -1,0 +1,306 @@
+	alloc_tracks 0x03FF
+	open_track 1, Track_1
+	open_track 2, Track_2
+	open_track 3, Track_3
+	open_track 4, Track_4
+	open_track 5, Track_5
+	open_track 6, Track_6
+	open_track 7, Track_7
+	open_track 8, Track_8
+	open_track 9, Track_9
+	note_wait 0
+	tempo 132
+	program 36
+	volume 120
+	pan 64
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	pitch_bend 0
+	mod_depth 0
+	priority 64
+	note E5, 100, 3
+	wait 2
+	note Fs5, 110, 3
+	wait 2
+	note B5, 120, 22
+	wait 24
+	note B5, 70, 20
+	wait 24
+	note B5, 112, 22
+	wait 24
+	note B5, 70, 20
+	wait 24
+	note B5, 120, 22
+	wait 24
+	note Gs5, 112, 22
+	wait 24
+	note E6, 115, 22
+	wait 24
+	note E6, 70, 20
+	wait 22
+	note E6, 37, 20
+	wait 20
+	end
+Track_1:
+	note_wait 0
+	program 36
+	volume 120
+	pan 96
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 10
+	priority 62
+	wait 4
+	note E5, 95, 11
+	wait 24
+	note E5, 55, 11
+	wait 24
+	note E5, 90, 11
+	wait 24
+	note E5, 50, 11
+	wait 24
+	note E5, 90, 11
+	wait 24
+	note E5, 50, 11
+	wait 24
+	note B5, 90, 11
+	wait 24
+	note B5, 46, 11
+	wait 12
+	end
+Track_2:
+	note_wait 0
+	program 36
+	volume 96
+	pan 35
+	mod_depth 10
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	pitch_bend 0
+	priority 60
+	wait 28
+	note Gs4, 110, 11
+	wait 24
+	note Gs4, 39, 11
+	wait 24
+	note Gs4, 110, 11
+	wait 24
+	note Gs4, 39, 11
+	wait 24
+	note Gs4, 110, 11
+	wait 24
+	note E4, 114, 11
+	wait 24
+	note E4, 39, 11
+	wait 12
+	end
+Track_3:
+	note_wait 0
+	program 0
+	volume 70
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	sweep_pitch -1272
+	mod_depth 10
+	priority 58
+	wait 24
+	note D7, 100, 9
+	wait 12
+	note D7, 54, 9
+	wait 12
+	note D7, 100, 9
+	wait 12
+	note D7, 54, 9
+	wait 12
+	note D6, 100, 9
+	wait 12
+	note D6, 54, 9
+	wait 60
+	note D7, 100, 9
+	wait 12
+	note D7, 54, 9
+	wait 40
+	note D7, 80, 9
+	wait 12
+	note D7, 34, 9
+	wait 10
+	end
+Track_4:
+	note_wait 0
+	program 29
+	volume 60
+	pan 64
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	sweep_pitch -1176
+	mod_depth 0
+	priority 56
+	wait 28
+	note E5, 110, 9
+	wait 12
+	note E5, 54, 9
+	wait 12
+	note E6, 110, 9
+	wait 12
+	note E5, 54, 9
+	wait 12
+	note E4, 120, 9
+	wait 12
+	note E4, 64, 9
+	wait 56
+	note E4, 110, 10
+	wait 16
+	note E4, 54, 10
+	wait 36
+	note E4, 80, 10
+	wait 17
+	note E4, 24, 10
+	wait 10
+	end
+Track_5:
+	note_wait 0
+	program 3
+	volume 98
+	pan 83
+	mod_depth 0
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	pitch_bend 0
+	priority 54
+	note Gs5, 120, 2
+	wait 2
+	note A5, 120, 2
+	wait 2
+	note B5, 120, 23
+	wait 24
+	note B5, 60, 21
+	wait 24
+	note B5, 120, 23
+	wait 24
+	note B5, 60, 21
+	wait 24
+	note B5, 120, 23
+	wait 24
+	note Gs5, 120, 23
+	wait 24
+	note E6, 120, 23
+	wait 24
+	note E6, 60, 21
+	wait 22
+	end
+Track_6:
+	note_wait 0
+	program 30
+	volume 90
+	pan 79
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 52
+	wait 4
+	note E5, 100, 11
+	wait 24
+	note E5, 60, 11
+	wait 24
+	note E5, 100, 11
+	wait 24
+	note E5, 60, 11
+	wait 24
+	note E5, 100, 11
+	wait 24
+	note E5, 60, 11
+	wait 24
+	note B5, 100, 11
+	wait 24
+	note B5, 56, 11
+	wait 12
+	end
+Track_7:
+	note_wait 0
+	program 3
+	volume 105
+	pan 96
+	bend_range 12
+	mod_range 3
+	priority 50
+	mod_depth 0
+	mod_speed 18
+	wait 28
+	note Gs4, 100, 11
+	wait 24
+	note Gs4, 40, 11
+	wait 24
+	note Gs4, 100, 11
+	wait 24
+	note Gs4, 40, 11
+	wait 24
+	note Gs4, 100, 11
+	wait 24
+	note E4, 104, 11
+	wait 24
+	note E4, 40, 11
+	wait 12
+	end
+Track_8:
+	note_wait 0
+	program 0
+	volume 50
+	pan 64
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 48
+	wait 4
+	note Gs3, 110, 14
+	wait 24
+	note E5, 110, 6
+	wait 24
+	note As3, 110, 9
+	wait 24
+	note Gs3, 110, 9
+	wait 72
+	note E4, 110, 4
+	wait 24
+	note Gs3, 60, 4
+	wait 5
+	end
+Track_9:
+	note_wait 0
+	program 10
+	volume 115
+	pan 64
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	priority 46
+	mod_depth 10
+	note E5, 94, 2
+	wait 2
+	note Fs5, 106, 2
+	wait 2
+	note B5, 120, 22
+	wait 24
+	note B5, 75, 20
+	wait 24
+	note B5, 120, 22
+	wait 24
+	note B5, 70, 20
+	wait 24
+	note B5, 120, 22
+	wait 24
+	note Gs5, 120, 22
+	wait 24
+	note E6, 120, 22
+	wait 24
+	note E6, 75, 20
+	wait 21
+	end
+	end

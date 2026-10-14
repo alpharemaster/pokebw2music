@@ -1,0 +1,21 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	pan 30
+	tempo 75
+	release 100
+	random pitch_bend -127, -20
+	note B2, 127, 48
+	end
+Track_1:
+	program 0
+	tempo 75
+	pan 98
+	wait 3
+	release 100
+	random pitch_bend 0, 64
+	note B2, 127, 48
+	end
+	end

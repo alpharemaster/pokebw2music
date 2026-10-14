@@ -1,0 +1,22 @@
+	note_wait 0
+	tempo 170
+	program 0
+	volume 85
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 64
+	mod_depth 10
+	expression 127
+	priority 127
+	mod_speed 40
+	note Gs4, 127, 11
+	wait 12
+	note Fs5, 127, 20
+	wait 24
+	note Fs5, 61, 20
+	wait 24
+	note Fs5, 27, 20
+	wait 21
+	end
+	end

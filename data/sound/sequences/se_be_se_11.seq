@@ -1,0 +1,71 @@
+	note_wait 0
+	tempo 220
+	program 96
+	volume 127
+	pan 64
+	bend_range 12
+	pitch_bend 2
+	note C7, 127, 7
+	wait 2
+	pitch_bend 4
+	pan 66
+	wait 2
+	pitch_bend 9
+	wait 3
+	pitch_bend 2
+	note G7, 127, 12
+	wait 2
+	pan 64
+	wait 10
+	pitch_bend 2
+	note C7, 102, 7
+	wait 2
+	pitch_bend 4
+	pan 62
+	wait 3
+	pitch_bend 9
+	wait 2
+	pitch_bend 2
+	note G7, 102, 12
+	wait 2
+	pan 64
+	wait 10
+	pitch_bend 2
+	note Cs7, 77, 7
+	wait 2
+	pitch_bend 4
+	pan 68
+	wait 3
+	pitch_bend 9
+	wait 2
+	pitch_bend 2
+	note Gs7, 77, 12
+	wait 3
+	pan 64
+	wait 9
+	pitch_bend 2
+	note Cs7, 47, 7
+	wait 3
+	pan 59
+	pitch_bend 4
+	wait 2
+	pitch_bend 9
+	wait 2
+	pitch_bend 2
+	note Gs7, 47, 12
+	wait 3
+	pan 64
+	wait 9
+	pan 68
+	pitch_bend 2
+	note Cs7, 30, 7
+	wait 3
+	pitch_bend 4
+	wait 2
+	pitch_bend 9
+	wait 3
+	pitch_bend 0
+	note Gs7, 30, 12
+	wait 12
+	end
+	end

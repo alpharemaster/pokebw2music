@@ -1,0 +1,29 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	tempo 75
+	program 0
+	pan 14
+	attack 45
+	mod_depth 30
+	mod_range 3
+	mod_speed 4
+	mod_type 0
+	release 98
+	note C4, 110, 90
+	end
+Track_1:
+	tempo 75
+	program 0
+	pan 114
+	attack 45
+	wait 2
+	mod_depth 30
+	mod_range 3
+	mod_speed 5
+	mod_type 0
+	release 98
+	note C4, 110, 90
+	end
+	end

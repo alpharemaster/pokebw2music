@@ -1,0 +1,168 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_MUS_WB_PLEASURE_BOAT" ],
+    "instruments": [
+        {
+            "program": 90,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "G3",
+                    "type": "pcm",
+                    "wave": 2,
+                    "wave_archive": 0,
+                    "key": "D3",
+                    "attack": 127,
+                    "decay": 110,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "Ds4",
+                    "type": "pcm",
+                    "wave": 0,
+                    "wave_archive": 0,
+                    "key": "B3",
+                    "attack": 127,
+                    "decay": 110,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "As4",
+                    "type": "pcm",
+                    "wave": 3,
+                    "wave_archive": 0,
+                    "key": "F4",
+                    "attack": 127,
+                    "decay": 110,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 1,
+                    "wave_archive": 0,
+                    "key": "C5",
+                    "attack": 127,
+                    "decay": 110,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                }
+            ]
+        },
+        {
+            "program": 36,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "A3",
+                    "type": "pcm",
+                    "wave": 4,
+                    "wave_archive": 0,
+                    "key": "C3",
+                    "attack": 127,
+                    "decay": 80,
+                    "sustain": 1,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "A4",
+                    "type": "pcm",
+                    "wave": 5,
+                    "wave_archive": 0,
+                    "key": "C4",
+                    "attack": 127,
+                    "decay": 90,
+                    "sustain": 1,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "A5",
+                    "type": "pcm",
+                    "wave": 6,
+                    "wave_archive": 0,
+                    "key": "C5",
+                    "attack": 127,
+                    "decay": 90,
+                    "sustain": 1,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 7,
+                    "wave_archive": 0,
+                    "key": "C6",
+                    "attack": 127,
+                    "decay": 90,
+                    "sustain": 1,
+                    "release": 116,
+                    "pan": 64
+                }
+            ]
+        },
+        {
+            "program": 30,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "Fs4",
+                    "type": "pcm",
+                    "wave": 9,
+                    "wave_archive": 0,
+                    "key": "C4",
+                    "attack": 127,
+                    "decay": 100,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "Ds5",
+                    "type": "pcm",
+                    "wave": 8,
+                    "wave_archive": 0,
+                    "key": "A4",
+                    "attack": 127,
+                    "decay": 100,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "As5",
+                    "type": "pcm",
+                    "wave": 11,
+                    "wave_archive": 0,
+                    "key": "F5",
+                    "attack": 127,
+                    "decay": 100,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 10,
+                    "wave_archive": 0,
+                    "key": "C6",
+                    "attack": 127,
+                    "decay": 100,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                }
+            ]
+        }
+    ]
+}

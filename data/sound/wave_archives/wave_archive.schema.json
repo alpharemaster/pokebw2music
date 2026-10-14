@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "A wave archive's options: data/sound/wave_archives/<archive>/data.json",
+    "description": "The options of a wave archive of the sound archive (swan_sound_data.sdat), named by a WAVE_* constant of data/constants/sound_wave_archives.txt. The archive's waves are the files beside this one, numbered from 000: a .swav file is a wave as the game has it, and a .wav file (mono, 8 or 16 bits) is encoded by tools/data/sound_waves.py. A WAV loops from the start of its first smpl chunk loop to its end, or doesn't loop if it has none. The file is optional.",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "$schema": { "type": "string", "description": "This schema, for editors" },
+        "single_load": { "type": "boolean", "description": "Whether the game loads the archive's waves one by one, as each is needed" },
+        "shares_data_with": { "type": "string", "x-constant": "WAVE_", "description": "Another wave archive whose waves this one has, in place of waves of its own" },
+        "encoding": { "$ref": "#/$defs/encoding", "description": "The encoding of the .wav files. Default adpcm" },
+        "waves": {
+            "type": "object",
+            "description": "Options of single .wav files, by number (\"003\")",
+            "additionalProperties": {
+                "type": "object", "additionalProperties": false,
+                "properties": {
+                    "encoding": { "$ref": "#/$defs/encoding" },
+                    "loop": { "type": "boolean", "description": "Whether the wave loops, which overrides its smpl chunk: from loop_start to the end" },
+                    "loop_start": { "type": "integer", "minimum": 0, "description": "The sample the loop starts at" }
+                }
+            }
+        }
+    },
+    "$defs": {
+        "encoding": {
+            "enum": [ "adpcm", "pcm8", "pcm16" ],
+            "description": "adpcm is IMA ADPCM, a quarter of PCM16's size, as the game's own music uses; pcm8 and pcm16 are uncompressed"
+        }
+    }
+}

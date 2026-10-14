@@ -1,0 +1,7 @@
+	program 0
+	tempo 75
+	attack 10
+	pan 64
+	note C4, 127, 0
+	end
+	end

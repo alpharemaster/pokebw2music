@@ -1,0 +1,28 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 220
+	wait 36
+	program 1
+	volume 127
+	pan 64
+	note D5, 97, 4
+	wait 7
+	volume 53
+	wait 1
+	note Ds8, 87, 29
+	wait 1
+	volume 127
+	wait 21
+	volume 101
+	wait 8
+	end
+Track_1:
+	note_wait 0
+	program 0
+	volume 127
+	pan 64
+	note D4, 127, 47
+	wait 47
+	end
+	end

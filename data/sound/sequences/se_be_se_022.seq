@@ -1,0 +1,18 @@
+	note_wait 0
+	tempo 100
+	program 86
+	volume 127
+	sweep_pitch -1296
+	note B5, 127, 4
+	wait 5
+	note B6, 110, 6
+	wait 7
+	note B6, 22, 5
+	wait 6
+	note B6, 45, 5
+	wait 6
+	note B6, 22, 5
+	sweep_pitch 0
+	wait 5
+	end
+	end

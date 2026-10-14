@@ -1,0 +1,46 @@
+	alloc_tracks 0x0007
+	open_track 0, Track_0
+	open_track 1, Track_1
+	open_track 2, Track_2
+Track_0:
+	note_wait 1
+	tempo 75
+	pan 104
+	program 0
+	note Fs3, 127, 0
+	wait 3
+	pan 96
+	wait 3
+	pan 88
+	wait 3
+	pan 80
+	wait 3
+	pan 72
+	wait 3
+	pan 66
+	end
+Track_1:
+	note_wait 1
+	tempo 75
+	wait 1
+	pan 24
+	program 0
+	note Fs3, 127, 0
+	wait 3
+	pan 32
+	wait 3
+	pan 40
+	wait 3
+	pan 48
+	wait 3
+	pan 56
+	wait 3
+	pan 62
+	end
+Track_2:
+	program 1
+	tempo 75
+	wait 30
+	note Ds3, 127, 0
+	end
+	end

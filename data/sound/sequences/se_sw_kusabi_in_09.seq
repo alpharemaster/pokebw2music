@@ -1,0 +1,8 @@
+	program 0
+	tempo 75
+	release 108
+	note C4, 127, 16
+	note C4, 127, 16
+	note C4, 127, 0
+	end
+	end

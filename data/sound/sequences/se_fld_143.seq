@@ -1,0 +1,119 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 100
+	program 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 10
+	priority 127
+	mod_speed 50
+	mod_type 0
+	mod_range 30
+	mod_delay 0
+	note C1, 121, 11
+	wait 12
+	note A1, 124, 11
+	wait 12
+	note D2, 123, 11
+	wait 12
+	note D3, 123, 11
+	wait 12
+	note A3, 113, 11
+	wait 18
+	note A3, 67, 11
+	wait 18
+	note A3, 31, 11
+	wait 18
+	note A3, 11, 11
+	wait 11
+	end
+Track_1:
+	note_wait 0
+	program 1
+	pitch_bend -58
+	volume 90
+	pan 64
+	expression 127
+	bend_range 50
+	priority 120
+	mod_speed 50
+	mod_type 0
+	mod_range 30
+	mod_delay 0
+	mod_depth 40
+	note E5, 126, 95
+	wait 2
+	pitch_bend -58
+	expression 123
+	wait 3
+	pitch_bend -53
+	expression 107
+	wait 3
+	pitch_bend -50
+	expression 70
+	wait 3
+	pitch_bend -42
+	expression 84
+	wait 3
+	pitch_bend -35
+	expression 103
+	wait 3
+	pitch_bend -29
+	wait 3
+	pitch_bend -14
+	wait 3
+	pitch_bend -13
+	wait 3
+	pitch_bend -11
+	wait 3
+	pitch_bend -5
+	wait 3
+	pitch_bend -1
+	wait 3
+	pitch_bend 12
+	wait 3
+	pitch_bend 26
+	wait 3
+	pitch_bend 41
+	wait 3
+	pitch_bend 57
+	wait 3
+	pitch_bend 73
+	wait 3
+	pitch_bend 92
+	wait 3
+	pitch_bend 111
+	wait 3
+	pitch_bend 127
+	wait 3
+	expression 91
+	wait 3
+	expression 80
+	wait 3
+	expression 71
+	wait 3
+	expression 59
+	wait 3
+	expression 54
+	wait 3
+	expression 48
+	wait 3
+	expression 39
+	wait 3
+	expression 34
+	wait 3
+	expression 27
+	wait 3
+	expression 26
+	wait 3
+	expression 23
+	wait 3
+	expression 23
+	wait 3
+	expression 19
+	wait 3
+	expression 19
+	end
+	end

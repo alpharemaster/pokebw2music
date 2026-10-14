@@ -1,0 +1,178 @@
+	alloc_tracks 0x0007
+	open_track 1, Track_1
+	open_track 2, Track_2
+	note_wait 0
+	tempo 89
+	program 27
+	volume 127
+	pan 64
+	volume 120
+	note E4, 117, 12
+	wait 11
+	pan 64
+	wait 1
+	pan 50
+	note E4, 107, 6
+	wait 5
+	pan 64
+	wait 1
+	note B3, 113, 12
+	wait 12
+	note B3, 92, 6
+	wait 6
+	note E4, 97, 12
+	wait 11
+	pan 52
+	wait 1
+	note E4, 87, 6
+	wait 6
+	note B3, 100, 12
+	pan 64
+	wait 12
+	note B3, 87, 6
+	wait 6
+	note E4, 82, 12
+	wait 12
+	note E4, 78, 6
+	wait 6
+	note B3, 57, 12
+	wait 12
+	note B3, 47, 6
+	wait 6
+	note E4, 42, 12
+	wait 12
+	note E4, 37, 6
+	wait 12
+	note E4, 37, 6
+	wait 12
+	note E4, 31, 6
+	wait 12
+	note E4, 30, 6
+	wait 6
+	end
+Track_1:
+	note_wait 0
+	program 3
+	volume 127
+	pan 66
+	pan 64
+	note E4, 127, 6
+	wait 11
+	pan 78
+	pan 49
+	wait 1
+	note B3, 127, 6
+	wait 11
+	pan 71
+	wait 1
+	note E4, 77, 6
+	wait 11
+	pan 38
+	wait 1
+	note B3, 77, 6
+	wait 11
+	pan 93
+	wait 1
+	note B4, 97, 6
+	wait 11
+	pan 41
+	wait 1
+	note E4, 87, 6
+	wait 11
+	pan 75
+	wait 1
+	note B4, 77, 6
+	wait 11
+	pan 23
+	wait 1
+	note E4, 77, 6
+	pan 92
+	wait 11
+	pan 92
+	wait 1
+	note B4, 57, 6
+	wait 7
+	pan 42
+	wait 4
+	pan 47
+	wait 1
+	note B4, 47, 6
+	wait 8
+	pan 93
+	wait 4
+	note B4, 37, 6
+	wait 9
+	pan 35
+	wait 3
+	note B4, 32, 6
+	wait 12
+	note B4, 27, 6
+	wait 8
+	pan 93
+	wait 4
+	note B4, 27, 6
+	wait 6
+	end
+Track_2:
+	note_wait 0
+	program 14
+	volume 90
+	pan 64
+	note B4, 127, 6
+	wait 11
+	pan 49
+	pan 78
+	wait 1
+	note Fs4, 125, 6
+	wait 11
+	pan 71
+	wait 1
+	note B4, 75, 6
+	wait 11
+	pan 38
+	wait 1
+	note Fs4, 75, 6
+	wait 11
+	pan 93
+	wait 1
+	note B4, 97, 6
+	wait 11
+	pan 41
+	wait 1
+	note B4, 77, 6
+	wait 11
+	pan 75
+	wait 1
+	note Fs5, 77, 6
+	wait 11
+	pan 23
+	wait 1
+	note B4, 77, 6
+	pan 92
+	wait 11
+	pan 92
+	wait 1
+	note Fs5, 57, 6
+	wait 7
+	pan 42
+	wait 4
+	pan 47
+	wait 1
+	note Fs5, 47, 6
+	wait 8
+	pan 93
+	wait 4
+	note Fs5, 42, 6
+	wait 9
+	pan 35
+	wait 3
+	note Fs5, 37, 6
+	wait 12
+	note Fs5, 29, 6
+	wait 8
+	pan 93
+	wait 4
+	note Fs5, 25, 6
+	wait 6
+	end
+	end

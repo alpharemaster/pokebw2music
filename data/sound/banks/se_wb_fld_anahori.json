@@ -1,0 +1,7 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_FLD_ANAHORI" ],
+    "instruments": [
+        { "program": 0, "type": "noise", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 124, "decay": 100, "sustain": 127, "release": 120, "pan": 64 }
+    ]
+}

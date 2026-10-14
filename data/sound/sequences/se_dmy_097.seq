@@ -1,0 +1,35 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 68
+Loop_000D:
+	program 0
+	volume 127
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 64
+	mod_depth 0
+	expression 127
+	note As2, 127, 6911
+	wait 1728
+	jump Loop_000D
+	wait 5183
+	end
+Track_1:
+	note_wait 0
+Loop_0030:
+	program 1
+	volume 30
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 64
+	mod_depth 100
+	expression 120
+	note B3, 127, 6911
+	wait 1728
+	jump Loop_0030
+	wait 5183
+	end
+	end

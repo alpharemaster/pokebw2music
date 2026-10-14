@@ -1,0 +1,206 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_MUS_DARK_TRINITY" ],
+    "instruments": [
+        { "program": 93, "type": "pcm", "wave": 1, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 127, "pan": 64 },
+        {
+            "program": 80,
+            "type": "drum_set",
+            "first_key": "Fs1",
+            "drums": [
+                { "type": "pcm", "wave": 8, "wave_archive": 0, "key": "Fs1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 8, "wave_archive": 0, "key": "Fs1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 8, "wave_archive": 0, "key": "Fs1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 8, "wave_archive": 0, "key": "Fs1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 8, "wave_archive": 0, "key": "Fs1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "B1", "attack": 127, "decay": 127, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 7, "wave_archive": 0, "key": "F3", "attack": 127, "decay": 60, "sustain": 0, "release": 115, "pan": 30 }
+            ]
+        },
+        {
+            "program": 108,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "F2",
+                    "type": "pcm",
+                    "wave": 3,
+                    "wave_archive": 0,
+                    "key": "G2",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                },
+                {
+                    "last_key": "F3",
+                    "type": "pcm",
+                    "wave": 4,
+                    "wave_archive": 0,
+                    "key": "G3",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                },
+                {
+                    "last_key": "F4",
+                    "type": "pcm",
+                    "wave": 5,
+                    "wave_archive": 0,
+                    "key": "G4",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 6,
+                    "wave_archive": 0,
+                    "key": "G5",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                }
+            ]
+        },
+        {
+            "program": 109,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 2,
+                    "wave_archive": 0,
+                    "key": "G5",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                }
+            ]
+        },
+        {
+            "program": 99,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "C3",
+                    "type": "pcm",
+                    "wave": 9,
+                    "wave_archive": 0,
+                    "key": "D2",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                },
+                {
+                    "last_key": "C4",
+                    "type": "pcm",
+                    "wave": 10,
+                    "wave_archive": 0,
+                    "key": "D3",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                },
+                {
+                    "last_key": "C5",
+                    "type": "pcm",
+                    "wave": 11,
+                    "wave_archive": 0,
+                    "key": "D4",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                },
+                {
+                    "last_key": "C6",
+                    "type": "pcm",
+                    "wave": 12,
+                    "wave_archive": 0,
+                    "key": "D5",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 13,
+                    "wave_archive": 0,
+                    "key": "D6",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 120,
+                    "pan": 64
+                }
+            ]
+        },
+        {
+            "program": 29,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "Gs2",
+                    "type": "pcm",
+                    "wave": 14,
+                    "wave_archive": 0,
+                    "key": "C2",
+                    "attack": 127,
+                    "decay": 125,
+                    "sustain": 120,
+                    "release": 120,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 15,
+                    "wave_archive": 0,
+                    "key": "C3",
+                    "attack": 127,
+                    "decay": 125,
+                    "sustain": 120,
+                    "release": 120,
+                    "pan": 64
+                }
+            ]
+        }
+    ]
+}

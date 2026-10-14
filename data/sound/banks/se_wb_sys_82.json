@@ -1,0 +1,37 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_SYS_82" ],
+    "instruments": [
+        { "program": 43, "type": "psg", "wave": 3, "wave_archive": 0, "key": "C4", "attack": 126, "decay": 100, "sustain": 50, "release": 118, "pan": 64 },
+        {
+            "program": 3,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "G3",
+                    "type": "pcm",
+                    "wave": 0,
+                    "wave_archive": 0,
+                    "key": "A4",
+                    "attack": 127,
+                    "decay": 60,
+                    "sustain": 1,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 1,
+                    "wave_archive": 0,
+                    "key": "A5",
+                    "attack": 127,
+                    "decay": 60,
+                    "sustain": 1,
+                    "release": 116,
+                    "pan": 64
+                }
+            ]
+        }
+    ]
+}

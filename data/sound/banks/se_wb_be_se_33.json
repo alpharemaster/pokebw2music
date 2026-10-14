@@ -1,0 +1,8 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_BE_SE_33" ],
+    "instruments": [
+        { "program": 87, "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 125, "decay": 127, "sustain": 127, "release": 120, "pan": 64 },
+        { "program": 92, "type": "pcm", "wave": 1, "wave_archive": 0, "key": "C4", "attack": 125, "decay": 127, "sustain": 127, "release": 112, "pan": 64 }
+    ]
+}

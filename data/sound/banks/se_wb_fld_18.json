@@ -1,0 +1,25 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_FLD_SWEET" ],
+    "instruments": [
+        { "program": 76, "type": "pcm", "wave": 1, "wave_archive": 0, "key": "C4", "attack": 125, "decay": 127, "sustain": 127, "release": 120, "pan": 64 },
+        {
+            "program": 32,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 0,
+                    "wave_archive": 0,
+                    "key": "B4",
+                    "attack": 127,
+                    "decay": 117,
+                    "sustain": 118,
+                    "release": 116,
+                    "pan": 64
+                }
+            ]
+        }
+    ]
+}

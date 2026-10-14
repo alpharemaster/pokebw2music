@@ -1,0 +1,69 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "An instrument bank: data/sound/banks/<bank>.json",
+    "description": "An instrument bank of the sound archive (swan_sound_data.sdat), named by a BANK_* constant of data/constants/sound_banks.txt: the instruments that a sequence's program changes pick, like a voicegroup. tools/data/sound_data.py packs it, with the instruments' data in the order given here. Keys are numbers from 0 to 127 or names from Cm1 to G9, with s for sharp: C4 is 60.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [ "wave_archives" ],
+    "properties": {
+        "$schema": { "type": "string", "description": "This schema, for editors" },
+        "wave_archives": {
+            "type": "array", "maxItems": 4,
+            "items": { "type": [ "string", "null" ], "x-constant": "WAVE_" },
+            "description": "Up to four wave archives (data/constants/sound_wave_archives.txt) that the instruments' wave_archive slots name"
+        },
+        "instruments": { "type": "array", "items": { "$ref": "#/$defs/instrument" }, "description": "The instruments, in the order of their data" },
+        "shares_data_with": { "type": "string", "x-constant": "BANK_", "description": "Another bank whose instruments this one has, in place of instruments of its own" }
+    },
+    "$defs": {
+        "key": { "type": [ "integer", "string" ], "pattern": "^([A-G]s?(m1|[0-9]))$", "minimum": 0, "maximum": 127 },
+        "note_type": { "enum": [ "pcm", "psg", "noise", "direct_pcm" ], "description": "pcm plays a wave, psg a square wave and noise the noise channel" },
+        "byte": { "type": "integer", "minimum": 0, "maximum": 127 },
+        "program": {
+            "anyOf": [
+                { "type": "integer", "minimum": 0, "maximum": 32767 },
+                { "type": "array", "items": { "type": "integer", "minimum": 0, "maximum": 32767 }, "minItems": 1 },
+                { "type": "null" }
+            ],
+            "description": "The program number (MIDI program) that picks the instrument, a list of them, or null for data no program uses"
+        },
+        "note": {
+            "type": "object",
+            "required": [ "type", "wave", "wave_archive", "key", "attack", "decay", "sustain", "release", "pan" ],
+            "properties": {
+                "type": { "$ref": "#/$defs/note_type" },
+                "wave": { "type": "integer", "minimum": 0, "maximum": 65535, "description": "The wave's number in its wave archive; for psg, the duty cycle from 0 (12.5%) to 6 (87.5%)" },
+                "wave_archive": { "type": "integer", "minimum": 0, "maximum": 3, "description": "The slot of wave_archives that the wave is in" },
+                "key": { "$ref": "#/$defs/key", "description": "The key that plays the wave at its own pitch" },
+                "attack": { "$ref": "#/$defs/byte", "description": "Envelope attack rate: 127 is instant" },
+                "decay": { "$ref": "#/$defs/byte", "description": "Envelope decay rate: 127 is instant" },
+                "sustain": { "$ref": "#/$defs/byte", "description": "Envelope sustain level" },
+                "release": { "$ref": "#/$defs/byte", "description": "Envelope release rate: 127 is instant" },
+                "pan": { "$ref": "#/$defs/byte", "description": "Pan: 0 left, 64 center, 127 right" }
+            }
+        },
+        "region": {
+            "type": "object",
+            "required": [ "last_key", "type", "wave", "wave_archive", "key", "attack", "decay", "sustain", "release", "pan" ],
+            "properties": {
+                "last_key": { "$ref": "#/$defs/key", "description": "The highest key of the region" },
+                "type": { "$ref": "#/$defs/note_type" }
+            }
+        },
+        "instrument": {
+            "type": "object",
+            "required": [ "program", "type" ],
+            "properties": {
+                "program": { "$ref": "#/$defs/program" },
+                "type": { "enum": [ "pcm", "psg", "noise", "direct_pcm", "drum_set", "key_split" ] },
+                "first_key": { "$ref": "#/$defs/key", "description": "A drum set's first key: drums gives a note for each key from it" },
+                "drums": { "type": "array", "items": { "$ref": "#/$defs/note" }, "minItems": 1, "maxItems": 128 },
+                "regions": {
+                    "type": "array", "minItems": 1, "maxItems": 8,
+                    "items": { "$ref": "#/$defs/region" },
+                    "description": "A key split's regions, each playing its note for the keys above the last region's last_key up to its own. A region after a higher one is never played"
+                }
+            }
+        }
+    }
+}

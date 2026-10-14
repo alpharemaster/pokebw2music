@@ -1,0 +1,16 @@
+	note_wait 0
+	tempo 150
+	program 17
+	volume 127
+	note Ds4, 120, 4
+	wait 9
+	note Ds4, 120, 4
+	wait 10
+	note Ds4, 120, 4
+	wait 9
+	note Ds4, 120, 4
+	wait 10
+	note Ds4, 120, 4
+	wait 5
+	end
+	end

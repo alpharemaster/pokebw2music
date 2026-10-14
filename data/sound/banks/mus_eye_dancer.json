@@ -1,0 +1,68 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_MUS_EYE_DANCER" ],
+    "instruments": [
+        { "program": 19, "type": "pcm", "wave": 10, "wave_archive": 0, "key": "C2", "attack": 127, "decay": 125, "sustain": 120, "release": 120, "pan": 64 },
+        { "program": 89, "type": "pcm", "wave": 8, "wave_archive": 0, "key": "D1", "attack": 127, "decay": 127, "sustain": 127, "release": 127, "pan": 64 },
+        { "program": 90, "type": "pcm", "wave": 9, "wave_archive": 0, "key": "Ds1", "attack": 127, "decay": 127, "sustain": 127, "release": 127, "pan": 64 },
+        { "program": 91, "type": "pcm", "wave": 7, "wave_archive": 0, "key": "E1", "attack": 127, "decay": 127, "sustain": 127, "release": 127, "pan": 64 },
+        { "program": 126, "type": "pcm", "wave": 5, "wave_archive": 0, "key": "C1", "attack": 127, "decay": 127, "sustain": 127, "release": 127, "pan": 64 },
+        { "program": 127, "type": "pcm", "wave": 6, "wave_archive": 0, "key": "Cs1", "attack": 127, "decay": 127, "sustain": 127, "release": 127, "pan": 64 },
+        {
+            "program": 109,
+            "type": "drum_set",
+            "first_key": "Ds1",
+            "drums": [
+                { "type": "pcm", "wave": 1, "wave_archive": 0, "key": "Ds1", "attack": 127, "decay": 120, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 1, "wave_archive": 0, "key": "Ds1", "attack": 127, "decay": 120, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 1, "wave_archive": 0, "key": "Ds1", "attack": 127, "decay": 120, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 1, "wave_archive": 0, "key": "Ds1", "attack": 127, "decay": 120, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 1, "wave_archive": 0, "key": "Ds1", "attack": 127, "decay": 120, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 1, "wave_archive": 0, "key": "Ds1", "attack": 127, "decay": 120, "sustain": 120, "release": 116, "pan": 64 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "A1", "attack": 127, "decay": 127, "sustain": 127, "release": 126, "pan": 64 }
+            ]
+        },
+        {
+            "program": 10,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "Ds5",
+                    "type": "pcm",
+                    "wave": 2,
+                    "wave_archive": 0,
+                    "key": "A4",
+                    "attack": 127,
+                    "decay": 100,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "As5",
+                    "type": "pcm",
+                    "wave": 4,
+                    "wave_archive": 0,
+                    "key": "F5",
+                    "attack": 127,
+                    "decay": 100,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 3,
+                    "wave_archive": 0,
+                    "key": "C6",
+                    "attack": 127,
+                    "decay": 100,
+                    "sustain": 110,
+                    "release": 116,
+                    "pan": 64
+                }
+            ]
+        }
+    ]
+}

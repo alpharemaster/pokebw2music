@@ -1,0 +1,385 @@
+	alloc_tracks 0x003F
+	open_track 1, Track_1
+	open_track 2, Track_2
+	open_track 3, Track_3
+	open_track 4, Track_4
+	open_track 5, Track_5
+	note_wait 0
+	tempo 160
+	program 10
+	volume 127
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 55
+	mod_depth 10
+	expression 127
+	note A5, 100, 30
+	note Fs6, 100, 31
+	wait 32
+	note Gs5, 100, 15
+	note F6, 100, 15
+	wait 16
+	note A5, 100, 31
+	note Fs6, 100, 31
+	wait 32
+	note Cs6, 100, 15
+	note A6, 100, 15
+	wait 16
+	note B5, 100, 31
+	note Gs6, 100, 31
+	wait 32
+	note D6, 100, 15
+	note B6, 100, 15
+	wait 48
+	note A6, 78, 20
+	wait 13
+	note Cs6, 80, 11
+	wait 13
+	note A6, 81, 8
+	wait 8
+	note Cs6, 89, 9
+	wait 8
+	note A6, 83, 6
+	wait 7
+	note Cs6, 85, 9
+	wait 9
+	note A6, 97, 7
+	wait 7
+	note Cs6, 64, 3
+	wait 7
+	note A6, 83, 7
+	wait 6
+	note Cs6, 83, 8
+	wait 9
+	note A6, 83, 7
+	wait 7
+	note Cs6, 82, 7
+	wait 9
+	note A6, 76, 6
+	wait 5
+	note Cs6, 78, 8
+	wait 9
+	note A6, 75, 7
+	wait 7
+	note Cs6, 73, 5
+	wait 8
+	note A6, 73, 8
+	wait 7
+	note Cs6, 74, 6
+	wait 7
+	note A6, 65, 7
+	wait 8
+	note Cs6, 68, 4
+	wait 7
+	note A6, 56, 9
+	wait 7
+	note Cs6, 55, 8
+	wait 8
+	note A6, 51, 8
+	wait 5
+	note Cs6, 47, 9
+	wait 11
+	note A6, 35, 8
+	wait 8
+	note Cs6, 27, 9
+	wait 6
+	note A6, 21, 6
+	wait 6
+	end
+Track_1:
+	note_wait 0
+	program 0
+	volume 90
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 75
+	mod_depth 0
+	expression 127
+	note B4, 93, 89
+	wait 1
+	note Fs5, 98, 93
+	wait 1
+	note A5, 102, 91
+	wait 1
+	note B5, 95, 40
+	wait 1
+	note D6, 107, 36
+	wait 86
+	note E4, 107, 63
+	wait 6
+	note B4, 103, 61
+	wait 2
+	note D5, 94, 59
+	wait 4
+	note E5, 97, 57
+	wait 64
+	note D6, 87, 108
+	wait 2
+	note E6, 103, 105
+	wait 2
+	note A3, 114, 93
+	wait 38
+	note E4, 99, 39
+	wait 16
+	note D5, 118, 15
+	wait 16
+	note Cs5, 116, 39
+	wait 16
+	note A4, 122, 21
+	wait 12
+	note A3, 86, 116
+	wait 8
+	note E4, 85, 108
+	wait 5
+	note A4, 117, 102
+	wait 1
+	note Cs5, 88, 100
+	wait 2
+	note E5, 108, 98
+	wait 8
+	note B5, 124, 91
+	wait 92
+	end
+Track_2:
+	note_wait 0
+	program 16
+	volume 110
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 20
+	mod_depth 0
+	expression 127
+	wait 32
+	note D6, 96, 15
+	wait 16
+	note D7, 108, 7
+	wait 16
+	note D7, 50, 7
+	wait 16
+	note D7, 30, 7
+	wait 16
+	note E6, 92, 23
+	wait 32
+	note E7, 109, 7
+	wait 16
+	note E7, 50, 7
+	wait 16
+	note E7, 30, 7
+	wait 64
+	note A6, 78, 15
+	wait 16
+	note E7, 111, 7
+	wait 16
+	note E7, 50, 7
+	wait 16
+	note E7, 30, 7
+	wait 16
+	note A5, 99, 7
+	wait 16
+	note A5, 71, 7
+	wait 16
+	note A5, 37, 7
+	wait 16
+	note A5, 23, 7
+	wait 16
+	note A5, 15, 7
+	wait 7
+	end
+Track_3:
+	note_wait 0
+	program 25
+	volume 127
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 64
+	mod_depth 0
+	expression 127
+	note B2, 110, 47
+	wait 48
+	note B3, 110, 31
+	wait 32
+	note D3, 110, 9
+	wait 16
+	note E3, 110, 31
+	wait 32
+	note E4, 110, 9
+	wait 48
+	note A3, 110, 111
+	wait 112
+	note A2, 110, 95
+	wait 95
+	end
+Track_4:
+	note_wait 0
+	program 47
+	volume 90
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 100
+	mod_depth 0
+	expression 127
+	note D5, 100, 7
+	note Fs5, 100, 7
+	wait 16
+	note Fs5, 100, 7
+	note A5, 100, 7
+	wait 8
+	note D5, 50, 7
+	note Fs5, 50, 7
+	wait 8
+	note D5, 100, 7
+	note Fs5, 100, 7
+	wait 8
+	note Fs5, 50, 7
+	note A5, 50, 7
+	wait 8
+	note Fs5, 100, 7
+	note A5, 100, 7
+	wait 8
+	note D5, 50, 7
+	note Fs5, 50, 7
+	wait 8
+	note D5, 100, 7
+	note Fs5, 100, 7
+	wait 8
+	note Fs5, 50, 7
+	note A5, 50, 7
+	wait 8
+	note Fs5, 100, 7
+	note A5, 100, 7
+	wait 8
+	note D5, 50, 7
+	note Fs5, 50, 7
+	wait 8
+	note E5, 100, 7
+	note Gs5, 100, 7
+	wait 8
+	note Fs5, 50, 7
+	note A5, 50, 7
+	wait 8
+	note Gs5, 100, 7
+	note B5, 100, 7
+	wait 8
+	note E5, 50, 7
+	note Gs5, 50, 7
+	wait 8
+	note E5, 100, 7
+	note Gs5, 100, 7
+	wait 8
+	note Gs5, 50, 7
+	note B5, 50, 7
+	wait 8
+	note Gs5, 79, 7
+	note E6, 79, 7
+	wait 8
+	note E5, 50, 7
+	note Gs5, 50, 7
+	wait 16
+	note Gs5, 50, 7
+	note E6, 50, 7
+	wait 8
+	note E5, 85, 7
+	note Cs6, 97, 7
+	wait 16
+	note E5, 50, 7
+	note Cs6, 50, 7
+	wait 16
+	note Fs5, 66, 7
+	note D6, 81, 7
+	wait 16
+	note E5, 75, 7
+	note Cs6, 99, 7
+	wait 8
+	note Fs5, 50, 7
+	note D6, 50, 7
+	wait 8
+	note Fs5, 81, 7
+	note D6, 98, 7
+	wait 8
+	note E5, 50, 7
+	note Cs6, 50, 7
+	wait 8
+	note E5, 82, 7
+	note Cs6, 102, 7
+	wait 8
+	note Fs5, 50, 7
+	note D6, 50, 7
+	wait 8
+	note Fs5, 74, 7
+	note D6, 108, 7
+	wait 16
+	note E5, 87, 7
+	note Cs6, 111, 7
+	wait 16
+	note E5, 67, 7
+	note Cs6, 67, 7
+	wait 16
+	note E5, 51, 7
+	note Cs6, 51, 7
+	wait 16
+	note E5, 38, 7
+	note Cs6, 38, 7
+	wait 16
+	note E5, 27, 7
+	note Cs6, 27, 7
+	wait 7
+	end
+Track_5:
+	note_wait 0
+	program 10
+	volume 80
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 85
+	mod_depth 10
+	expression 127
+	pitch_bend -3
+	wait 12
+	note Fs6, 100, 31
+	wait 32
+	note F6, 100, 15
+	wait 16
+	note Fs6, 100, 31
+	wait 32
+	note A6, 100, 15
+	wait 16
+	note Gs6, 100, 31
+	wait 32
+	note B6, 100, 15
+	wait 48
+	note Cs7, 78, 20
+	wait 26
+	note Cs7, 81, 8
+	wait 16
+	note Cs7, 83, 6
+	wait 16
+	note Cs7, 97, 7
+	wait 14
+	note Cs7, 83, 7
+	wait 15
+	note Cs7, 83, 7
+	wait 16
+	note Cs7, 76, 6
+	wait 14
+	note Cs7, 75, 7
+	wait 15
+	note Cs7, 73, 8
+	wait 14
+	note Cs7, 65, 7
+	wait 15
+	note Cs7, 70, 9
+	wait 15
+	note Cs7, 43, 8
+	wait 16
+	note Cs7, 31, 8
+	wait 14
+	note Cs7, 21, 6
+	wait 6
+	end
+	end

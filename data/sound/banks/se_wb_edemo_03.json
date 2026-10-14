@@ -1,0 +1,37 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_EDEMO_03" ],
+    "instruments": [
+        { "program": 112, "type": "psg", "wave": 3, "wave_archive": 0, "key": "C4", "attack": 124, "decay": 100, "sustain": 80, "release": 110, "pan": 64 },
+        {
+            "program": 27,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "C5",
+                    "type": "pcm",
+                    "wave": 1,
+                    "wave_archive": 0,
+                    "key": "G4",
+                    "attack": 127,
+                    "decay": 75,
+                    "sustain": 1,
+                    "release": 116,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 0,
+                    "wave_archive": 0,
+                    "key": "E5",
+                    "attack": 127,
+                    "decay": 80,
+                    "sustain": 1,
+                    "release": 116,
+                    "pan": 64
+                }
+            ]
+        }
+    ]
+}

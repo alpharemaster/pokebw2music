@@ -1,0 +1,24 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_FLD_MOVE" ],
+    "instruments": [
+        {
+            "program": 11,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 0,
+                    "wave_archive": 0,
+                    "key": "C5",
+                    "attack": 127,
+                    "decay": 127,
+                    "sustain": 127,
+                    "release": 116,
+                    "pan": 64
+                }
+            ]
+        }
+    ]
+}

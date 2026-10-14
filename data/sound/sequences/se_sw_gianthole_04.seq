@@ -1,0 +1,71 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	tempo 75
+	portamento 60
+	portamento_time 40
+	portamento_on 1
+	program 0
+	attack 70
+	volume 127
+	release 110
+	note G4, 112, 85
+	release 125
+	note F5, 127, 115
+	end
+Track_1:
+	note_wait 0
+	wait 2
+	program 0
+	attack 62
+	release 125
+	mod_depth 30
+	mod_range 3
+	mod_speed 7
+	mod_type 2
+	note Gs5, 110, 200
+	wait 10
+	mod_speed 10
+	wait 10
+	mod_speed 12
+	wait 10
+	mod_speed 14
+	wait 10
+	mod_speed 16
+	wait 10
+	mod_speed 18
+	wait 10
+	mod_speed 20
+	wait 10
+	mod_speed 23
+	wait 10
+	mod_speed 26
+	wait 10
+	mod_speed 29
+	wait 10
+	mod_speed 32
+	wait 10
+	mod_speed 35
+	wait 10
+	mod_speed 38
+	wait 10
+	mod_speed 41
+	wait 10
+	mod_speed 44
+	wait 10
+	mod_speed 47
+	wait 10
+	mod_speed 50
+	wait 10
+	mod_speed 54
+	wait 10
+	mod_speed 58
+	wait 10
+	mod_speed 62
+	wait 10
+	mod_speed 67
+	wait 20
+	mod_speed 72
+	end
+	end

@@ -1,0 +1,163 @@
+	alloc_tracks 0x000F
+	open_track 1, Track_1
+	open_track 2, Track_2
+	open_track 3, Track_3
+	note_wait 0
+	tempo 175
+	program 35
+	volume 127
+	pan 64
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 64
+	expression 127
+	pan 48
+	note Gs4, 90, 7
+	note B4, 85, 7
+	note E5, 102, 7
+	wait 16
+	pan 80
+	note Gs4, 90, 7
+	note B4, 85, 7
+	note E5, 102, 7
+	wait 16
+	pan 48
+	note Gs4, 90, 7
+	note B4, 85, 7
+	note E5, 102, 7
+	wait 16
+	pan 64
+	note E5, 92, 47
+	note Gs5, 85, 47
+	note B5, 102, 47
+	wait 32
+	expression 124
+	wait 3
+	expression 120
+	wait 3
+	expression 114
+	wait 3
+	expression 107
+	wait 3
+	expression 100
+	wait 3
+	expression 89
+	wait 3
+	expression 73
+	wait 3
+	expression 54
+	end
+Track_1:
+	note_wait 0
+	program 3
+	volume 127
+	pan 20
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 58
+	note B4, 72, 7
+	wait 8
+	note B4, 28, 7
+	wait 8
+	note B4, 72, 7
+	wait 8
+	note B4, 28, 7
+	wait 8
+	note B4, 55, 7
+	wait 8
+	note B4, 28, 7
+	wait 8
+	note Gs5, 75, 47
+	wait 26
+	volume 101
+	wait 6
+	volume 68
+	wait 6
+	volume 36
+	wait 6
+	volume 15
+	wait 6
+	volume 0
+	end
+Track_2:
+	note_wait 0
+	program 48
+	volume 127
+	pan 100
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 56
+	note E5, 75, 7
+	wait 8
+	note E5, 33, 7
+	wait 8
+	note E5, 72, 7
+	wait 8
+	note E5, 33, 7
+	wait 8
+	note E5, 75, 7
+	wait 8
+	note E5, 33, 7
+	wait 8
+	note B5, 67, 47
+	wait 32
+	volume 114
+	wait 3
+	volume 94
+	wait 3
+	volume 82
+	wait 3
+	volume 72
+	wait 3
+	volume 46
+	wait 3
+	volume 30
+	wait 3
+	volume 15
+	wait 6
+	volume 0
+	end
+Track_3:
+	note_wait 0
+	program 35
+	volume 60
+	pan 120
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	pitch_bend 3
+	priority 40
+	priority 20
+	expression 127
+	wait 8
+	note E5, 87, 7
+	wait 16
+	note E5, 82, 7
+	wait 16
+	note E5, 91, 7
+	wait 16
+	note B5, 94, 47
+	wait 33
+	expression 124
+	wait 3
+	expression 115
+	wait 3
+	expression 110
+	wait 3
+	expression 100
+	wait 3
+	expression 89
+	wait 3
+	expression 75
+	wait 3
+	expression 66
+	wait 3
+	expression 53
+	end
+	end

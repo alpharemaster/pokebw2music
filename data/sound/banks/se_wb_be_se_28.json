@@ -1,0 +1,25 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_BE_SE_28" ],
+    "instruments": [
+        { "program": 96, "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C6", "attack": 127, "decay": 10, "sustain": 1, "release": 110, "pan": 64 },
+        {
+            "program": 26,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "C3",
+                    "type": "pcm",
+                    "wave": 1,
+                    "wave_archive": 0,
+                    "key": "G2",
+                    "attack": 127,
+                    "decay": 100,
+                    "sustain": 10,
+                    "release": 116,
+                    "pan": 64
+                }
+            ]
+        }
+    ]
+}

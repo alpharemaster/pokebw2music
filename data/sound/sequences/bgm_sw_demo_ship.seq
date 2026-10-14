@@ -1,0 +1,10 @@
+	note_wait 0
+	tempo 134
+	program 81
+	volume 10
+Loop_0009:
+	note Ds6, 2, 11
+	wait 192
+	jump Loop_0009
+	end
+	end

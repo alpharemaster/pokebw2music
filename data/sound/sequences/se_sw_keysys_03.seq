@@ -1,0 +1,13 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 1
+	note Gs3, 127, 0
+	end
+Track_1:
+	wait 9
+	program 1
+	note Cs4, 127, 0
+	end
+	end

@@ -1,0 +1,55 @@
+	alloc_tracks 0x000F
+	open_track 0, Track_0
+	open_track 1, Track_1
+	open_track 2, Track_2
+	open_track 3, Track_3
+Track_0:
+	program 0
+	tempo 75
+	pan 64
+	portamento 41
+	portamento_time 0
+	portamento_on 1
+	release 101
+	note F3, 127, 196
+	end
+Track_1:
+	program 1
+	tempo 75
+	note F5, 1, 196
+	attack 80
+	decay 45
+	sustain 32
+	release 115
+	note Fs3, 127, 0
+	end
+Track_2:
+	program 0
+	tempo 75
+	mod_depth 45
+	mod_range 1
+	mod_speed 9
+	mod_type 2
+	note F4, 1, 196
+	attack 80
+	decay 45
+	sustain 32
+	release 115
+	note F5, 127, 80
+	end
+Track_3:
+	program 0
+	tempo 75
+	attack 8
+	pan 64
+	portamento 53
+	portamento_time 0
+	portamento_on 1
+	mod_depth 40
+	mod_range 1
+	mod_speed 5
+	mod_type 2
+	release 101
+	note F4, 108, 196
+	end
+	end

@@ -1,0 +1,28 @@
+	note_wait 0
+	tempo 120
+	program 0
+	volume 127
+	note C5, 127, 23
+	bend_range 12
+	pitch_bend -36
+	wait 3
+	pitch_bend -44
+	wait 2
+	pitch_bend -54
+	wait 4
+	pitch_bend -66
+	wait 3
+	pitch_bend -80
+	wait 1
+	pitch_bend -88
+	wait 2
+	pitch_bend -96
+	wait 2
+	pitch_bend -100
+	wait 3
+	pitch_bend -104
+	wait 1
+	pitch_bend -108
+	wait 2
+	end
+	end

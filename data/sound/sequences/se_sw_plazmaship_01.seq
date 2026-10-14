@@ -1,0 +1,7 @@
+	program 2
+	tempo 75
+	wait 28
+	note G3, 127, 5
+	note G4, 127, 0
+	end
+	end

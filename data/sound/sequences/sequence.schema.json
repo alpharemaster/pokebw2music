@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "A sound sequence: data/sound/sequences/<sequence>.json",
+    "description": "A sequence of the sound archive (swan_sound_data.sdat): the music, sound effect or cry that a SEQ_* constant of data/constants/sound.txt plays. Its notes are <sequence>.seq beside it, in the text of tools/data/sseq.py, or <sequence>.mid, a MIDI file that tools/data/midi_sseq.py converts. tools/data/sound_data.py packs the archive.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [ "bank", "volume", "channel_priority", "player_priority", "player" ],
+    "properties": {
+        "$schema": { "type": "string", "description": "This schema, for editors" },
+        "bank": { "type": "string", "x-constant": "BANK_", "description": "The instrument bank that the sequence plays, from data/constants/sound_banks.txt" },
+        "volume": { "type": "integer", "minimum": 0, "maximum": 127, "description": "The sequence's volume" },
+        "channel_priority": { "type": "integer", "minimum": 0, "maximum": 127, "description": "The priority of its notes for the sound channels: a note takes a channel from a lower one" },
+        "player_priority": { "type": "integer", "minimum": 0, "maximum": 127, "description": "Its priority for its player: a sequence that starts on a player with no room stops a lower one" },
+        "player": { "type": "string", "pattern": "^PLAYER_", "description": "The player it plays on, from data/sound/archive.json: PLAYER_BGM for the music" },
+        "shares_data_with": { "type": "string", "x-constant": "SEQ_", "description": "Another sequence whose notes this one plays, in place of a file of its own" },
+        "midi": {
+            "type": "object", "additionalProperties": false,
+            "description": "Options for converting <sequence>.mid (tools/data/midi_sseq.py)",
+            "properties": {
+                "loop": { "type": "boolean", "description": "Whether the sequence loops: between the MIDI markers \"[\" and \"]\" (or \"loopStart\" and \"loopEnd\"), or else over the whole song. Default true" },
+                "priority": { "type": "integer", "minimum": 0, "maximum": 127, "description": "Each track's priority, which adds to channel_priority. Default 64" },
+                "bend_range": { "type": "integer", "minimum": 0, "maximum": 127, "description": "The pitch bend range in semitones, unless the MIDI sets it with RPN 0. Default 2" },
+                "transpose": { "type": "integer", "minimum": -64, "maximum": 63, "description": "Semitones to add to every note. Default 0" },
+                "velocity_curve": { "type": "number", "minimum": 0.1, "maximum": 4, "description": "An exponent for the MIDI velocities: values above 1 soften quiet notes. Default 1" }
+            }
+        }
+    }
+}

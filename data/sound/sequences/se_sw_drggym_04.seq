@@ -1,0 +1,30 @@
+	alloc_tracks 0x0007
+	open_track 0, Track_0
+	open_track 1, Track_1
+	open_track 2, Track_2
+	tempo 75
+Track_0:
+	program 0
+	note E3, 127, 0
+	end
+Track_1:
+	wait 40
+	program 0
+	attack 127
+	decay 10
+	sustain 64
+	release 117
+	pitch_bend -11
+	note E3, 84, 0
+	end
+Track_2:
+	wait 80
+	program 0
+	attack 127
+	decay 10
+	sustain 64
+	release 117
+	pitch_bend -22
+	note E3, 55, 0
+	end
+	end

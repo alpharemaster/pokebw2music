@@ -1,0 +1,25 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	tempo 75
+	pan 10
+	portamento 46
+	portamento_time 0
+	portamento_on 1
+	pitch_bend 72
+	note G4, 127, 628
+	end
+Track_1:
+	program 0
+	tempo 75
+	wait 1
+	pan 118
+	portamento 46
+	portamento_time 0
+	portamento_on 1
+	pitch_bend 72
+	note G4, 127, 628
+	end
+	end

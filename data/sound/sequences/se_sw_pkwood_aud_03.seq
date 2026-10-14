@@ -1,0 +1,14 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	note Gs3, 127, 0
+	end
+Track_1:
+	tempo 75
+	random wait 9, 15
+	program 1
+	note F3, 118, 0
+	end
+	end

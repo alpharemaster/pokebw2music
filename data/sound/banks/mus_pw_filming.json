@@ -1,0 +1,96 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_MUS_PW_FILMING" ],
+    "instruments": [
+        {
+            "program": 0,
+            "type": "key_split",
+            "regions": [
+                {
+                    "last_key": "Gs2",
+                    "type": "pcm",
+                    "wave": 0,
+                    "wave_archive": 0,
+                    "key": "C2",
+                    "attack": 127,
+                    "decay": 35,
+                    "sustain": 1,
+                    "release": 110,
+                    "pan": 64
+                },
+                {
+                    "last_key": "F3",
+                    "type": "pcm",
+                    "wave": 1,
+                    "wave_archive": 0,
+                    "key": "C3",
+                    "attack": 127,
+                    "decay": 35,
+                    "sustain": 1,
+                    "release": 110,
+                    "pan": 64
+                },
+                {
+                    "last_key": "As3",
+                    "type": "pcm",
+                    "wave": 4,
+                    "wave_archive": 0,
+                    "key": "G3",
+                    "attack": 127,
+                    "decay": 35,
+                    "sustain": 1,
+                    "release": 110,
+                    "pan": 64
+                },
+                {
+                    "last_key": "F4",
+                    "type": "pcm",
+                    "wave": 2,
+                    "wave_archive": 0,
+                    "key": "C4",
+                    "attack": 127,
+                    "decay": 35,
+                    "sustain": 1,
+                    "release": 110,
+                    "pan": 64
+                },
+                {
+                    "last_key": "As4",
+                    "type": "pcm",
+                    "wave": 5,
+                    "wave_archive": 0,
+                    "key": "G4",
+                    "attack": 127,
+                    "decay": 35,
+                    "sustain": 1,
+                    "release": 110,
+                    "pan": 64
+                },
+                {
+                    "last_key": "F5",
+                    "type": "pcm",
+                    "wave": 3,
+                    "wave_archive": 0,
+                    "key": "C5",
+                    "attack": 127,
+                    "decay": 35,
+                    "sustain": 1,
+                    "release": 110,
+                    "pan": 64
+                },
+                {
+                    "last_key": "G9",
+                    "type": "pcm",
+                    "wave": 6,
+                    "wave_archive": 0,
+                    "key": "G5",
+                    "attack": 127,
+                    "decay": 35,
+                    "sustain": 1,
+                    "release": 110,
+                    "pan": 64
+                }
+            ]
+        }
+    ]
+}

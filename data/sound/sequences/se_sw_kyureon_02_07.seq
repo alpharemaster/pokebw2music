@@ -1,0 +1,9 @@
+	program 0
+	tempo 75
+	portamento 60
+	portamento_time 0
+	portamento_on 1
+	pitch_bend 0
+	note G6, 127, 458
+	end
+	end

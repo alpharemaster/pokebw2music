@@ -1,0 +1,10 @@
+	tempo 75
+	portamento 60
+	portamento_time 0
+	portamento_on 1
+	program 0
+	attack 20
+	volume 127
+	note F4, 127, 150
+	end
+	end

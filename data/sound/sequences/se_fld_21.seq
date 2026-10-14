@@ -1,0 +1,13 @@
+	note_wait 0
+	tempo 90
+	program 87
+	volume 127
+	note Fs3, 75, 11
+	wait 24
+	volume 112
+	wait 6
+	volume 69
+	wait 6
+	volume 87
+	end
+	end

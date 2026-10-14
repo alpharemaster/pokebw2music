@@ -1,0 +1,10 @@
+	note_wait 0
+	tempo 134
+Loop_0005:
+	program 81
+	wait 144
+	volume 127
+	wait 48
+	jump Loop_0005
+	end
+	end

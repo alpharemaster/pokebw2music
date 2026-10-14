@@ -1,0 +1,7 @@
+	tempo 100
+	program 0
+	volume 127
+	pan 64
+	note C4, 127, 0
+	end
+	end

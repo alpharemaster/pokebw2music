@@ -1,0 +1,7 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_BE_SE_11" ],
+    "instruments": [
+        { "program": 96, "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C6", "attack": 127, "decay": 10, "sustain": 1, "release": 110, "pan": 64 }
+    ]
+}

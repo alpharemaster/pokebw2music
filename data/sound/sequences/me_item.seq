@@ -1,0 +1,320 @@
+	alloc_tracks 0x00FF
+	open_track 1, Track_1
+	open_track 2, Track_2
+	open_track 3, Track_3
+	open_track 4, Track_4
+	open_track 5, Track_5
+	open_track 6, Track_6
+	open_track 7, Track_7
+	note_wait 0
+	tempo 120
+	program 36
+	volume 115
+	pan 64
+	expression 127
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 64
+	tempo 190
+	note C6, 110, 31
+	wait 48
+	note C6, 114, 11
+	wait 16
+	note C6, 105, 11
+	wait 16
+	note C6, 114, 11
+	wait 16
+	note Cs6, 116, 15
+	wait 32
+	note Cs6, 110, 15
+	wait 32
+	note Cs6, 116, 15
+	wait 32
+	note C6, 112, 95
+	wait 64
+	expression 123
+	wait 8
+	expression 117
+	wait 8
+	expression 107
+	wait 8
+	expression 98
+	wait 8
+	expression 87
+	wait 8
+	expression 75
+	wait 8
+	expression 60
+	wait 8
+	expression 127
+	end
+Track_1:
+	note_wait 0
+	program 36
+	volume 100
+	pan 40
+	expression 127
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 62
+	note Gs5, 113, 31
+	wait 48
+	note Ds5, 113, 11
+	wait 16
+	note Gs5, 108, 11
+	wait 16
+	note Ds5, 115, 11
+	wait 16
+	note As5, 116, 15
+	wait 32
+	note As5, 108, 15
+	wait 32
+	note As5, 117, 15
+	wait 32
+	note Gs5, 114, 95
+	wait 64
+	expression 123
+	wait 8
+	expression 117
+	wait 8
+	expression 107
+	wait 8
+	expression 98
+	wait 8
+	expression 87
+	wait 8
+	expression 75
+	wait 8
+	expression 60
+	wait 8
+	expression 127
+	end
+Track_2:
+	note_wait 0
+	program 29
+	volume 88
+	pan 64
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 60
+	note Gs2, 110, 29
+	wait 32
+	note Gs2, 20, 12
+	wait 16
+	note Gs2, 110, 9
+	wait 16
+	note Gs2, 110, 9
+	wait 16
+	note Gs2, 110, 9
+	wait 16
+	note Fs2, 110, 13
+	wait 16
+	note Fs2, 20, 12
+	wait 16
+	note Fs2, 110, 13
+	wait 16
+	note Fs2, 20, 12
+	wait 16
+	note G2, 110, 13
+	wait 16
+	note G2, 20, 12
+	wait 16
+	note Gs2, 105, 71
+	wait 48
+	volume 84
+	wait 6
+	volume 76
+	wait 6
+	volume 66
+	wait 6
+	volume 51
+	wait 5
+	end
+Track_3:
+	note_wait 0
+	program 48
+	volume 85
+	pan 60
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 58
+	note Gs4, 85, 30
+	note C5, 90, 30
+	wait 32
+	note Gs4, 52, 14
+	note C5, 52, 14
+	wait 16
+	note Gs4, 77, 10
+	wait 16
+	note C5, 72, 10
+	wait 16
+	note Gs4, 78, 10
+	wait 16
+	note As4, 75, 14
+	note Cs5, 85, 14
+	wait 16
+	note As4, 40, 14
+	note Cs5, 50, 14
+	wait 16
+	note As4, 75, 14
+	note Cs5, 85, 14
+	wait 16
+	note As4, 40, 14
+	note Cs5, 50, 14
+	wait 16
+	note As4, 75, 14
+	note Cs5, 85, 14
+	wait 16
+	note As4, 40, 14
+	note Cs5, 50, 14
+	wait 16
+	note Gs4, 62, 83
+	note C5, 72, 83
+	wait 36
+	volume 74
+	wait 12
+	volume 61
+	wait 12
+	volume 48
+	wait 12
+	volume 34
+	wait 11
+	end
+Track_4:
+	note_wait 0
+	program 3
+	volume 85
+	pan 100
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 56
+	note Gs4, 90, 31
+	note C6, 110, 31
+	wait 32
+	note Gs4, 48, 15
+	note C6, 68, 15
+	wait 16
+	note Ds4, 87, 11
+	note C6, 107, 11
+	wait 16
+	note Gs4, 77, 11
+	note C6, 97, 11
+	wait 16
+	note Ds4, 87, 11
+	note C6, 107, 11
+	wait 16
+	note Fs4, 85, 15
+	note Cs6, 111, 15
+	wait 16
+	note Fs4, 49, 15
+	note Cs6, 75, 15
+	wait 16
+	note Fs4, 89, 15
+	note Cs6, 115, 15
+	wait 16
+	note Fs4, 52, 15
+	note Cs6, 78, 15
+	wait 16
+	note Fs4, 84, 15
+	note Cs6, 110, 15
+	wait 16
+	note Fs4, 53, 15
+	note Cs6, 79, 15
+	wait 16
+	note Ds4, 87, 83
+	note C6, 113, 83
+	wait 83
+	end
+Track_5:
+	note_wait 0
+	program 36
+	volume 100
+	pan 100
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 54
+	note Ds5, 100, 31
+	wait 48
+	note C5, 106, 11
+	wait 16
+	note Ds5, 97, 11
+	wait 16
+	note C5, 106, 11
+	wait 16
+	note Fs5, 110, 13
+	wait 32
+	note Fs5, 100, 13
+	wait 32
+	note Fs5, 111, 13
+	wait 32
+	note Ds5, 107, 95
+	wait 95
+	end
+Track_6:
+	note_wait 0
+	program 36
+	volume 65
+	pan 120
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 40
+	wait 12
+	note C6, 118, 31
+	wait 48
+	note C6, 122, 11
+	wait 16
+	note C6, 113, 11
+	wait 16
+	note C6, 122, 11
+	wait 16
+	note Cs6, 124, 15
+	wait 32
+	note Cs6, 118, 15
+	wait 32
+	note Cs6, 124, 15
+	wait 32
+	note C6, 120, 89
+	wait 89
+	end
+Track_7:
+	note_wait 0
+	program 10
+	volume 105
+	pan 90
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 50
+	note C6, 108, 31
+	wait 48
+	note C6, 112, 9
+	wait 16
+	note C6, 103, 9
+	wait 16
+	note C6, 112, 9
+	wait 16
+	note Cs6, 114, 13
+	wait 32
+	note Cs6, 108, 15
+	wait 32
+	note Cs6, 114, 15
+	wait 32
+	note C6, 110, 95
+	wait 95
+	end
+	end

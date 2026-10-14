@@ -1,0 +1,10 @@
+	program 0
+	tempo 75
+	attack 5
+	portamento 67
+	portamento_time 0
+	portamento_on 1
+	pan 64
+	note G2, 127, 420
+	end
+	end

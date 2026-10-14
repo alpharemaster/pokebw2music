@@ -1,0 +1,33 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 150
+	program 98
+	volume 127
+	pitch_bend 2
+	pan 64
+	note Gs6, 90, 6
+	wait 2
+	pitch_bend -4
+	wait 2
+	pitch_bend -20
+	volume 68
+	wait 3
+	volume 33
+	end
+Track_1:
+	note_wait 0
+	wait 12
+	program 98
+	volume 50
+	pitch_bend 2
+	pan 64
+	priority 10
+	note Gs6, 30, 6
+	wait 2
+	pitch_bend -4
+	wait 2
+	pitch_bend -20
+	wait 2
+	end
+	end

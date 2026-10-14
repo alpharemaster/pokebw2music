@@ -1,0 +1,324 @@
+	alloc_tracks 0x061F
+	open_track 1, Track_1
+	open_track 2, Track_2
+	open_track 3, Track_3
+	open_track 4, Track_4
+	open_track 9, Track_9
+	open_track 10, Track_10
+	note_wait 0
+	tempo 128
+	program 1
+	portamento_time 0
+	pan 81
+	volume 100
+	expression 127
+	bend_range 12
+	priority 64
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+Loop_003F:
+	wait 162
+	note C4, 100, 2
+	wait 9
+	note C4, 100, 5
+	wait 291
+	note C4, 100, 23
+	wait 402
+	note C4, 100, 11
+	wait 1335
+	note C4, 80, 8
+	wait 276
+	note C4, 40, 41
+	wait 597
+	jump Loop_003F
+	end
+Track_1:
+	note_wait 0
+	program 2
+	portamento_time 0
+	pan 39
+	volume 100
+	expression 127
+	bend_range 12
+	priority 64
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+Loop_0085:
+	wait 342
+	note C4, 100, 11
+	wait 24
+	note C4, 100, 113
+	wait 120
+	note C4, 100, 5
+	wait 12
+	note C4, 100, 2
+	wait 54
+	note C4, 100, 2
+	wait 420
+	note C4, 100, 5
+	wait 24
+	note C4, 100, 2
+	wait 156
+	note C4, 100, 47
+	wait 60
+	note C4, 100, 2
+	wait 1632
+	note C4, 100, 2
+	wait 87
+	note C4, 100, 8
+	wait 141
+	jump Loop_0085
+	end
+Track_2:
+	note_wait 0
+	program 3
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 62
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+Loop_00E3:
+	wait 1020
+	note C4, 100, 119
+	wait 1632
+	note C4, 100, 44
+	wait 420
+	jump Loop_00E3
+	end
+Track_3:
+	note_wait 0
+	program 4
+	portamento_time 0
+	pan 91
+	volume 100
+	expression 127
+	bend_range 12
+	priority 60
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+Loop_0112:
+	wait 1500
+	note C4, 70, 41
+	wait 72
+	note C4, 70, 41
+	wait 117
+	note C4, 70, 44
+	wait 1383
+	jump Loop_0112
+	end
+Track_4:
+	note_wait 0
+	program 5
+	portamento_time 0
+	pan 24
+	volume 100
+	expression 127
+	bend_range 12
+	priority 58
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+Loop_0145:
+	wait 2010
+	note C4, 50, 92
+	wait 207
+	note C4, 50, 92
+	wait 855
+	jump Loop_0145
+	end
+Track_9:
+	note_wait 0
+	program 93
+	portamento_time 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 48
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+Loop_0174:
+	note C4, 100, 191
+	pan 69
+	wait 24
+	pan 70
+	wait 24
+	pan 71
+	wait 24
+	pan 72
+	wait 24
+	pan 73
+	wait 48
+	pan 74
+	wait 24
+	pan 75
+	wait 24
+	call Sub_01D5
+	call Sub_01F6
+	call Sub_01D5
+	call Sub_01F6
+	call Sub_01D5
+	call Sub_01D5
+	call Sub_01D5
+	call Sub_01D5
+	call Sub_01D5
+	call Sub_01D5
+	call Sub_01D5
+	call Sub_01D5
+	call Sub_01D5
+	call Sub_01F6
+	call Sub_01D5
+	jump Loop_0174
+	end
+Sub_01D5:
+	note C4, 100, 191
+	pan 69
+	wait 24
+	pan 70
+	wait 24
+	pan 71
+	wait 24
+	pan 72
+	wait 24
+	pan 73
+	wait 48
+	pan 74
+	wait 24
+	pan 75
+	wait 24
+	return
+Sub_01F6:
+	pan 69
+	note C4, 100, 191
+	wait 24
+	pan 70
+	wait 24
+	pan 71
+	wait 24
+	pan 72
+	wait 24
+	pan 73
+	wait 48
+	pan 74
+	wait 24
+	pan 75
+	wait 24
+	return
+Track_10:
+	note_wait 0
+	portamento_time 0
+	volume 100
+	expression 127
+	program 93
+	bend_range 12
+	priority 46
+	pan 53
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	pitch_bend -3
+Loop_0234:
+	wait 3
+	note C4, 100, 191
+	pan 59
+	wait 24
+	pan 58
+	wait 24
+	pan 57
+	wait 24
+	pan 56
+	wait 24
+	pan 55
+	wait 48
+	pan 54
+	wait 24
+	pan 53
+	wait 21
+	call Sub_02D3
+	call Sub_02D3
+	call Sub_02D3
+	call Sub_02D3
+	call Sub_02D3
+	wait 3
+	pan 59
+	note C4, 100, 191
+	wait 24
+	pan 58
+	wait 24
+	pan 57
+	wait 24
+	pan 56
+	wait 24
+	pan 55
+	wait 48
+	pan 54
+	wait 24
+	pan 53
+	wait 21
+	call Sub_02D3
+	call Sub_02D3
+	call Sub_02D3
+	call Sub_02D3
+	call Sub_02D3
+	call Sub_02D3
+	call Sub_02D3
+	call Sub_02D3
+	wait 3
+	pan 59
+	note C4, 100, 187
+	wait 24
+	pan 58
+	wait 24
+	pan 57
+	wait 24
+	pan 56
+	wait 24
+	pan 55
+	wait 48
+	pan 54
+	wait 24
+	pan 53
+	wait 21
+	jump Loop_0234
+	end
+Sub_02D3:
+	wait 3
+	note C4, 100, 191
+	pan 59
+	wait 24
+	pan 58
+	wait 24
+	pan 57
+	wait 24
+	pan 56
+	wait 24
+	pan 55
+	wait 48
+	pan 54
+	wait 24
+	pan 53
+	wait 21
+	return
+	end

@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "The BGMs with interactive sound: data/sound/interactive_music.json",
+    "description": "The BGM info archive (a/0/8/6, bgm_info.c): the BGMs that the field's interactive sound system (src/system/iss_*.c) changes while they play, and how. A BGM that isn't listed plays as it is. tools/data/sound_data.py packs it in this order.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [ "bgms" ],
+    "properties": {
+        "$schema": { "type": "string", "description": "This schema, for editors" },
+        "bgms": {
+            "type": "array", "maxItems": 255,
+            "items": {
+                "type": "object", "additionalProperties": false, "required": [ "bgm", "system" ],
+                "properties": {
+                    "bgm": { "type": "string", "x-constant": "SEQ_", "description": "The BGM's sequence" },
+                    "system": {
+                        "enum": [ "road", "city", "3d_sound", "dungeon", "switch", "zone" ],
+                        "description": "road fades tracks 8 and 9 in while the player moves and out while they stand still; city sets tracks 8 and 9 by the player's distance to the town's sound sources; dungeon changes the pitch of the other tracks by the zone's settings; 3d_sound plays tracks from places on the map; switch and zone turn tracks on and off by place, from their own archives"
+                    }
+                }
+            }
+        }
+    }
+}

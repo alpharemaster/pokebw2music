@@ -1,0 +1,22 @@
+	alloc_tracks 0x0007
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	tempo 75
+	attack 127
+	decay 10
+	sustain 68
+	release 100
+	note C4, 127, 180
+	end
+Track_1:
+	program 0
+	tempo 75
+	attack 127
+	decay 10
+	sustain 68
+	release 100
+	note F3, 127, 180
+	end
+	end

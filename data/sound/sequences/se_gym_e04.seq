@@ -1,0 +1,44 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 300
+Loop_000D:
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	mod_depth 0
+	expression 127
+	program 0
+	volume 127
+	priority 127
+	wait 1
+	note Ds4, 127, 959
+	wait 8
+	note Gs4, 127, 948
+	wait 951
+	jump Loop_000D
+	end
+Track_1:
+	note_wait 0
+Loop_0035:
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	mod_depth 0
+	expression 127
+	program 1
+	volume 117
+	priority 127
+	note G2, 67, 320
+	wait 75
+	note C3, 122, 222
+	wait 348
+	note Ds3, 67, 107
+	wait 111
+	note C3, 122, 106
+	wait 105
+	note G2, 67, 296
+	wait 321
+	jump Loop_0035
+	end
+	end

@@ -1,0 +1,7 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_W322_COSMO" ],
+    "instruments": [
+        { "program": 0, "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 120, "pan": 64 }
+    ]
+}

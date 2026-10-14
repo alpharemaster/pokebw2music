@@ -1,0 +1,273 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 80
+	program 78
+	volume 70
+	pan 64
+	bend_range 12
+	pitch_bend 0
+	note Fs4, 127, 2
+	wait 3
+	note Fs4, 127, 2
+	wait 3
+	note F4, 118, 2
+	wait 1
+	pan 70
+	wait 2
+	note F4, 118, 2
+	wait 3
+	note E4, 114, 2
+	wait 2
+	pan 58
+	wait 1
+	note E4, 114, 2
+	wait 3
+	note Ds4, 109, 2
+	wait 3
+	note Ds4, 109, 2
+	pan 75
+	wait 3
+	note F4, 105, 2
+	wait 3
+	note F4, 105, 2
+	wait 1
+	pan 53
+	wait 2
+	note E4, 100, 2
+	wait 3
+	note E4, 100, 2
+	wait 3
+	pan 64
+	note Ds4, 100, 2
+	wait 3
+	note Ds4, 100, 2
+	wait 3
+	note D4, 100, 2
+	wait 3
+	note D4, 100, 2
+	wait 3
+	tempo 96
+	note E4, 105, 2
+	wait 3
+	note E4, 105, 2
+	wait 1
+	pan 53
+	wait 2
+	note Ds4, 100, 2
+	wait 3
+	note Ds4, 100, 2
+	wait 3
+	pan 64
+	note D4, 100, 2
+	wait 3
+	note D4, 100, 2
+	wait 3
+	note Cs4, 100, 2
+	wait 3
+	note Cs4, 100, 2
+	wait 3
+	note E4, 105, 2
+	wait 3
+	note E4, 105, 2
+	wait 1
+	pan 53
+	wait 2
+	note Ds4, 100, 2
+	wait 3
+	note Ds4, 100, 2
+	wait 3
+	pan 64
+	note D4, 100, 2
+	wait 3
+	note D4, 100, 2
+	wait 3
+	note Cs4, 100, 2
+	wait 3
+	note Cs4, 100, 2
+	wait 3
+	tempo 110
+	note D4, 105, 2
+	wait 3
+	note D4, 105, 2
+	wait 1
+	pan 53
+	wait 2
+	note Cs4, 100, 2
+	wait 3
+	note Cs4, 100, 2
+	wait 3
+	pan 64
+	note C4, 100, 2
+	wait 3
+	note C4, 100, 2
+	wait 3
+	note B3, 100, 2
+	wait 3
+	note B3, 100, 2
+	wait 3
+	note D4, 105, 2
+	wait 3
+	note D4, 105, 2
+	wait 1
+	pan 53
+	wait 2
+	note Cs4, 100, 2
+	wait 3
+	note Cs4, 100, 2
+	wait 3
+	pan 64
+	note C4, 100, 2
+	wait 3
+	note C4, 100, 2
+	wait 3
+	note B3, 100, 2
+	wait 3
+	note B3, 100, 2
+	wait 3
+	tempo 220
+	program 81
+	bend_range 12
+	pitch_bend 0
+	volume 127
+	note G5, 120, 7
+	wait 2
+	pitch_bend -16
+	wait 2
+	pitch_bend -32
+	wait 3
+	pitch_bend -1
+	note G4, 127, 23
+	wait 5
+	pitch_bend 16
+	pan 68
+	wait 4
+	pitch_bend 23
+	pan 60
+	wait 3
+	pitch_bend 36
+	wait 2
+	pitch_bend 56
+	pan 74
+	wait 3
+	pitch_bend 71
+	wait 2
+	pan 54
+	wait 5
+	pitch_bend 0
+	pan 64
+	note G5, 107, 7
+	wait 2
+	pitch_bend -16
+	wait 3
+	pitch_bend -33
+	wait 2
+	pitch_bend -1
+	note G4, 107, 23
+	wait 5
+	pitch_bend 16
+	pan 68
+	wait 5
+	pitch_bend 23
+	pan 60
+	wait 2
+	pitch_bend 36
+	wait 2
+	pitch_bend 56
+	pan 74
+	wait 3
+	pitch_bend 71
+	wait 2
+	pan 54
+	wait 5
+	pitch_bend 0
+	pan 64
+	note G5, 70, 7
+	wait 2
+	pitch_bend -16
+	wait 3
+	pitch_bend -32
+	wait 2
+	pitch_bend -1
+	note G4, 71, 23
+	wait 5
+	pitch_bend 16
+	pan 68
+	wait 5
+	pitch_bend 23
+	pan 60
+	wait 2
+	pitch_bend 36
+	wait 3
+	pitch_bend 56
+	pan 74
+	wait 2
+	pitch_bend 71
+	wait 2
+	pan 54
+	wait 5
+	end
+Track_1:
+	note_wait 0
+	program 79
+	bend_range 12
+	pitch_bend 0
+	note Fs4, 106, 7
+	wait 7
+	pan 70
+	note F4, 98, 7
+	wait 7
+	pan 58
+	note E4, 93, 7
+	wait 7
+	pan 75
+	note Ds4, 83, 7
+	wait 7
+	pan 53
+	note D4, 75, 7
+	wait 8
+	pan 64
+	note Cs4, 61, 7
+	wait 12
+	program 79
+	bend_range 12
+	pitch_bend 0
+	note F4, 115, 7
+	wait 7
+	pan 70
+	note E4, 108, 7
+	wait 7
+	pan 58
+	note Ds4, 99, 7
+	wait 7
+	pan 75
+	note D4, 90, 7
+	wait 7
+	pan 53
+	note Cs4, 82, 7
+	wait 8
+	pan 64
+	note C4, 74, 7
+	wait 12
+	program 79
+	bend_range 12
+	pitch_bend 0
+	note Ds4, 127, 7
+	wait 7
+	pan 70
+	note D4, 118, 7
+	wait 7
+	pan 58
+	note Cs4, 114, 7
+	wait 7
+	pan 75
+	note C4, 109, 7
+	wait 7
+	pan 53
+	note B3, 105, 7
+	wait 8
+	pan 64
+	note As3, 100, 7
+	wait 7
+	end
+	end

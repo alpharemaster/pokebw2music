@@ -1,0 +1,5 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_SYS_83" ],
+    "shares_data_with": "BANK_SE_WB_FLD_10"
+}

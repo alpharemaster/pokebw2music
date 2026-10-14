@@ -1,0 +1,200 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 200
+	program 75
+	volume 11
+	pan 17
+	bend_range 12
+	pitch_bend 0
+	priority 64
+	note E4, 90, 287
+	wait 5
+	volume 17
+	pitch_bend 44
+	wait 5
+	pitch_bend 17
+	wait 1
+	volume 24
+	wait 6
+	volume 32
+	pitch_bend 0
+	wait 6
+	volume 52
+	wait 7
+	volume 65
+	wait 5
+	volume 76
+	wait 4
+	pan 21
+	volume 88
+	wait 5
+	volume 98
+	wait 3
+	pitch_bend 0
+	wait 4
+	volume 111
+	wait 2
+	pitch_bend -14
+	wait 3
+	volume 127
+	wait 3
+	pitch_bend -23
+	wait 4
+	pan 26
+	wait 2
+	pitch_bend -40
+	wait 12
+	pitch_bend -26
+	wait 10
+	pan 33
+	wait 2
+	pitch_bend -12
+	wait 12
+	pitch_bend 12
+	wait 6
+	pitch_bend 22
+	wait 6
+	pitch_bend 41
+	wait 3
+	pan 43
+	wait 9
+	pitch_bend 24
+	wait 6
+	pitch_bend 14
+	wait 12
+	pan 48
+	pitch_bend 0
+	wait 6
+	pitch_bend -14
+	wait 6
+	pitch_bend -23
+	wait 6
+	pitch_bend -40
+	wait 12
+	pitch_bend -26
+	wait 1
+	pan 57
+	wait 11
+	pitch_bend -12
+	wait 6
+	pitch_bend 0
+	wait 7
+	pan 66
+	wait 12
+	volume 97
+	wait 9
+	pan 74
+	wait 19
+	volume 65
+	wait 3
+	pan 80
+	wait 17
+	pan 88
+	wait 5
+	volume 28
+	wait 16
+	pan 96
+	wait 8
+	end
+Track_1:
+	note_wait 0
+	program 125
+	volume 90
+	pan 48
+	priority 64
+	note C6, 100, 5
+	wait 7
+	note E6, 80, 5
+	wait 7
+	note D6, 80, 5
+	wait 7
+	note C6, 100, 5
+	wait 7
+	note E6, 80, 5
+	wait 5
+	pan 88
+	wait 3
+	note D6, 80, 5
+	wait 7
+	note C6, 100, 5
+	wait 7
+	note E6, 80, 5
+	wait 7
+	note D6, 80, 5
+	wait 7
+	note C6, 100, 5
+	wait 1
+	pan 44
+	wait 7
+	note E6, 80, 5
+	wait 7
+	note D6, 80, 5
+	wait 7
+	note C6, 100, 5
+	wait 7
+	note E6, 80, 5
+	wait 4
+	pan 79
+	wait 3
+	note D6, 80, 5
+	wait 8
+	note C6, 100, 5
+	wait 7
+	note E6, 80, 5
+	wait 7
+	note D6, 80, 5
+	wait 7
+	note C6, 100, 5
+	wait 7
+	note E6, 80, 5
+	wait 8
+	note C6, 100, 5
+	pan 48
+	wait 7
+	note E6, 80, 5
+	wait 7
+	note D6, 80, 5
+	wait 7
+	note C6, 100, 5
+	wait 7
+	note E6, 80, 5
+	wait 8
+	note D6, 80, 5
+	wait 7
+	note C6, 100, 5
+	wait 4
+	pan 70
+	wait 3
+	note E6, 80, 5
+	wait 7
+	note D6, 80, 5
+	wait 7
+	note C6, 100, 5
+	wait 8
+	note E6, 80, 5
+	wait 6
+	pan 46
+	wait 1
+	note D6, 80, 5
+	wait 7
+	note C6, 100, 5
+	wait 7
+	note E6, 80, 5
+	wait 7
+	note C6, 60, 5
+	wait 8
+	note E6, 47, 5
+	wait 7
+	note D6, 47, 5
+	wait 1
+	pan 75
+	wait 6
+	note C6, 44, 5
+	wait 7
+	note E6, 44, 5
+	wait 7
+	note D6, 36, 5
+	wait 6
+	end
+	end

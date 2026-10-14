@@ -1,0 +1,27 @@
+	note_wait 0
+	tempo 300
+	program 0
+	bend_range 10
+	mod_depth 0
+	expression 5
+	pan 64
+	priority 127
+	mod_speed 30
+	mod_type 0
+	mod_range 20
+	mod_delay 0
+	volume 127
+	note B3, 127, 154
+	wait 2
+	expression 42
+	wait 3
+	expression 62
+	wait 3
+	expression 91
+	wait 3
+	expression 113
+	wait 3
+	expression 127
+	wait 140
+	end
+	end

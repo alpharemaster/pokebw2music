@@ -1,0 +1,14 @@
+	note_wait 0
+	tempo 300
+	volume 127
+	expression 127
+	mod_depth 0
+	program 0
+	note Fs3, 127, 95
+	wait 96
+	note Fs3, 59, 95
+	wait 96
+	note Fs3, 23, 95
+	wait 95
+	end
+	end

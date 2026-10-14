@@ -1,0 +1,162 @@
+	randvar 0, 100
+	cmp_le 0, 93
+	if jump 23
+	cmp_le 0, 100
+	if jump 186
+	end
+Loop_0017:
+	program 0
+	note_wait 0
+	pan 125
+	priority 127
+	mod_speed 30
+	mod_type 0
+	mod_range 20
+	mod_delay 0
+	random pitch_bend -60, 60
+	note F2, 127, 0
+	random volume 110, 127
+	wait 3
+	pan 122
+	wait 3
+	pan 118
+	wait 3
+	pan 115
+	wait 3
+	pan 110
+	wait 3
+	pan 106
+	wait 3
+	pan 101
+	wait 3
+	pan 98
+	wait 3
+	pan 94
+	wait 3
+	pan 90
+	wait 3
+	pan 85
+	wait 3
+	pan 82
+	wait 3
+	pan 78
+	wait 3
+	pan 73
+	wait 3
+	pan 70
+	wait 3
+	pan 66
+	wait 3
+	pan 62
+	wait 3
+	pan 57
+	wait 3
+	pan 54
+	wait 3
+	pan 50
+	wait 3
+	pan 45
+	wait 3
+	pan 41
+	wait 3
+	pan 38
+	wait 3
+	pan 33
+	wait 3
+	pan 29
+	wait 3
+	pan 26
+	wait 3
+	pan 22
+	wait 3
+	pan 17
+	wait 3
+	pan 13
+	wait 3
+	pan 10
+	wait 3
+	pan 5
+	wait 3
+	pan 1
+	wait 3
+	pan 0
+	wait 55
+	end
+Loop_00BA:
+	program 1
+	note_wait 0
+	pan 125
+	random pitch_bend -60, 60
+	mod_speed 30
+	mod_type 0
+	mod_range 20
+	mod_delay 0
+	note G2, 127, 0
+	random volume 105, 115
+	wait 3
+	pan 122
+	wait 3
+	pan 118
+	wait 3
+	pan 115
+	wait 3
+	pan 110
+	wait 3
+	pan 106
+	wait 3
+	pan 101
+	wait 3
+	pan 98
+	wait 3
+	pan 94
+	wait 3
+	pan 90
+	wait 3
+	pan 85
+	wait 3
+	pan 82
+	wait 3
+	pan 78
+	wait 3
+	pan 73
+	wait 3
+	pan 70
+	wait 3
+	pan 66
+	wait 3
+	pan 62
+	wait 3
+	pan 57
+	wait 3
+	pan 54
+	wait 3
+	pan 50
+	wait 3
+	pan 45
+	wait 3
+	pan 41
+	wait 3
+	pan 38
+	wait 3
+	pan 33
+	wait 3
+	pan 29
+	wait 3
+	pan 26
+	wait 3
+	pan 22
+	wait 3
+	pan 17
+	wait 3
+	pan 13
+	wait 3
+	pan 10
+	wait 3
+	pan 5
+	wait 3
+	pan 1
+	wait 3
+	pan 0
+	wait 55
+	end
+	end

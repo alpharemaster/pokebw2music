@@ -1,0 +1,19 @@
+	note_wait 0
+	tempo 100
+	program 80
+	pitch_bend 0
+	volume 127
+	pan 64
+	expression 127
+	bend_range 10
+	priority 127
+	mod_speed 50
+	mod_type 0
+	mod_range 30
+Loop_0019:
+	mod_delay 0
+	note Ds3, 127, 4990
+	wait 4991
+	jump Loop_0019
+	end
+	end

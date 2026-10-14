@@ -1,0 +1,8 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_SHINKA_W060C" ],
+    "instruments": [
+        { "program": 44, "type": "pcm", "wave": 1, "wave_archive": 0, "key": "C4", "attack": 99, "decay": 99, "sustain": 99, "release": 110, "pan": 64 },
+        { "program": 45, "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 99, "decay": 10, "sustain": 0, "release": 80, "pan": 64 }
+    ]
+}

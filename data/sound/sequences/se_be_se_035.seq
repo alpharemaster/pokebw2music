@@ -1,0 +1,69 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 220
+	program 92
+	volume 49
+	pan 64
+	bend_range 12
+	pitch_bend 78
+	pan 68
+	note C7, 81, 12
+	wait 2
+	volume 64
+	pitch_bend 36
+	wait 2
+	volume 83
+	pitch_bend 0
+	wait 2
+	pan 60
+	wait 1
+	volume 100
+	pitch_bend -35
+	wait 2
+	volume 127
+	pitch_bend -99
+	wait 3
+	pan 64
+	wait 9
+	program 75
+	pitch_bend 0
+	pan 53
+	note F3, 127, 12
+	wait 3
+	pan 75
+	pitch_bend -26
+	wait 2
+	pitch_bend -52
+	pan 64
+	wait 2
+	pan 52
+	pitch_bend -91
+	wait 3
+	pan 75
+	pitch_bend -108
+	wait 5
+	note F3, 30, 12
+	wait 14
+	note F3, 30, 12
+	wait 14
+	note F3, 20, 12
+	wait 12
+	end
+Track_1:
+	note_wait 0
+	program 126
+	volume 127
+	pan 64
+	note C4, 40, 12
+	wait 21
+	note C5, 80, 4
+	wait 6
+	note C5, 60, 4
+	wait 6
+	note C5, 40, 4
+	wait 6
+	note C5, 20, 4
+	wait 5
+	end
+	end

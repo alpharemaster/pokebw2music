@@ -1,0 +1,24 @@
+	alloc_tracks 0x0007
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	note B3, 127, 10
+	wait 15
+	note F4, 127, 10
+	wait 43
+	note B3, 127, 10
+	wait 15
+	note F4, 127, 10
+	end
+Track_1:
+	program 119
+	note A1, 60, 10
+	wait 15
+	note E2, 60, 10
+	wait 43
+	note A1, 60, 10
+	wait 15
+	note E2, 60, 10
+	end
+	end

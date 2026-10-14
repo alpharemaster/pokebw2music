@@ -1,0 +1,26 @@
+	alloc_tracks 0x0007
+	open_track 1, Track_1
+	open_track 2, Track_2
+	note_wait 0
+	tempo 150
+	end
+Track_1:
+	note_wait 0
+	program 125
+	volume 127
+	pan 64
+	pitch_bend 2
+	note Fs5, 90, 19
+	wait 19
+	end
+Track_2:
+	note_wait 0
+	wait 30
+	program 125
+	volume 80
+	pan 64
+	pitch_bend 2
+	note Fs5, 40, 19
+	wait 19
+	end
+	end

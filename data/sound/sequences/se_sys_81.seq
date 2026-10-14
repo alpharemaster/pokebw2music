@@ -1,0 +1,195 @@
+	note_wait 0
+	tempo 300
+	program 3
+	pitch_bend 0
+	volume 127
+	pan 64
+	expression 127
+	bend_range 8
+	priority 127
+	mod_depth 0
+	mod_speed 50
+	mod_type 0
+	mod_range 2
+	mod_delay 0
+	note Gs8, 45, 5
+	wait 6
+	note Fs7, 78, 5
+	wait 6
+	note Ds5, 57, 5
+	note C6, 57, 5
+	wait 3
+	pitch_bend -128
+	wait 4
+	pitch_bend 0
+	wait 1
+	pitch_bend -123
+	wait 3
+	pitch_bend -120
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -114
+	wait 3
+	pitch_bend -111
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -105
+	wait 3
+	pitch_bend -102
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -96
+	wait 3
+	pitch_bend -93
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -87
+	wait 3
+	pitch_bend -84
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -78
+	wait 3
+	pitch_bend -72
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -69
+	wait 3
+	pitch_bend -63
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -60
+	wait 3
+	pitch_bend -54
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -51
+	wait 3
+	pitch_bend -45
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -42
+	wait 3
+	pitch_bend -36
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -30
+	wait 3
+	pitch_bend -27
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -21
+	wait 3
+	pitch_bend -18
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -12
+	wait 3
+	pitch_bend -9
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend -3
+	wait 3
+	pitch_bend -1
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 5
+	wait 3
+	pitch_bend 11
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 14
+	wait 3
+	pitch_bend 20
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 23
+	wait 3
+	pitch_bend 29
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 32
+	wait 3
+	pitch_bend 38
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 41
+	wait 3
+	pitch_bend 47
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 53
+	wait 3
+	pitch_bend 56
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 62
+	wait 3
+	pitch_bend 65
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 71
+	wait 3
+	pitch_bend 74
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 80
+	wait 3
+	pitch_bend 83
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 89
+	wait 3
+	pitch_bend 95
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 98
+	wait 3
+	pitch_bend 104
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 107
+	wait 3
+	pitch_bend 113
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 116
+	wait 3
+	pitch_bend 122
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 3
+	pitch_bend 125
+	wait 3
+	pitch_bend 127
+	note D5, 97, 2
+	note F6, 97, 2
+	wait 2
+	end
+	end

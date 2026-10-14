@@ -1,0 +1,291 @@
+{
+    "$schema": "archive.schema.json",
+    "players": [
+        {
+            "name": "PLAYER_BGM",
+            "max_sequences": 1,
+            "channels": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15 ],
+            "heap_size": 0
+        },
+        {
+            "name": "PLAYER_SE_SYS",
+            "max_sequences": 1,
+            "channels": [ 12, 13, 14, 15 ],
+            "heap_size": 10200
+        },
+        {
+            "name": "PLAYER_SE_1",
+            "max_sequences": 1,
+            "channels": [ 12, 13, 14, 15 ],
+            "heap_size": 10200
+        },
+        {
+            "name": "PLAYER_SE_2",
+            "max_sequences": 1,
+            "channels": [ 12, 13, 14, 15 ],
+            "heap_size": 10200
+        },
+        {
+            "name": "PLAYER_SE_PSG",
+            "max_sequences": 1,
+            "channels": [ 11, 12, 13, 15 ],
+            "heap_size": 2000
+        },
+        {
+            "name": "PLAYER_SE_3",
+            "max_sequences": 1,
+            "channels": [ 12, 13, 14, 15 ],
+            "heap_size": 10200
+        },
+        {
+            "name": "PLAYER_BGM2",
+            "max_sequences": 1,
+            "channels": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ],
+            "heap_size": 0
+        }
+    ],
+    "stream_players": [
+        {
+            "name": "PLAYER_STRM",
+            "channels": [ 0, 6 ]
+        }
+    ],
+    "streams": [
+        { "name": "STRM_TITLE", "volume": 127, "player_priority": 64, "player": "PLAYER_STRM" }
+    ],
+    "groups": [
+        {
+            "name": "GROUP_GLOBAL",
+            "items": [
+                {
+                    "name": "SEQ_SE_MESSAGE",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SELECT1",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SELECT2",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SELECT4",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_DECIDE1",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_DECIDE2",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_DECIDE3",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_CANCEL1",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_CANCEL2",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_CANCEL3",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_OPEN1",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_CLOSE1",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_BEEP",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_DANSA",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_WALL_HIT",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_BICYCLE",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_07",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_08",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_09",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_10",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_11",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_12",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_13",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_14",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_31",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_32",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_49",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_84",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_85",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_91",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_120",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_FLD_122",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SYS_35",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_MSCL_07",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SYS_100",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SYS_11",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SYS_79",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                }
+            ]
+        },
+        {
+            "name": "GROUP_LCG01",
+            "items": [
+                {
+                    "name": "SEQ_SE_LCG_02",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_LCG_03",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_LCG_04",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_LCG_05",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                }
+            ]
+        },
+        {
+            "name": "GROUP_LCG02",
+            "items": [
+                {
+                    "name": "SEQ_SE_LCG_06",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_LCG_07",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_LCG_08",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_LCG_09",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_LCG_01",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                }
+            ]
+        },
+        {
+            "name": "GROUP_KYUREM02_B",
+            "items": [
+                {
+                    "name": "SEQ_SE_SW_KYUREON_02_01",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SW_KYUREON_02_02",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SW_KYUREON_02_03",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                }
+            ]
+        },
+        {
+            "name": "GROUP_KYUREM02_W",
+            "items": [
+                {
+                    "name": "SEQ_SE_SW_KYUREON_02_01",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SW_KYUREON_02_02",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                },
+                {
+                    "name": "SEQ_SE_SW_KYUREON_02_03",
+                    "load": [ "sequence", "bank", "wave_archive" ]
+                }
+            ]
+        }
+    ]
+}

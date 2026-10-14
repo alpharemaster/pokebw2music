@@ -1,0 +1,46 @@
+	note_wait 0
+	tempo 220
+	program 92
+	volume 49
+	pan 64
+	bend_range 12
+	pitch_bend 78
+	pan 78
+	note G6, 127, 20
+	wait 2
+	volume 64
+	wait 2
+	pitch_bend 46
+	volume 83
+	wait 2
+	pan 49
+	wait 1
+	pitch_bend 0
+	volume 100
+	wait 2
+	pitch_bend -45
+	volume 127
+	wait 3
+	pan 64
+	pitch_bend -67
+	wait 2
+	pitch_bend -110
+	wait 2
+	pitch_bend -128
+	wait 5
+	program 80
+	pitch_bend 127
+	note C6, 127, 2
+	wait 3
+	note G6, 127, 2
+	wait 4
+	note G6, 100, 2
+	wait 5
+	note G6, 60, 15
+	wait 19
+	note G6, 30, 15
+	wait 18
+	note G6, 20, 15
+	wait 15
+	end
+	end

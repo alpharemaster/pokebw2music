@@ -1,0 +1,46 @@
+	note_wait 0
+	tempo 300
+	program 0
+	volume 127
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	pan 64
+	mod_depth 0
+	expression 127
+	note C4, 127, 383
+	wait 180
+	volume 127
+	wait 12
+	volume 119
+	wait 12
+	volume 111
+	wait 12
+	volume 103
+	wait 12
+	volume 95
+	wait 12
+	volume 87
+	wait 12
+	volume 79
+	wait 12
+	volume 71
+	wait 12
+	volume 63
+	wait 12
+	volume 55
+	wait 12
+	volume 47
+	wait 12
+	volume 39
+	wait 12
+	volume 31
+	wait 12
+	volume 23
+	wait 12
+	volume 15
+	wait 12
+	volume 7
+	wait 23
+	end
+	end

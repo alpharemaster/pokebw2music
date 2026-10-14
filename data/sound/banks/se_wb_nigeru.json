@@ -1,0 +1,7 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_NIGERU2" ],
+    "instruments": [
+        { "program": 126, "type": "noise", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 118, "decay": 120, "sustain": 120, "release": 115, "pan": 64 }
+    ]
+}

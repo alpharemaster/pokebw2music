@@ -1,0 +1,20 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	attack 127
+	decay 10
+	sustain 64
+	release 117
+	note As3, 127, 0
+	end
+Track_1:
+	program 0
+	attack 127
+	decay 10
+	sustain 64
+	release 117
+	note E3, 127, 0
+	end
+	end

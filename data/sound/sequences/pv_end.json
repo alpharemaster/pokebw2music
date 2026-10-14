@@ -1,0 +1,9 @@
+{
+    "$schema": "sequence.schema.json",
+    "bank": "BANK_PV002",
+    "volume": 0,
+    "channel_priority": 0,
+    "player_priority": 0,
+    "player": "PLAYER_BGM",
+    "shares_data_with": "SEQ_PV001"
+}

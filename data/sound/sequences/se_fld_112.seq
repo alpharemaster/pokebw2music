@@ -1,0 +1,48 @@
+	note_wait 0
+	tempo 300
+Loop_0005:
+	program 0
+	mod_depth 58
+	volume 120
+	pan 64
+	expression 0
+	bend_range 20
+	priority 127
+	mod_speed 15
+	mod_type 0
+	mod_range 40
+	wait 1
+	mod_delay 0
+	note B4, 120, 191
+	wait 5
+	expression 4
+	wait 6
+	expression 8
+	wait 6
+	expression 14
+	wait 6
+	expression 20
+	wait 6
+	expression 28
+	wait 6
+	expression 36
+	wait 6
+	expression 51
+	wait 6
+	expression 58
+	wait 6
+	expression 79
+	wait 6
+	expression 88
+	wait 6
+	expression 103
+	wait 6
+	expression 120
+	wait 6
+	expression 127
+	wait 6
+	expression 127
+	wait 300
+	jump Loop_0005
+	end
+	end

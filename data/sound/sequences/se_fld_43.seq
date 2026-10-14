@@ -1,0 +1,75 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 50
+	volume 127
+	expression 127
+	mod_depth 0
+	program 0
+	priority 127
+	note C4, 127, 113
+	wait 113
+	end
+Track_1:
+	note_wait 0
+	volume 80
+	expression 127
+	mod_depth 0
+	priority 127
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 60, 5
+	wait 6
+	program 1
+	note B4, 41, 5
+	wait 6
+	program 1
+	note B4, 29, 5
+	wait 6
+	program 1
+	note B4, 23, 5
+	wait 5
+	end
+	end

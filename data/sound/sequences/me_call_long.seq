@@ -1,0 +1,184 @@
+	alloc_tracks 0x0007
+	open_track 1, Track_1
+	open_track 2, Track_2
+	note_wait 0
+	tempo 300
+	program 0
+	note B4, 127, 23
+	volume 110
+	expression 127
+	bend_range 12
+	priority 127
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	wait 1
+	mod_delay 0
+	pan 64
+	wait 23
+	note Fs4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Fs5, 127, 47
+	wait 48
+	note Fs4, 127, 23
+	wait 24
+	note Gs4, 127, 23
+	wait 24
+	note As4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Ds5, 127, 71
+	wait 168
+	call Sub_00BD
+	wait 24
+	note Fs4, 127, 23
+	wait 24
+	note Gs4, 127, 23
+	wait 24
+	note As4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Ds5, 127, 71
+	wait 264
+	note B4, 127, 23
+	wait 24
+	note Fs4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Fs5, 127, 47
+	wait 48
+	note Fs4, 127, 23
+	wait 24
+	note Gs4, 127, 23
+	wait 24
+	note As4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Ds5, 127, 71
+	wait 168
+	call Sub_00BD
+	wait 24
+	note Fs4, 127, 23
+	wait 24
+	note Gs4, 127, 23
+	wait 24
+	note B4, 127, 11
+	wait 11
+	end
+Sub_00BD:
+	wait 96
+	note B4, 127, 23
+	wait 24
+	note Fs4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Fs5, 127, 47
+	wait 24
+	return
+Track_1:
+	note_wait 0
+	program 0
+	volume 60
+	expression 127
+	bend_range 12
+	priority 127
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	wait 1
+	mod_delay 0
+	pan 64
+	wait 11
+	note B4, 127, 23
+	wait 6
+	pitch_bend 0
+	wait 18
+	note Fs4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Fs5, 127, 47
+	wait 48
+	note Fs4, 127, 23
+	wait 24
+	note Gs4, 127, 23
+	wait 24
+	note As4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Ds5, 127, 71
+	wait 156
+	call Sub_0187
+	wait 36
+	note Fs4, 127, 23
+	wait 24
+	note Gs4, 127, 23
+	wait 24
+	note As4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Ds5, 127, 71
+	wait 264
+	note B4, 127, 23
+	wait 24
+	note Fs4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Fs5, 127, 47
+	wait 48
+	note Fs4, 127, 23
+	wait 24
+	note Gs4, 127, 23
+	wait 24
+	note As4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Ds5, 127, 71
+	wait 156
+	call Sub_0187
+	wait 36
+	note Fs4, 127, 23
+	wait 24
+	note Gs4, 127, 11
+	wait 24
+	note B4, 127, 11
+	wait 11
+	end
+Sub_0187:
+	wait 108
+	note B4, 127, 23
+	wait 24
+	note Fs4, 127, 23
+	wait 24
+	note B4, 127, 23
+	wait 24
+	note Fs5, 127, 47
+	wait 12
+	return
+Track_2:
+	note_wait 0
+	bend_range 12
+	sweep_pitch 0
+	sweep_pitch 0
+	mod_depth 0
+	expression 127
+	program 1
+	volume 127
+	wait 1620
+	note C4, 110, 107
+	wait 107
+	end
+	end

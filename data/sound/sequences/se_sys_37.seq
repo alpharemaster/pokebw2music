@@ -1,0 +1,25 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 98
+	end
+Track_1:
+	note_wait 0
+	volume 127
+	expression 127
+	mod_depth 0
+	program 1
+	note B3, 127, 2
+	wait 3
+	note E4, 127, 2
+	wait 3
+	note B3, 78, 2
+	wait 3
+	note E4, 77, 2
+	wait 3
+	note B3, 32, 2
+	wait 3
+	note E4, 34, 2
+	wait 2
+	end
+	end

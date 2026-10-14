@@ -1,0 +1,44 @@
+	alloc_tracks 0x0007
+	open_track 0, Track_0
+	open_track 1, Track_1
+	open_track 2, Track_2
+Track_0:
+	pan 107
+	program 0
+	mod_depth 25
+	mod_range 1
+	mod_speed 4
+	mod_type 1
+	attack 28
+	decay 120
+	sustain 89
+	release 105
+	note C4, 88, 32
+	end
+Track_1:
+	wait 2
+	pan 20
+	program 0
+	mod_depth 25
+	mod_range 2
+	mod_speed 5
+	mod_type 1
+	attack 28
+	decay 120
+	sustain 89
+	release 105
+	note C4, 88, 32
+	end
+Track_2:
+	program 0
+	mod_depth 25
+	mod_range 2
+	mod_speed 18
+	mod_type 2
+	attack 32
+	decay 120
+	sustain 89
+	release 105
+	note C6, 50, 32
+	end
+	end

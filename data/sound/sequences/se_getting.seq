@@ -1,0 +1,36 @@
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	note_wait 0
+	tempo 311
+	program 94
+	volume 127
+	sweep_pitch 36
+	mod_depth 8
+	pitch_bend 0
+	note Gs6, 119, 3
+	wait 12
+	note C6, 127, 5
+	wait 6
+	note C6, 60, 5
+	wait 6
+	note C6, 30, 5
+	wait 6
+	note C6, 10, 5
+	wait 5
+	end
+Track_1:
+	note_wait 0
+	program 95
+	volume 127
+	note Gs3, 90, 5
+	wait 6
+	note C3, 118, 5
+	wait 6
+	note C3, 60, 5
+	wait 6
+	note C3, 30, 5
+	wait 6
+	note C3, 10, 5
+	wait 5
+	end
+	end

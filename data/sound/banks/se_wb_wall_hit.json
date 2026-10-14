@@ -1,0 +1,7 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_WALL_HIT" ],
+    "instruments": [
+        { "program": 107, "type": "psg", "wave": 3, "wave_archive": 0, "key": "C4", "attack": 125, "decay": 90, "sustain": 0, "release": 127, "pan": 64 }
+    ]
+}

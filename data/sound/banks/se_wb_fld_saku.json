@@ -1,0 +1,9 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_MUSHI_SAKU" ],
+    "instruments": [
+        { "program": 0, "type": "psg", "wave": 3, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 120, "pan": 64 },
+        { "program": 1, "type": "noise", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 125, "decay": 127, "sustain": 127, "release": 120, "pan": 64 },
+        { "program": 2, "type": "psg", "wave": 3, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 110, "pan": 64 }
+    ]
+}

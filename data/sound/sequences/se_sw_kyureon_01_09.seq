@@ -1,0 +1,26 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	attack 70
+	tempo 75
+	portamento 55
+	portamento_time 0
+	portamento_on 1
+	pan 64
+	release 99
+	note C5, 127, 88
+	end
+Track_1:
+	program 1
+	attack 70
+	tempo 75
+	portamento 67
+	portamento_time 0
+	portamento_on 1
+	pan 64
+	release 99
+	note C6, 90, 88
+	end
+	end

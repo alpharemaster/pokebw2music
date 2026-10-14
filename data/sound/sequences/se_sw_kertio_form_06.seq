@@ -1,0 +1,19 @@
+	alloc_tracks 0x0007
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	tempo 75
+	note Gs3, 127, 0
+	end
+Track_1:
+	program 0
+	tempo 75
+	wait 8
+	mod_depth 45
+	mod_range 1
+	mod_speed 7
+	mod_type 2
+	note C4, 120, 0
+	end
+	end

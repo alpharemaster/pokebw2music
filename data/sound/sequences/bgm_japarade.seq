@@ -1,0 +1,2897 @@
+	alloc_tracks 0x067F
+	open_track 1, Track_1
+	open_track 2, Track_2
+	open_track 3, Track_3
+	open_track 4, Track_4
+	open_track 5, Track_5
+	open_track 6, Track_6
+	open_track 9, Track_9
+	open_track 10, Track_10
+	note_wait 0
+	tempo 129
+	portamento_time 0
+	program 100
+	volume 68
+	pan 34
+	expression 127
+	bend_range 12
+	priority 64
+	mod_depth 12
+	mod_speed 11
+	mod_type 2
+	mod_range 7
+	mod_delay 0
+	wait 24
+	note E5, 100, 23
+	wait 24
+	note E5, 50, 15
+	wait 24
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 15
+	wait 16
+	note Ds5, 100, 23
+	wait 24
+	note Ds5, 50, 15
+	wait 24
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 15
+	wait 16
+	note D5, 100, 23
+	wait 24
+	note D5, 50, 15
+	wait 24
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 15
+	wait 16
+	note B5, 100, 7
+	wait 8
+	note B5, 50, 7
+	wait 8
+	note C6, 100, 7
+	wait 8
+	note C6, 50, 15
+	wait 16
+	note B5, 100, 7
+	wait 8
+	note B5, 50, 23
+	wait 48
+	note D5, 100, 7
+	wait 8
+	note D5, 50, 15
+	wait 16
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 23
+	wait 40
+	note E5, 100, 7
+	wait 8
+	note E5, 50, 15
+	wait 16
+	note G5, 100, 23
+	wait 24
+	note G5, 50, 15
+	wait 24
+	note Ds5, 100, 7
+	wait 8
+	note Ds5, 50, 15
+	wait 16
+	note G5, 100, 23
+	wait 24
+	note G5, 50, 15
+	wait 24
+	note D5, 100, 23
+	wait 24
+	note D5, 50, 15
+	wait 24
+	note E6, 100, 7
+	wait 8
+	note E6, 50, 15
+	wait 16
+	note D6, 100, 7
+	wait 8
+	note D6, 50, 7
+	wait 8
+	note C6, 100, 7
+	wait 8
+	note C6, 50, 15
+	wait 16
+	note B5, 100, 7
+	wait 8
+	note B5, 50, 15
+	wait 24
+	note C6, 100, 23
+	wait 24
+	note B5, 100, 7
+	wait 8
+	note B5, 50, 7
+	wait 8
+	note D5, 100, 7
+	wait 8
+	note D5, 50, 15
+	wait 16
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 15
+	wait 24
+	note E5, 100, 23
+	wait 24
+	note E5, 50, 15
+	wait 24
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 15
+	wait 16
+	note Ds5, 100, 23
+	wait 24
+	note Ds5, 50, 15
+	wait 24
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 15
+	wait 16
+	note D5, 100, 31
+	wait 32
+	note D5, 50, 15
+	wait 16
+	note G5, 100, 23
+	wait 24
+	note A5, 100, 7
+	wait 8
+	note A5, 50, 7
+	wait 8
+	note D6, 100, 7
+	wait 8
+	note D6, 50, 15
+	wait 16
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 15
+	wait 24
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 15
+	wait 16
+	note Gs5, 100, 7
+	wait 8
+	note Gs5, 50, 7
+	wait 8
+	note A5, 100, 7
+	wait 8
+	note A5, 50, 7
+	wait 8
+	note As5, 100, 7
+	wait 8
+	note As5, 50, 7
+	wait 8
+	note B5, 100, 23
+	wait 24
+	note B5, 50, 15
+	wait 16
+	note B5, 100, 7
+	wait 8
+	note B5, 50, 15
+	wait 144
+	note D5, 100, 23
+	wait 24
+	note D5, 50, 15
+	wait 16
+	note D5, 100, 7
+	wait 8
+	note D5, 50, 15
+	wait 112
+	volume 75
+	wait 8
+	note D5, 100, 7
+	wait 8
+	note E5, 94, 7
+	wait 8
+	note Fs5, 88, 7
+	wait 8
+Loop_01EF:
+	note G5, 100, 143
+	wait 216
+	note E6, 100, 7
+	wait 8
+	note E6, 50, 15
+	wait 16
+	note D6, 100, 7
+	wait 8
+	note D6, 50, 7
+	wait 8
+	note C6, 100, 7
+	wait 8
+	note C6, 50, 15
+	wait 16
+	note B5, 100, 7
+	wait 8
+	note B5, 50, 15
+	wait 48
+	note A5, 100, 7
+	wait 8
+	note A5, 50, 15
+	wait 32
+	note G5, 100, 151
+	wait 224
+	note G5, 100, 7
+	wait 8
+	note G5, 50, 15
+	wait 16
+	note Fs5, 100, 7
+	wait 8
+	note Fs5, 50, 7
+	wait 8
+	note E5, 100, 7
+	wait 8
+	note E5, 50, 15
+	wait 16
+	note D5, 100, 7
+	wait 8
+	note D5, 50, 15
+	wait 48
+	note C5, 100, 7
+	wait 8
+	note C5, 50, 15
+	wait 32
+	note B4, 100, 71
+	wait 72
+	note C5, 100, 7
+	wait 8
+	note C5, 50, 7
+	wait 8
+	note D5, 100, 7
+	wait 8
+	note D5, 50, 7
+	wait 8
+	note G5, 100, 47
+	wait 48
+	note G5, 50, 15
+	wait 16
+	note A5, 100, 7
+	wait 8
+	note A5, 50, 7
+	wait 8
+	note As5, 100, 7
+	wait 8
+	note As5, 50, 7
+	wait 8
+	note B5, 100, 47
+	wait 48
+	note B5, 50, 15
+	wait 16
+	note C6, 100, 7
+	wait 8
+	note C6, 50, 7
+	wait 8
+	note D6, 100, 7
+	wait 8
+	note D6, 50, 7
+	wait 8
+	note G6, 100, 383
+	wait 456
+	note D5, 100, 7
+	wait 8
+	note E5, 93, 7
+	wait 8
+	note Fs5, 89, 7
+	wait 8
+	jump Loop_01EF
+	end
+Track_1:
+	note_wait 0
+	program 4
+	portamento_time 0
+	pan 125
+	volume 73
+	expression 127
+	bend_range 12
+	priority 64
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	call Sub_052D
+	call Sub_052D
+	call Sub_052D
+	call Sub_052D
+	volume 95
+	wait 24
+	note B4, 100, 23
+	note C5, 100, 23
+	wait 48
+	note C5, 100, 7
+	note E5, 100, 7
+	wait 24
+	note As4, 100, 23
+	note C5, 100, 23
+	wait 48
+	note C5, 100, 7
+	note Ds5, 100, 7
+	wait 24
+	note Fs4, 100, 31
+	note B4, 100, 31
+	wait 48
+	note D5, 100, 23
+	note E5, 100, 23
+	wait 24
+	note E5, 100, 7
+	note G5, 100, 7
+	wait 16
+	note A5, 100, 7
+	note B5, 100, 7
+	wait 24
+	note B4, 100, 7
+	note D5, 100, 7
+	wait 32
+	note B4, 100, 7
+	note D5, 100, 7
+	wait 24
+	note Cs5, 100, 7
+	note E5, 100, 7
+	wait 16
+	note D5, 100, 7
+	note F5, 100, 7
+	wait 16
+	note Ds5, 100, 7
+	note Fs5, 100, 7
+	wait 16
+	note D5, 100, 23
+	note G5, 100, 23
+	wait 40
+	note D5, 100, 7
+	note G5, 100, 7
+	wait 32
+	note E5, 95, 15
+	wait 16
+	note D5, 95, 7
+	wait 24
+	note G5, 95, 7
+	wait 24
+	note A4, 95, 7
+	wait 8
+	note B4, 95, 7
+	wait 8
+	note As4, 95, 7
+	wait 8
+	note A4, 95, 7
+	wait 8
+	note G4, 95, 15
+	wait 16
+	note D4, 95, 7
+	wait 8
+	note Fs4, 100, 23
+	note As4, 100, 23
+	wait 40
+	note Fs4, 100, 7
+	note As4, 100, 7
+	wait 32
+	note B4, 95, 15
+	wait 16
+	note As4, 95, 7
+	wait 8
+	note A4, 95, 7
+	wait 16
+	note D5, 95, 7
+	wait 24
+	note D4, 95, 7
+	wait 8
+	note E4, 95, 7
+	wait 8
+	note Ds4, 95, 7
+	wait 8
+	volume 103
+	note D4, 95, 7
+	wait 8
+	note G4, 100, 7
+	note B4, 100, 7
+	wait 8
+	note A4, 100, 7
+	note C5, 100, 7
+	wait 8
+	note As4, 100, 7
+	note Cs5, 100, 7
+	wait 8
+Loop_03F7:
+	note A4, 100, 143
+	note D5, 100, 143
+	wait 216
+	note G5, 100, 7
+	note C6, 100, 7
+	wait 24
+	note Fs5, 100, 7
+	note B5, 100, 7
+	wait 16
+	note E5, 100, 7
+	note A5, 100, 7
+	wait 24
+	note D5, 100, 7
+	note G5, 100, 7
+	wait 56
+	note Ds5, 100, 7
+	note Fs5, 100, 7
+	wait 40
+	note B4, 100, 151
+	note D5, 100, 151
+	wait 224
+	note B4, 100, 7
+	note E5, 100, 7
+	wait 24
+	note A4, 100, 7
+	note D5, 100, 7
+	wait 16
+	note G4, 100, 7
+	note C5, 100, 7
+	wait 24
+	note Fs4, 100, 7
+	note B4, 100, 7
+	wait 56
+	note E4, 100, 7
+	note A4, 100, 7
+	wait 40
+	note D4, 100, 71
+	note G4, 100, 71
+	wait 72
+	note E4, 100, 7
+	note A4, 100, 7
+	wait 16
+	note Fs4, 100, 7
+	note B4, 100, 7
+	wait 16
+	note B4, 100, 47
+	note D5, 100, 47
+	wait 64
+	note C5, 100, 7
+	note E5, 100, 7
+	wait 16
+	note D5, 100, 7
+	note Fs5, 100, 7
+	wait 16
+	note E5, 100, 47
+	note G5, 100, 47
+	wait 64
+	note E5, 100, 7
+	note G5, 100, 7
+	wait 16
+	note Fs5, 100, 7
+	note A5, 100, 7
+	wait 16
+	note B5, 100, 143
+	note D6, 100, 143
+	wait 168
+	note Fs5, 95, 7
+	note As5, 95, 7
+	wait 8
+	note G5, 95, 7
+	note B5, 95, 7
+	wait 8
+	note B5, 95, 7
+	note D6, 95, 7
+	wait 8
+	note D5, 95, 7
+	note G5, 95, 7
+	wait 40
+	note D5, 95, 7
+	note G5, 95, 7
+	wait 32
+	note G5, 95, 23
+	note D6, 95, 23
+	wait 24
+	note D5, 95, 7
+	note G5, 95, 7
+	wait 40
+	note D5, 95, 7
+	note G5, 95, 7
+	wait 32
+	note G5, 95, 23
+	note D6, 95, 23
+	wait 24
+	note G4, 95, 7
+	note D5, 95, 7
+	wait 24
+	note G4, 95, 15
+	note D5, 95, 15
+	wait 16
+	note A3, 100, 7
+	note D4, 100, 7
+	wait 32
+	note G4, 100, 7
+	note B4, 100, 7
+	wait 8
+	note A4, 100, 7
+	note C5, 100, 7
+	wait 8
+	note As4, 100, 7
+	note Cs5, 100, 7
+	wait 8
+	jump Loop_03F7
+	end
+Sub_052D:
+	wait 24
+	note D7, 70, 7
+	wait 16
+	note D6, 70, 7
+	wait 80
+	note D7, 70, 7
+	wait 16
+	note D6, 70, 7
+	wait 24
+	note D7, 70, 7
+	wait 8
+	note D6, 70, 7
+	wait 24
+	return
+Track_2:
+	note_wait 0
+	portamento_time 0
+	program 27
+	volume 112
+	pan 53
+	expression 127
+	bend_range 12
+	priority 62
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	wait 624
+	note B2, 120, 47
+	wait 32
+	pitch_bend 2
+	wait 4
+	pitch_bend 8
+	wait 4
+	pitch_bend 13
+	wait 4
+	pitch_bend 17
+	wait 4
+	note E3, 105, 47
+	pitch_bend 0
+	wait 32
+	pitch_bend -8
+	wait 4
+	pitch_bend -15
+	wait 4
+	pitch_bend -27
+	wait 4
+	pitch_bend -31
+	wait 4
+	note E2, 100, 15
+	pitch_bend 0
+	wait 16
+	note Ds2, 100, 15
+	wait 24
+	note D2, 100, 7
+	wait 8
+	note C2, 100, 47
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note C2, 100, 47
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note C2, 100, 47
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note C2, 100, 47
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note B1, 100, 47
+	wait 1
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 7
+	note B1, 100, 47
+	wait 1
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 7
+	note E2, 100, 23
+	wait 1
+	expression 127
+	wait 23
+	note E2, 100, 23
+	wait 9
+	expression 123
+	wait 8
+	expression 118
+	wait 7
+	note Gs2, 100, 7
+	wait 1
+	expression 127
+	wait 15
+	note A2, 100, 7
+	wait 16
+	note As2, 100, 7
+	wait 1
+	expression 123
+	wait 8
+	expression 118
+	wait 7
+	note A1, 100, 31
+	expression 127
+	wait 40
+	note A1, 100, 7
+	wait 152
+	note D2, 100, 31
+	wait 40
+	note D2, 100, 7
+	wait 104
+	note D1, 127, 47
+	expression 127
+	volume 117
+	wait 32
+	expression 123
+	pitch_bend -20
+	wait 8
+	expression 118
+	pitch_bend -44
+	wait 8
+Loop_0664:
+	note G1, 100, 46
+	expression 127
+	pitch_bend 0
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note G1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note B1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note B1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note C2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note C2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note D2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note Ds2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note E2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note E2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note B1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note B1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	call Sub_07DB
+	note B1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note B1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note E2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note D2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	call Sub_07DB
+	note B1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note B1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note As1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note As1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note A1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note A1, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note D2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note D2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	jump Loop_0664
+	end
+Sub_07DB:
+	note C2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note C2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note D2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	note C2, 100, 46
+	expression 127
+	wait 32
+	expression 123
+	wait 8
+	expression 118
+	wait 8
+	return
+Track_3:
+	note_wait 0
+	program 64
+	portamento_time 0
+	volume 62
+	pan 87
+	expression 127
+	bend_range 12
+	priority 60
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	note E4, 91, 95
+	note G4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note Ds4, 91, 95
+	note G4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note D4, 91, 95
+	note Fs4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note E4, 91, 95
+	note G4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note G4, 91, 95
+	note B4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note G4, 91, 95
+	note As4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note Fs4, 91, 95
+	note A4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note G4, 91, 95
+	note B4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note B3, 100, 95
+	note C4, 100, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note As3, 100, 95
+	note C4, 100, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note A3, 100, 95
+	note B3, 100, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note B3, 100, 95
+	note D4, 100, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note G4, 100, 23
+	note B4, 100, 23
+	expression 127
+	wait 40
+	note G4, 100, 7
+	note B4, 100, 7
+	wait 8
+	note G4, 50, 15
+	note B4, 50, 15
+	wait 144
+	note Fs3, 100, 23
+	note As3, 100, 23
+	wait 40
+	note Fs3, 100, 7
+	note As3, 100, 7
+	wait 8
+	note Fs3, 50, 15
+	note As3, 50, 15
+	wait 144
+Loop_0B7F:
+	volume 78
+	wait 24
+	note D4, 120, 7
+	note G4, 120, 7
+	wait 40
+	note D4, 120, 7
+	note G4, 120, 7
+	wait 56
+	note D4, 120, 7
+	note G4, 120, 7
+	wait 40
+	note D4, 120, 7
+	note G4, 120, 7
+	wait 32
+	call Sub_0BC4
+	call Sub_0BC4
+	call Sub_0BC4
+	call Sub_0BC4
+	call Sub_0BC4
+	call Sub_0BC4
+	call Sub_0BC4
+	jump Loop_0B7F
+	end
+Sub_0BC4:
+	wait 24
+	note D4, 120, 7
+	note G4, 120, 7
+	wait 40
+	note D4, 120, 7
+	note G4, 120, 7
+	wait 56
+	note D4, 120, 7
+	note G4, 120, 7
+	wait 40
+	note D4, 120, 7
+	note G4, 120, 7
+	wait 32
+	return
+Track_4:
+	note_wait 0
+	program 0
+	portamento_time 0
+	pan 4
+	volume 70
+	expression 127
+	bend_range 12
+	priority 58
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	wait 1184
+	program 30
+	wait 344
+	volume 80
+	wait 8
+Loop_0C0E:
+	note G3, 100, 95
+	note D4, 100, 95
+	pan 9
+	wait 16
+	pan 11
+	wait 16
+	pan 13
+	wait 16
+	pan 18
+	wait 16
+	pan 18
+	wait 16
+	pan 13
+	wait 16
+	note D3, 100, 47
+	note A3, 100, 47
+	pan 8
+	wait 16
+	pan 3
+	wait 16
+	pan 0
+	wait 16
+	note D4, 100, 95
+	note G4, 100, 95
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 3
+	wait 16
+	pan 6
+	wait 16
+	note G3, 100, 47
+	note C4, 100, 47
+	pan 9
+	wait 16
+	pan 10
+	wait 16
+	pan 10
+	wait 16
+	note A3, 100, 47
+	note D4, 100, 47
+	pan 9
+	wait 16
+	pan 6
+	wait 16
+	pan 0
+	wait 16
+	note As3, 100, 47
+	note Ds4, 100, 47
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 3
+	wait 16
+	note B3, 100, 95
+	note E4, 100, 95
+	pan 9
+	wait 16
+	pan 12
+	wait 16
+	pan 16
+	wait 16
+	pan 19
+	wait 16
+	pan 19
+	wait 16
+	pan 16
+	wait 16
+	note D3, 100, 47
+	note A3, 100, 47
+	pan 10
+	wait 16
+	pan 5
+	wait 16
+	pan 2
+	wait 16
+	note G3, 100, 143
+	note D4, 100, 143
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 6
+	wait 16
+	pan 13
+	wait 16
+	pan 17
+	wait 16
+	note D3, 100, 47
+	note A3, 100, 47
+	pan 17
+	wait 16
+	pan 16
+	wait 16
+	pan 11
+	wait 16
+	note C3, 100, 47
+	note G3, 100, 47
+	pan 11
+	wait 16
+	pan 8
+	wait 16
+	pan 6
+	wait 16
+	note D3, 100, 95
+	note B3, 100, 95
+	pan 6
+	wait 16
+	pan 5
+	wait 16
+	pan 8
+	wait 16
+	pan 12
+	wait 16
+	pan 16
+	wait 16
+	pan 16
+	wait 16
+	note G3, 100, 95
+	note E4, 100, 95
+	pan 16
+	wait 16
+	pan 16
+	wait 16
+	pan 12
+	wait 16
+	pan 9
+	wait 16
+	pan 5
+	wait 16
+	pan 3
+	wait 16
+	note E3, 100, 95
+	note C4, 100, 95
+	pan 3
+	wait 16
+	pan 3
+	wait 16
+	pan 4
+	wait 16
+	pan 9
+	wait 16
+	pan 13
+	wait 16
+	pan 13
+	wait 16
+	note Fs3, 100, 47
+	note D4, 100, 47
+	pan 13
+	wait 16
+	pan 11
+	wait 16
+	pan 6
+	wait 16
+	note E3, 100, 47
+	note C4, 100, 47
+	pan 0
+	wait 16
+	pan 0
+	wait 16
+	pan 3
+	wait 16
+	note D3, 100, 95
+	note B3, 100, 95
+	pan 9
+	wait 16
+	pan 15
+	wait 16
+	pan 17
+	wait 16
+	pan 17
+	wait 16
+	pan 12
+	wait 16
+	pan 10
+	wait 16
+	note Cs3, 100, 95
+	note As3, 100, 95
+	pan 8
+	wait 16
+	pan 6
+	wait 16
+	pan 6
+	wait 16
+	pan 12
+	wait 16
+	pan 15
+	wait 16
+	pan 15
+	wait 16
+	note C3, 100, 95
+	note A3, 100, 95
+	pan 12
+	wait 16
+	pan 6
+	wait 16
+	pan 6
+	wait 16
+	pan 11
+	wait 16
+	pan 19
+	wait 16
+	pan 23
+	wait 16
+	note D3, 100, 95
+	note G3, 100, 95
+	pan 20
+	wait 16
+	pan 16
+	wait 16
+	pan 11
+	wait 16
+	pan 6
+	wait 16
+	pan 5
+	wait 16
+	pan 5
+	wait 16
+	jump Loop_0C0E
+	pan 5
+	end
+Track_5:
+	note_wait 0
+	portamento_time 0
+	program 0
+	volume 100
+	pan 64
+	expression 127
+	bend_range 12
+	priority 56
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	wait 944
+	program 30
+	wait 208
+	program 4
+	wait 72
+	pan 0
+	wait 8
+	note E5, 50, 15
+	wait 16
+	note D5, 50, 7
+	wait 24
+	note G5, 50, 7
+	wait 24
+	note A4, 50, 7
+	wait 8
+	note B4, 50, 7
+	wait 8
+	note As4, 50, 7
+	wait 8
+	note A4, 50, 7
+	wait 8
+	note G4, 50, 15
+	wait 16
+	note D4, 50, 7
+	wait 80
+	note B4, 50, 15
+	wait 16
+	note As4, 50, 7
+	wait 8
+	note A4, 50, 7
+	wait 16
+	note D5, 50, 7
+	wait 24
+	note D4, 50, 7
+	wait 8
+	note E4, 50, 7
+	wait 8
+	note Ds4, 50, 7
+	wait 8
+	note D4, 50, 7
+	wait 16
+	volume 87
+	pan 124
+	program 30
+	wait 8
+Loop_0E97:
+	note B6, 71, 7
+	pan 95
+	wait 8
+	note A6, 71, 7
+	pan 99
+	wait 8
+	note G6, 68, 7
+	pan 102
+	wait 8
+	note D6, 72, 7
+	pan 104
+	wait 8
+	note C6, 70, 7
+	pan 108
+	wait 8
+	note B5, 68, 7
+	pan 111
+	wait 8
+	note A5, 65, 7
+	pan 114
+	wait 8
+	note G5, 64, 7
+	pan 121
+	wait 8
+	note D5, 62, 7
+	pan 127
+	wait 8
+	note C5, 60, 7
+	pan 127
+	wait 8
+	note B4, 60, 7
+	wait 8
+	note A4, 59, 7
+	wait 8
+	note B6, 71, 7
+	pan 95
+	wait 8
+	note A6, 71, 7
+	pan 99
+	wait 8
+	note G6, 68, 7
+	pan 102
+	wait 8
+	note D6, 72, 7
+	pan 104
+	wait 8
+	note C6, 70, 7
+	pan 108
+	wait 8
+	note B5, 68, 7
+	pan 111
+	wait 8
+	note A5, 65, 7
+	pan 114
+	wait 8
+	note G5, 64, 7
+	pan 121
+	wait 8
+	note D5, 62, 7
+	pan 127
+	wait 8
+	note C5, 60, 7
+	pan 127
+	wait 8
+	note B4, 60, 7
+	wait 8
+	note A4, 59, 7
+	wait 8
+	call Sub_0FF2
+	call Sub_0FF2
+	call Sub_0FF2
+	note G6, 71, 7
+	pan 95
+	wait 8
+	note D6, 71, 7
+	pan 99
+	wait 8
+	note C6, 68, 7
+	pan 102
+	wait 8
+	note B5, 72, 7
+	pan 104
+	wait 8
+	note A5, 70, 7
+	pan 108
+	wait 8
+	note G5, 68, 7
+	pan 111
+	wait 8
+	note D5, 65, 7
+	pan 114
+	wait 8
+	note C5, 64, 7
+	pan 121
+	wait 8
+	note B4, 62, 7
+	pan 127
+	wait 8
+	note A4, 60, 7
+	pan 127
+	wait 8
+	note G4, 60, 7
+	wait 16
+	note D4, 59, 7
+	note G6, 71, 7
+	pan 95
+	wait 8
+	note D6, 71, 7
+	pan 99
+	wait 8
+	note C6, 68, 7
+	pan 102
+	wait 8
+	note B5, 72, 7
+	pan 104
+	wait 8
+	note A5, 70, 7
+	pan 108
+	wait 8
+	note G5, 68, 7
+	pan 111
+	wait 8
+	note D5, 65, 7
+	pan 114
+	wait 8
+	note C5, 64, 7
+	pan 121
+	wait 8
+	note B4, 62, 7
+	pan 127
+	wait 8
+	note A4, 60, 7
+	pan 127
+	wait 8
+	note G4, 60, 7
+	wait 16
+	call Sub_1093
+	call Sub_1093
+	call Sub_1093
+	jump Loop_0E97
+	note D4, 59, 7
+	wait 7
+	end
+Sub_0FF2:
+	note B6, 71, 7
+	pan 95
+	wait 8
+	note A6, 71, 7
+	pan 99
+	wait 8
+	note G6, 68, 7
+	pan 102
+	wait 8
+	note D6, 72, 7
+	pan 104
+	wait 8
+	note C6, 70, 7
+	pan 108
+	wait 8
+	note B5, 68, 7
+	pan 111
+	wait 8
+	note A5, 65, 7
+	pan 114
+	wait 8
+	note G5, 64, 7
+	pan 121
+	wait 8
+	note D5, 62, 7
+	pan 127
+	wait 8
+	note C5, 60, 7
+	pan 127
+	wait 8
+	note B4, 60, 7
+	wait 8
+	note A4, 59, 7
+	wait 8
+	note B6, 71, 7
+	pan 95
+	wait 8
+	note A6, 71, 7
+	pan 99
+	wait 8
+	note G6, 68, 7
+	pan 102
+	wait 8
+	note D6, 72, 7
+	pan 104
+	wait 8
+	note C6, 70, 7
+	pan 108
+	wait 8
+	note B5, 68, 7
+	pan 111
+	wait 8
+	note A5, 65, 7
+	pan 114
+	wait 8
+	note G5, 64, 7
+	pan 121
+	wait 8
+	note D5, 62, 7
+	pan 127
+	wait 8
+	note C5, 60, 7
+	pan 127
+	wait 8
+	note B4, 60, 7
+	wait 8
+	note A4, 59, 7
+	wait 8
+	return
+Sub_1093:
+	note D4, 59, 7
+	note G6, 71, 7
+	pan 95
+	wait 8
+	note D6, 71, 7
+	pan 99
+	wait 8
+	note C6, 68, 7
+	pan 102
+	wait 8
+	note B5, 72, 7
+	pan 104
+	wait 8
+	note A5, 70, 7
+	pan 108
+	wait 8
+	note G5, 68, 7
+	pan 111
+	wait 8
+	note D5, 65, 7
+	pan 114
+	wait 8
+	note C5, 64, 7
+	pan 121
+	wait 8
+	note B4, 62, 7
+	pan 127
+	wait 8
+	note A4, 60, 7
+	pan 127
+	wait 8
+	note G4, 60, 7
+	wait 16
+	note D4, 59, 7
+	note G6, 71, 7
+	pan 95
+	wait 8
+	note D6, 71, 7
+	pan 99
+	wait 8
+	note C6, 68, 7
+	pan 102
+	wait 8
+	note B5, 72, 7
+	pan 104
+	wait 8
+	note A5, 70, 7
+	pan 108
+	wait 8
+	note G5, 68, 7
+	pan 111
+	wait 8
+	note D5, 65, 7
+	pan 114
+	wait 8
+	note C5, 64, 7
+	pan 121
+	wait 8
+	note B4, 62, 7
+	pan 127
+	wait 8
+	note A4, 60, 7
+	pan 127
+	wait 8
+	note G4, 60, 7
+	wait 16
+	return
+Track_6:
+	note_wait 0
+	program 64
+	portamento_time 0
+	volume 62
+	pan 91
+	expression 127
+	bend_range 12
+	priority 60
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	note B3, 91, 95
+	note C4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note As3, 91, 95
+	note C4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note A3, 91, 95
+	note B3, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note B3, 91, 95
+	note D4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note C4, 91, 95
+	note E4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note C4, 91, 95
+	note Ds4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note B3, 91, 95
+	note D4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note D4, 91, 95
+	note E4, 91, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note E3, 100, 95
+	note G3, 100, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note Ds3, 100, 95
+	note G3, 100, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note D3, 100, 95
+	note Fs3, 100, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note E3, 100, 95
+	note G3, 100, 95
+	expression 113
+	wait 4
+	expression 116
+	wait 4
+	expression 119
+	wait 4
+	expression 121
+	wait 4
+	expression 123
+	wait 4
+	expression 124
+	wait 4
+	expression 125
+	wait 4
+	expression 127
+	wait 28
+	expression 126
+	wait 12
+	expression 125
+	wait 4
+	expression 124
+	wait 4
+	expression 123
+	wait 4
+	expression 121
+	wait 4
+	expression 119
+	wait 4
+	expression 117
+	wait 8
+	note C4, 100, 23
+	note E4, 100, 23
+	expression 127
+	wait 40
+	note C4, 100, 7
+	note E4, 100, 7
+	wait 8
+	note C4, 50, 15
+	note E4, 50, 15
+	wait 144
+	note C3, 100, 23
+	note D3, 100, 23
+	wait 40
+	note C3, 100, 7
+	note D3, 100, 7
+	wait 8
+	note C3, 50, 15
+	note D3, 50, 15
+	wait 144
+Loop_1497:
+	volume 78
+	wait 32
+	note D4, 40, 7
+	note G4, 40, 7
+	wait 40
+	note D4, 40, 7
+	note G4, 40, 7
+	wait 56
+	note D4, 40, 7
+	note G4, 40, 7
+	wait 40
+	note D4, 40, 7
+	note G4, 40, 7
+	wait 24
+	call Sub_14DC
+	call Sub_14DC
+	call Sub_14DC
+	call Sub_14DC
+	call Sub_14DC
+	call Sub_14DC
+	call Sub_14DC
+	jump Loop_1497
+	end
+Sub_14DC:
+	wait 32
+	note D4, 40, 7
+	note G4, 40, 7
+	wait 40
+	note D4, 40, 7
+	note G4, 40, 7
+	wait 56
+	note D4, 40, 7
+	note G4, 40, 7
+	wait 40
+	note D4, 40, 7
+	note G4, 40, 7
+	wait 24
+	return
+Track_9:
+	note_wait 0
+	program 80
+	portamento_time 0
+	volume 111
+	pan 64
+	expression 127
+	bend_range 12
+	priority 48
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	call Sub_15E3
+	call Sub_15E3
+	call Sub_15E3
+	call Sub_15E3
+	call Sub_1620
+	call Sub_1620
+	note B1, 100, 31
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note B1, 100, 7
+	note Fs2, 52, 7
+	wait 152
+	note B1, 100, 31
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note B1, 100, 7
+	note Fs2, 52, 7
+	wait 136
+	volume 116
+	wait 16
+Loop_1562:
+	note B1, 126, 23
+	note As2, 75, 23
+	wait 24
+	note G1, 112, 15
+	note As2, 75, 7
+	wait 16
+	note G1, 90, 7
+	note Fs2, 52, 7
+	wait 8
+	note B1, 126, 23
+	note As2, 75, 23
+	wait 24
+	note G1, 112, 15
+	note As2, 75, 7
+	wait 16
+	note G1, 90, 7
+	note Fs2, 52, 7
+	wait 8
+	note B1, 126, 23
+	note As2, 75, 23
+	wait 24
+	note G1, 112, 15
+	note As2, 75, 7
+	wait 16
+	note G1, 90, 7
+	note Fs2, 52, 7
+	wait 8
+	note B1, 126, 23
+	note As2, 75, 23
+	wait 24
+	note G1, 112, 15
+	note As2, 75, 7
+	wait 16
+	note G1, 90, 7
+	note Fs2, 52, 7
+	wait 8
+	call Sub_1669
+	call Sub_1669
+	call Sub_1669
+	call Sub_1669
+	call Sub_1669
+	call Sub_1669
+	call Sub_1669
+	jump Loop_1562
+	end
+Sub_15E3:
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note Fs2, 52, 7
+	wait 8
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note Fs2, 52, 7
+	wait 8
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note Fs2, 52, 7
+	wait 8
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note Fs2, 52, 7
+	wait 8
+	return
+Sub_1620:
+	note B1, 126, 39
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note Fs2, 52, 7
+	wait 8
+	note B1, 126, 39
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note Fs2, 52, 7
+	wait 8
+	note B1, 126, 39
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note Fs2, 52, 7
+	wait 8
+	note B1, 126, 39
+	note As2, 70, 23
+	wait 24
+	note As2, 70, 7
+	wait 16
+	note Fs2, 52, 7
+	wait 8
+	return
+Sub_1669:
+	note B1, 126, 23
+	note As2, 75, 23
+	wait 24
+	note G1, 112, 15
+	note As2, 75, 7
+	wait 16
+	note G1, 90, 7
+	note Fs2, 52, 7
+	wait 8
+	note B1, 126, 23
+	note As2, 75, 23
+	wait 24
+	note G1, 112, 15
+	note As2, 75, 7
+	wait 16
+	note G1, 90, 7
+	note Fs2, 52, 7
+	wait 8
+	note B1, 126, 23
+	note As2, 75, 23
+	wait 24
+	note G1, 112, 15
+	note As2, 75, 7
+	wait 16
+	note G1, 90, 7
+	note Fs2, 52, 7
+	wait 8
+	note B1, 126, 23
+	note As2, 75, 23
+	wait 24
+	note G1, 112, 15
+	note As2, 75, 7
+	wait 16
+	note G1, 90, 7
+	note Fs2, 52, 7
+	wait 8
+	return
+Track_10:
+	note_wait 0
+	program 80
+	portamento_time 0
+	volume 111
+	pan 64
+	expression 127
+	bend_range 12
+	priority 48
+	mod_depth 0
+	mod_speed 16
+	mod_type 0
+	mod_range 1
+	mod_delay 0
+	wait 560
+	pan 62
+	wait 8
+	pan 63
+	wait 8
+	note B5, 90, 327
+	pan 64
+	wait 8
+	pan 66
+	wait 8
+	pan 67
+	wait 8
+	pan 68
+	wait 8
+	pan 69
+	wait 8
+	pan 70
+	wait 8
+	pan 71
+	wait 8
+	pan 71
+	wait 8
+	pan 72
+	wait 8
+	pan 72
+	wait 8
+	pan 72
+	wait 8
+	pan 71
+	wait 8
+	pan 71
+	wait 8
+	pan 70
+	wait 8
+	pan 69
+	wait 8
+	pan 68
+	wait 8
+	pan 67
+	wait 8
+	pan 67
+	wait 8
+	pan 65
+	wait 3
+	expression 126
+	wait 5
+	pan 64
+	wait 8
+	pan 63
+	wait 3
+	expression 125
+	wait 5
+	pan 62
+	wait 3
+	expression 124
+	wait 5
+	pan 60
+	wait 3
+	expression 122
+	wait 5
+	pan 60
+	wait 3
+	expression 120
+	wait 5
+	pan 59
+	wait 3
+	expression 117
+	wait 5
+	pan 59
+	wait 3
+	expression 114
+	wait 5
+	pan 59
+	wait 3
+	expression 111
+	wait 5
+	pan 58
+	wait 3
+	expression 106
+	wait 5
+	pan 58
+	wait 3
+	expression 102
+	wait 5
+	pan 58
+	wait 3
+	expression 97
+	wait 5
+	pan 58
+	wait 3
+	expression 91
+	wait 5
+	pan 58
+	wait 3
+	expression 85
+	wait 5
+	pan 58
+	wait 3
+	expression 79
+	wait 5
+	pan 58
+	wait 3
+	expression 72
+	wait 5
+	pan 58
+	wait 3
+	expression 64
+	wait 5
+	pan 61
+	wait 3
+	expression 57
+	wait 5
+	pan 62
+	wait 3
+	expression 48
+	wait 5
+	pan 63
+	wait 3
+	expression 39
+	wait 5
+	pan 65
+	wait 3
+	expression 30
+	wait 5
+	pan 66
+	wait 3
+	expression 20
+	wait 5
+	pan 67
+	wait 3
+	expression 10
+	wait 5
+	pan 70
+	wait 3
+	expression 0
+	wait 5
+	pan 71
+	wait 8
+	pan 73
+	wait 8
+	pan 74
+	wait 336
+	expression 127
+	wait 168
+	pan 67
+	wait 8
+	note B5, 92, 95
+	pan 68
+	wait 8
+	pan 71
+	wait 8
+	pan 71
+	wait 8
+	pan 73
+	wait 8
+	pan 75
+	wait 8
+	pan 76
+	wait 8
+	pan 77
+	wait 8
+	pan 80
+	wait 8
+	expression 124
+	pan 82
+	wait 8
+	expression 108
+	pan 85
+	wait 8
+	volume 116
+	expression 86
+	pan 89
+	wait 8
+	expression 67
+	pan 92
+	wait 8
+Loop_184B:
+	expression 44
+	wait 32
+	expression 127
+	wait 1064
+	expression 63
+	wait 8
+	note B5, 90, 415
+	pan 49
+	expression 66
+	wait 8
+	pan 47
+	expression 74
+	wait 8
+	pan 48
+	expression 82
+	wait 8
+	pan 48
+	expression 91
+	wait 8
+	pan 48
+	expression 99
+	wait 8
+	pan 49
+	expression 104
+	wait 8
+	pan 49
+	expression 113
+	wait 8
+	pan 50
+	expression 121
+	wait 8
+	pan 51
+	expression 127
+	wait 8
+	pan 52
+	expression 127
+	wait 8
+	pan 54
+	wait 8
+	pan 55
+	wait 8
+	pan 56
+	wait 8
+	pan 57
+	wait 8
+	pan 60
+	wait 8
+	pan 60
+	wait 8
+	pan 62
+	wait 8
+	pan 64
+	wait 8
+	pan 66
+	wait 8
+	pan 66
+	wait 8
+	pan 69
+	wait 8
+	pan 69
+	wait 8
+	pan 71
+	wait 8
+	pan 72
+	wait 8
+	expression 127
+	pan 74
+	wait 8
+	pan 75
+	wait 8
+	pan 76
+	wait 8
+	expression 126
+	pan 76
+	wait 8
+	expression 124
+	pan 77
+	pitch_bend 2
+	wait 8
+	expression 122
+	pan 77
+	wait 8
+	expression 120
+	pan 77
+	pitch_bend 2
+	wait 8
+	expression 117
+	pan 78
+	wait 8
+	expression 114
+	pan 79
+	pitch_bend 5
+	wait 8
+	expression 111
+	pan 79
+	wait 8
+	expression 107
+	pan 81
+	pitch_bend 10
+	wait 8
+	expression 103
+	pan 81
+	wait 8
+	expression 98
+	pan 82
+	pitch_bend 13
+	wait 8
+	expression 93
+	pan 83
+	wait 8
+	expression 87
+	pan 85
+	pitch_bend 15
+	wait 8
+	expression 82
+	pan 85
+	wait 8
+	expression 75
+	pan 87
+	wait 8
+	expression 68
+	pan 88
+	wait 8
+	expression 61
+	pan 89
+	wait 8
+	expression 54
+	pan 91
+	wait 8
+	expression 46
+	pan 91
+	wait 8
+	expression 38
+	pan 92
+	wait 8
+	expression 29
+	pan 93
+	wait 8
+	expression 20
+	pan 95
+	wait 8
+	expression 10
+	pan 95
+	wait 8
+	expression 4
+	pan 97
+	wait 8
+	expression 2
+	pan 99
+	wait 8
+	expression 1
+	pan 102
+	wait 8
+	pan 104
+	wait 8
+	expression 127
+	pan 105
+	pitch_bend 0
+	wait 8
+	jump Loop_184B
+	pan 68
+	end
+	end

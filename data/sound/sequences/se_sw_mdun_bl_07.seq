@@ -1,0 +1,16 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	tempo 75
+	program 0
+	note C3, 127, 32
+	note C3, 127, 0
+	end
+Track_1:
+	tempo 75
+	program 0
+	note G2, 110, 16
+	note C3, 125, 62
+	end
+	end

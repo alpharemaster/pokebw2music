@@ -1,0 +1,64 @@
+	alloc_tracks 0x0007
+	open_track 1, Track_1
+	open_track 2, Track_2
+	note_wait 0
+	tempo 175
+	program 0
+	volume 120
+	pan 64
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 64
+	note E5, 97, 7
+	wait 16
+	pan 80
+	note E5, 97, 7
+	wait 16
+	pan 48
+	note E5, 97, 7
+	wait 16
+	pan 64
+	note B5, 97, 47
+	wait 47
+	end
+Track_1:
+	note_wait 0
+	program 0
+	volume 115
+	pan 64
+	bend_range 12
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 62
+	note B4, 97, 7
+	wait 16
+	note B4, 97, 7
+	wait 16
+	note B4, 97, 7
+	wait 16
+	note Gs5, 97, 47
+	wait 47
+	end
+Track_2:
+	note_wait 0
+	program 1
+	volume 115
+	pan 110
+	bend_range 64
+	mod_speed 18
+	mod_range 3
+	mod_depth 0
+	priority 60
+	note Gs4, 78, 7
+	wait 16
+	note Gs4, 78, 7
+	wait 16
+	note Gs4, 78, 7
+	wait 16
+	note E5, 80, 47
+	wait 47
+	end
+	end

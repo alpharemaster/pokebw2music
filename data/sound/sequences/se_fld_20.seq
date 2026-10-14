@@ -1,0 +1,31 @@
+	alloc_tracks 0x0005
+	open_track 2, Track_2
+	note_wait 0
+	tempo 110
+	program 84
+	volume 127
+	note As2, 117, 5
+	wait 12
+	note As3, 84, 15
+	wait 12
+	volume 112
+	wait 6
+	volume 69
+	wait 6
+	volume 87
+	end
+Track_2:
+	note_wait 0
+	program 84
+	volume 127
+	wait 24
+	volume 112
+	note As2, 57, 5
+	wait 6
+	volume 69
+	wait 6
+	volume 87
+	note As3, 24, 15
+	wait 15
+	end
+	end

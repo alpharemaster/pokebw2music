@@ -1,0 +1,19 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	tempo 75
+	wait 1
+	program 0
+	pan 123
+	pitch_bend 30
+	note C3, 110, 0
+	end
+Track_1:
+	tempo 75
+	program 0
+	pan 4
+	pitch_bend -10
+	note C3, 110, 0
+	end
+	end

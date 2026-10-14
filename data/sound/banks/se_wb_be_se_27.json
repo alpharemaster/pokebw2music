@@ -1,0 +1,26 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_SE_WB_BE_SE_27" ],
+    "instruments": [
+        {
+            "program": 40,
+            "type": "drum_set",
+            "first_key": "C4",
+            "drums": [
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 },
+                { "type": "pcm", "wave": 1, "wave_archive": 0, "key": "C5", "attack": 127, "decay": 127, "sustain": 120, "release": 120, "pan": 40 }
+            ]
+        }
+    ]
+}

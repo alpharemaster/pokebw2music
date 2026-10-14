@@ -1,0 +1,47 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	tempo 75
+	wait 8
+	call Sub_0053
+	random pan 44, 84
+	random note B3, 127, 6, 11
+	call Sub_0053
+	random pan 44, 84
+	random note A3, 127, 15, 22
+	call Sub_0053
+	random pan 44, 84
+	random note B3, 127, 14, 19
+	call Sub_0053
+	random pan 44, 84
+	note A3, 127, 0
+	end
+Sub_0053:
+	program 1
+	bend_range 2
+	random pitch_bend -64, 127
+	random expression 88, 127
+	return
+Track_1:
+	tempo 75
+	call Sub_00A8
+	random pan 44, 84
+	random note C4, 127, 10, 18
+	call Sub_00A8
+	random pan 44, 84
+	random note C4, 127, 18, 26
+	call Sub_00A8
+	random pan 44, 84
+	random note C4, 127, 13, 21
+	call Sub_00A8
+	random pan 44, 84
+	note C4, 127, 0
+	end
+Sub_00A8:
+	program 2
+	release 100
+	random pitch_bend -64, 64
+	random expression 70, 127
+	return
+	end

@@ -21,6 +21,8 @@ exactly what the ROM holds. The sources come in three kinds:
   [Map model sources](#map-model-sources)).
 - **Indexed PNG, JASC palettes, and WAV**, for each Pokémon's battle sprites, icons, footprints, and cries under
   `data/pokemon/<species>/`. Nitro cell and animation resources remain as separate binary files next to the images.
+- **Sequence text, MIDI, JSON and waves**, for the sound archive under `data/sound/`: the music and sound effects, their
+  instrument banks and their samples (see [Sound](#sound)).
 
 The JSON and assembly sources use the same constants as the C code (see [Constant lists](#constant-lists)): the JSON
 by name, the assembly through the C preprocessor. Each archive has a script that wrote its sources from the original,
@@ -34,7 +36,8 @@ which documents the format and can write them again.
 | `a/0/1/6`, `a/0/1/8`, `a/0/1/9`, `a/0/2/0`, `a/1/2/4` | `data/pokemon/` (JSON) | Species data, level-up moves, evolutions, baby species, egg moves | `tools/data/species_data.py` |
 | `a/0/1/7` | `data/pokemon/growth_rates.csv` | Experience tables of the growth rates | `tools/data/species_data.py` |
 | `a/0/0/4`, `a/0/0/7`, `a/0/5/1`, `a/1/6/5`, `a/2/2/9` | `data/pokemon/<species>/` (PNG, palette, Nitro animation files) | Battle sprites, icons, musical sprites, and footprints | `tools/data/pokemon_graphics.py` |
-| `swan_sound_data.sdat`, `a/1/9/1` | `data/pokemon/<species>/cry.wav`, `data.json` (`cry_volume`) | Pokémon cries and playback volumes | `tools/data/pokemon_cries.py` |
+| `a/1/9/1` | `data/pokemon/<species>/data.json` (`cry_volume`) | Pokémon cries' playback volumes | `tools/data/pokemon_cries.py` |
+| `swan_sound_data.sdat`, `a/0/8/6` | `data/sound/`, and `data/pokemon/<species>/cry.wav` for the cries | The sound archive: music, sound effects, cries, their banks and samples; the BGMs' interactive sound | `tools/data/sound_data.py` |
 | `a/0/2/1` | `data/moves/` (JSON) | Move data | `tools/data/move_data.py` |
 | `a/0/2/4` | `data/items/` (JSON) | Item data | `tools/data/item_data.py` |
 | `a/0/5/6` | `data/field_scripts/` | Field scripts, see [Scripts](scripts.md#field-scripts) | `tools/script/field_script.py` |
@@ -322,10 +325,10 @@ it has one. `egg/` holds the egg's sprites and icon, which every egg shows, and 
 `cry_volume` in each species' `data.json` is the game's 0–127 playback volume; the egg, the bad egg and the
 Pokéstar Studios species have cries and volumes of their own too (`pm_voice.c`). Forms with a separate cry have a `form_<n>/cry.wav` and use their species'
 volume.
-The other sounds in `swan_sound_data.sdat` retain their original data. Extract the graphics again with
-`.venv/bin/python tools/data/pokemon_graphics.py extract data/pokemon` and the cries with
+`tools/data/sound_data.py` packs the cries into the sound archive with the rest of [its sounds](#sound). Extract the
+graphics again with `.venv/bin/python tools/data/pokemon_graphics.py extract data/pokemon` and the cries with
 `.venv/bin/python tools/data/pokemon_cries.py extract data/pokemon`; the build packs them automatically.
-An unchanged source set reproduces all seven original graphics and sound archives byte for byte.
+An unchanged source set reproduces the original graphics, volume and sound archives byte for byte.
 
 ## Moves
 
@@ -787,3 +790,117 @@ when it runs, or, for type 1, conditions on variables. A zone's header gives the
 in `data/zones/`), and `tools/data/event_data.py pack` puts each zone's events at that number; the numbers in
 `data/events/placeholders.json`, which no zone uses, hold the game's 4-byte placeholder. Both versions have the same
 events.
+
+## Sound
+
+`tools/data/sound_data.py` packs the sound archive, `swan_sound_data.sdat`, from `data/sound/`, and the list of the
+BGMs that use interactive sound (`a/0/8/6`). The archive is a Nitro sound archive: sequences, which are the music,
+sound effects and cries; the instrument banks they play; the wave archives that hold the banks' samples; and its
+players, groups and one stream. The lists in `data/constants/` number each kind, and their names are the archive's
+own symbols: `sound.txt` the sequences (`SEQ_*`), `sound_banks.txt` the banks (`BANK_*`) and
+`sound_wave_archives.txt` the wave archives (`WAVE_*`). A file is named after its constant without the prefix, in
+lower case.
+
+| Source | Contents |
+| --- | --- |
+| `sequences/<name>.json` | A sequence's bank, volume, priorities and player (`sequence.schema.json`) |
+| `sequences/<name>.seq` | Its notes, in the text below, or `<name>.mid`, a MIDI file that the build converts |
+| `banks/<name>.json` | A bank's wave archives and instruments, one per line like a voicegroup (`bank.schema.json`) |
+| `wave_archives/<name>/000.swav`… | A wave archive's samples, numbered from 000: `.swav` as the game has them, or `.wav` |
+| `wave_archives/<name>/data.json` | A wave archive's options, such as the encoding of its WAVs (`wave_archive.schema.json`) |
+| `archive.json` | The players, stream players, streams and groups |
+| `interactive_music.json` | The BGMs that the interactive sound system changes as the player moves, and how |
+| `streams/<name>.strm` | A stream's file: the title screen's |
+
+The cries' wave archives (`WAVE_ARC_PV*`) come from `data/pokemon/<species>/cry.wav` (see
+[Pokémon graphics and cries](#pokémon-graphics-and-cries)), and their banks and sequences are here like any other.
+A sequence, bank or wave archive with `shares_data_with` plays another one's data: the game's tool stored one file
+for entries made from the same source. Extract the sources again with
+`.venv/bin/python tools/data/sound_data.py extract data/sound`, which also writes the bank and wave archive lists.
+
+### Sequence text
+
+A sequence is a stream of commands for up to 16 tracks, at 48 ticks per quarter note. `tools/data/sseq.py` assembles
+the text and documents it: one command per line, labels that end in `:`, and `;` comments. Track 0 starts at the
+top and opens the others, which `alloc_tracks` lists as a bit mask:
+
+```
+	alloc_tracks 0x0003
+	open_track 1, Track_1
+	tempo 120
+	program 5
+Loop_0:
+	note C4, 100, 24        ; key, velocity, length in ticks
+	wait 48
+	jump Loop_0
+Track_1:
+	...
+```
+
+`note_wait 0`, which every sequence sets first, lets a track go on while its notes play, so that `wait` alone sets
+the time. The other commands set the track's volume, pan, expression, pitch bend, modulation, portamento and
+envelope, call and return from subroutines, loop a number of times (`loop_start` and `loop_end`), and work with the
+sequence variables (`setvar`, `cmp_eq` and the `if` prefix). Keys run from `Cm1` (0) to `G9` (127), with `s` for
+sharp: `C4` is 60.
+
+### Banks and samples
+
+A sequence's `program` picks an instrument of its bank: `pcm` plays a sample of one of the bank's wave archives,
+`psg` a square wave and `noise` noise, each with its base key (the key that plays the sample at its own pitch), its
+ADSR envelope and its pan. A `drum_set` gives an instrument for each key from `first_key`, and a `key_split` up to
+eight, each up to its `last_key`. Instruments are listed in the order of their data, each with its `program`.
+
+A wave archive's samples are its numbered files. `tools/data/sound_waves.py decode 000.swav 000.wav` writes one as a
+WAV with its loop, to listen to or edit. A `.wav` (mono, 8 or 16 bits) is encoded when the archive is packed: as IMA
+ADPCM unless `data.json` says `pcm8` or `pcm16`, and looping from the start of its first `smpl` loop (which most
+sample editors write) to its end, or once if it has none. The packer moves a loop start that isn't on a whole word
+by a few samples of silence before the sample, and keeps the rate, which must give a timer the hardware can play (up
+to 65535 Hz; the hardware mixes at 32768 Hz, so more is wasted).
+
+### Interactive music
+
+The field's interactive sound system (`src/system/iss_*.c`) changes the BGMs that `interactive_music.json` lists
+while they play: `road` fades tracks 8 and 9 in while the player moves and out while they stand still, `city` sets
+tracks 8 and 9 by the player's distance to the town's sound sources, `dungeon` changes the pitch of the other tracks,
+and `3d_sound`, `switch` and `zone` play or mute tracks by place, from archives of their own. A new song in one of
+those slots either keeps its tracks to that layout, such as a route's song on tracks 0 to 7 and the parts that
+should fade on 8 and 9, or comes off the list.
+
+### Adding music
+
+Adding a song works as in pokeemerald: a MIDI file, a line in a list and an instrument bank.
+
+1. Add its constant at the end of `data/constants/sound.txt` with its number, such as `SEQ_BGM_MY_SONG = 0x4f9`, one
+   of the free numbers after `SEQ_BGM_END`, or replace a BGM's files to use its slot. A line without a number takes
+   the one before it plus one, so a constant put between two others would renumber the ones after it.
+2. Put the MIDI at `data/sound/sequences/bgm_my_song.mid` and give it `bgm_my_song.json`:
+
+   ```json
+   {
+       "$schema": "sequence.schema.json",
+       "bank": "BANK_MUS_WB_POKECEN",
+       "volume": 100,
+       "channel_priority": 30,
+       "player_priority": 64,
+       "player": "PLAYER_BGM",
+       "midi": { "loop": true }
+   }
+   ```
+
+   Each MIDI channel that plays becomes a track, and its program numbers pick the bank's instruments: a MIDI that
+   uses the programs of an existing song's bank, such as the Pokémon Center's here, plays with it as it is. The
+   converter (`tools/data/midi_sseq.py`) keeps the notes, tempo, program changes, volume, pan, expression,
+   modulation, portamento and pitch bend, and loops from the marker `[` to the marker `]` (or the whole song).
+   `midi_sseq.py song.mid song.seq` shows what it writes; a `.seq` file in place of the `.mid` can then be edited by
+   hand.
+3. For instruments of its own, add `BANK_MY_SONG = 0x8f2` at the end of `sound_banks.txt` and
+   `WAVE_MY_SONG = 0x8f2` at the end of `sound_wave_archives.txt` (the first free numbers), put the samples in
+   `data/sound/wave_archives/my_song/` as `000.wav`, `001.wav`… and write `data/sound/banks/my_song.json` with
+   `"wave_archives": [ "WAVE_MY_SONG" ]` and an instrument for each program the MIDI uses.
+4. Play it: a zone's `bgm` in `data/zones/` takes the constant, and so do the scripts' music commands.
+5. Build with `ninja build/pokeblack2_us.nds` (or `build/pokewhite2_us.nds`), which builds the ROM without the
+   matching checks: a changed archive no longer matches the original, so a plain `ninja` fails them.
+
+The game loads a BGM with its bank and samples into a sound heap of `0x9d000` bytes (`SND_HEAP_SIZE` in
+`src/system/snd_sys.c`), which the sound effects share, so a song's samples are best kept to a few hundred KB, in
+ADPCM. `PLAYER_BGM` has channels 1 to 13 and 15, so at most 14 notes sound at once, fewer while sound effects play.

@@ -1,0 +1,30 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	program 0
+	portamento 48
+	portamento_time 0
+	portamento_on 1
+	mod_depth 84
+	mod_range 5
+	mod_speed 13
+	mod_type 0
+	attack 80
+	note G3, 127, 25
+	portamento_on 0
+	end
+Track_1:
+	program 0
+	portamento 65
+	portamento_time 0
+	portamento_on 1
+	mod_depth 99
+	mod_range 6
+	mod_speed 22
+	mod_type 0
+	attack 80
+	note C5, 69, 28
+	portamento_on 0
+	end
+	end

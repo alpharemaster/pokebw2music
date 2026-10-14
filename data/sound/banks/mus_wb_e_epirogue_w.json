@@ -1,0 +1,9 @@
+{
+    "$schema": "bank.schema.json",
+    "wave_archives": [ "WAVE_MUS_WB_E_EPIROGUE_W" ],
+    "instruments": [
+        { "program": 100, "type": "pcm", "wave": 0, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 127, "pan": 64 },
+        { "program": 101, "type": "pcm", "wave": 1, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 127, "pan": 64 },
+        { "program": 102, "type": "pcm", "wave": 2, "wave_archive": 0, "key": "C4", "attack": 127, "decay": 127, "sustain": 127, "release": 127, "pan": 64 }
+    ]
+}

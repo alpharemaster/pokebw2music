@@ -180,8 +180,9 @@ DATA_PACKS = [
      ["a/0/1/6", "a/0/1/8", "a/0/1/9", "a/0/2/0", "a/0/1/7", "a/1/2/4"], False),
     ("tools/data/pokemon_graphics.py", "data/pokemon",
      ["a/0/0/4", "a/0/0/7", "a/0/5/1", "a/1/6/5", "a/2/2/9"], True),
-    ("tools/data/pokemon_cries.py", "data/pokemon",
-     ["swan_sound_data.sdat", "a/1/9/1"], True),
+    ("tools/data/pokemon_cries.py", "data/pokemon", ["a/1/9/1"], True),  # Cry volumes
+    # The sound archive: sequences, banks, wave archives, players, groups and the stream, with the cries' waves
+    ("tools/data/sound_data.py", "data/sound", ["swan_sound_data.sdat", "a/0/8/6"], False, ["data/pokemon"]),
     ("tools/data/move_data.py", "data/moves", ["a/0/2/1"], False),  # Move data
     ("tools/data/item_data.py", "data/items", ["a/0/2/4"], False),  # Item data
     # Trainers, their parties, and the table of their messages with its offsets
@@ -230,7 +231,8 @@ DATA_PACK_TOOLS = ["tools/data/datajson.py", "tools/text/text_ids.py", "tools/da
                    "src/ov036/scrcmd_shop.c", "tools/data/facility_data.py", "tools/data/make_constants.py"]
 # The C files a packer reads its tables from, besides scrcmd_shop.c
 DATA_PACK_SOURCES = {"tools/data/pokemon_graphics.py": ["src/system/poke_icon.c"],
-                     "tools/data/pokemon_cries.py": ["src/system/poke_icon.c"]}
+                     "tools/data/pokemon_cries.py": ["src/system/poke_icon.c"],
+                     "tools/data/sound_data.py": ["src/system/poke_icon.c"]}
 
 
 def script_imports(script: str) -> list[str]:

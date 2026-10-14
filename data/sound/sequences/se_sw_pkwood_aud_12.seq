@@ -1,0 +1,20 @@
+	alloc_tracks 0x0003
+	open_track 0, Track_0
+	open_track 1, Track_1
+Track_0:
+	pan 7
+	program 0
+	attack 100
+	release 84
+	note F3, 127, 180
+	end
+Track_1:
+	tempo 75
+	wait 3
+	pan 120
+	program 0
+	attack 98
+	release 84
+	note F3, 127, 180
+	end
+	end
