@@ -6,6 +6,7 @@
 
 #include <mutex>
 #include <string>
+#include <vector>
 
 START_NAMESPACE_DISTRHO
 
@@ -17,6 +18,7 @@ public:
     std::array<nitro::ChannelView, 16> channelView() const { return fEngine.view(); }
     std::string bankName() const;
     std::string instrumentName(int program) const;
+    std::vector<int> programs() const;  // The loaded bank's programs, in order
     std::string dlsPath() const { return fPath; }
     std::string loadError() const { return fError; }
 

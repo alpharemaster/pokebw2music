@@ -28,9 +28,32 @@ std::string NitroPlugin::instrumentName(int program) const
     return instrument ? instrument->name : std::string("(none)");
 }
 
+std::vector<int> NitroPlugin::programs() const
+{
+    std::lock_guard<std::mutex> lock(fLock);
+    std::vector<int> out;
+    if (auto bank = fEngine.bank()) {
+        for (const auto& item : bank->instruments)
+            out.push_back(int(item.first));
+        for (const auto& item : bank->drums)
+            if (!bank->instruments.count(item.first))
+                out.push_back(int(item.first));
+        std::sort(out.begin(), out.end());
+    }
+    return out;
+}
+
 void NitroPlugin::initParameter(uint32_t index, Parameter& p)
 {
     p.hints = kParameterIsAutomatable;
+    if (index >= kParameterProgram1) {
+        const int channel = int(index - kParameterProgram1) + 1;
+        p.name = String("Program ") + String(channel);
+        p.symbol = String("program_") + String(channel);
+        p.hints |= kParameterIsInteger;
+        p.ranges = ParameterRanges(0, 0, 16383);
+        return;
+    }
     switch (index) {
     case kParameterMasterVolume:
         p.name = "Master Volume";
@@ -73,6 +96,8 @@ void NitroPlugin::initParameter(uint32_t index, Parameter& p)
 
 float NitroPlugin::getParameterValue(uint32_t index) const
 {
+    if (index >= kParameterProgram1)
+        return float(fEngine.program(int(index - kParameterProgram1)));
     const nitro::Settings& s = fEngine.settings;
     switch (index) {
     case kParameterMasterVolume: return s.masterVolume;
@@ -87,6 +112,10 @@ float NitroPlugin::getParameterValue(uint32_t index) const
 
 void NitroPlugin::setParameterValue(uint32_t index, float value)
 {
+    if (index >= kParameterProgram1) {
+        fEngine.setProgram(int(index - kParameterProgram1), int(value + 0.5f));
+        return;
+    }
     nitro::Settings& s = fEngine.settings;
     switch (index) {
     case kParameterMasterVolume: s.masterVolume = value; break;

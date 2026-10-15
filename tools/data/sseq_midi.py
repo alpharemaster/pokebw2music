@@ -23,7 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from tools.data import sseq  # noqa: E402
 from tools.data.datajson import DataError  # noqa: E402
-from tools.data.midi_sseq import COMMAND_CONTROLLERS, SWEEP_PITCH, TICKS  # noqa: E402
+from tools.data.midi_sseq import COMMAND_CONTROLLERS, PROGRAM_CC, SWEEP_PITCH, TICKS  # noqa: E402
 
 # The sound driver's settings of a new track, which the export writes where the track doesn't set its own
 TRACK_DEFAULTS = {0xC1: 127, 0xC0: 64, 0xD5: 127, 0xC5: 2, 0xC6: 64}
@@ -223,6 +223,7 @@ def export(text: str, path="<sequence>") -> bytes:
                 if program // 128 != bank:
                     bank = program // 128
                     events.append((tick, bytes((0xB0 | channel, 0, bank))))
+                events.append((tick, bytes((0xB0 | channel, PROGRAM_CC, program % 128))))
                 events.append((tick, bytes((0xC0 | channel, program % 128))))
             elif kind == "bend":
                 wheel = event[3] * 64 + 8192

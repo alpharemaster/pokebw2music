@@ -220,6 +220,9 @@ void Engine::controller(int channel, int number, int value)
     case 76: t.lfoSpeed = value; break;
     case 77: t.lfoRange = value; break;
     case 78: t.lfoDelay = value; break;
+    case 85:  // A program change as a controller, which the MIDI exports write beside each one
+        t.program = t.bankSelect * 128 + value;
+        break;
     case 84:  // The driver's portamento command sets the key and switches it on
         t.portamentoKey = value;
         t.portamento = true;

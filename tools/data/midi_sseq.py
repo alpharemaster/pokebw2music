@@ -10,6 +10,8 @@ the others), and the program numbers pick the instruments of the sequence's bank
 adding 128 for each step. The conversion keeps:
 
 - notes, with their velocities and lengths, and the tempo, at the sequence's 48 ticks per quarter note;
+- program changes, or controller 85 for one (the export writes both, for hosts that don't pass a VST3 plugin
+  program changes);
 - program changes, pitch bend and its range (RPN 0), and the controllers of CONTROLLERS: volume (7), pan (10),
   expression (11), modulation (1), portamento time (5), switch (65) and key (84), and for the sound driver's own
   settings, which sseq_midi.py exports, track priority (14), modulation type (3), speed (76), range (77) and delay
@@ -40,6 +42,9 @@ CONTROLLERS = {1: "mod_depth", 3: "mod_type", 5: "portamento_time", 7: "volume",
 COMMAND_CONTROLLERS = {CODES[name]: number for number, name in CONTROLLERS.items()} | {CODES["bend_range"]: 6}
 # The controllers of the high and low 7 bits of the pitch sweep, plus 8192
 SWEEP_PITCH = (102, 103)
+# A program change's controller, with the bank select: VST3 plugins get controllers, but a host may not pass them
+# program changes, so the export writes both
+PROGRAM_CC = 85
 # The state that a loop sets again at its start, in order
 STATE = ["tempo", "program", "volume", "pan", "expression", "priority", "mod_depth", "mod_type", "mod_speed",
          "mod_range", "mod_delay", "attack", "decay", "sustain", "release", "portamento_time", "portamento_on",
@@ -159,6 +164,7 @@ def convert(path: Path, info: dict) -> str:
     tempos = []
     pending: dict[tuple[int, int], list] = {}
     banks = {}
+    last_program = {}
     rpn = {}
     sweeps = {}
     order = 0
@@ -178,9 +184,12 @@ def convert(path: Path, info: dict) -> str:
             if starts:
                 start, start_order, velocity = starts.pop(0)
                 channels[channel].append((start, start_order, ("note", event[4], velocity, at), None, None))
-        elif kind == "program":
-            program = banks.get(channel, 0) * 128 + event[4]
-            commands.append((at, order, f"program {program}", "program", program))
+        elif kind == "program" or (kind == "cc" and event[4] == PROGRAM_CC):
+            program = banks.get(channel, 0) * 128 + (event[4] if kind == "program" else event[5])
+            # The export writes each program change as both, and one at the same tick is the same change
+            if last_program.get(channel) != (at, program):
+                last_program[channel] = (at, program)
+                commands.append((at, order, f"program {program}", "program", program))
         elif kind == "cc":
             number, value = event[4], event[5]
             if number == 0:

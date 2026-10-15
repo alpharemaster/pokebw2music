@@ -39,6 +39,7 @@ rm -rf "$DIR/src" "$DIR/dpf"
 cp -r "$ROOT/tools/nitro_synth" "$DIR/src"
 cp -r "$OUT/dpf" "$DIR/dpf"
 rm -rf "$DIR/dpf/.git"
+python3 "$ROOT/tools/nitro_synth/patch_dpf.py" "$DIR/dpf"  # VST3 program changes
 
 cat > "$DIR/build.bat" <<EOF
 @echo off

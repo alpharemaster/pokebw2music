@@ -6,6 +6,7 @@
 //   5 portamento time    7 volume    10 pan    11 expression    14 track priority    65 portamento on (>= 64)
 //   72 release   73 attack   75 decay   79 sustain (the track's envelope over its instruments')
 //   76 modulation speed    77 modulation range    78 modulation delay    84 portamento key (switches it on)
+//   85 program (with the bank select: VST3 hosts may not pass program changes, so the exports write both)
 //   102 and 103 pitch sweep (high and low 7 bits, plus 8192)    RPN 0 bend range    121 resets the controllers
 // What the driver does with them, and with the notes, follows its code (addresses in the ROM's ARM7 binary):
 // - every 2728 * 64 cycles (a frame, about 5.2 ms) each channel's envelope (0x03800ea0), modulation (0x03801418,
@@ -117,6 +118,8 @@ public:
     void reset();
 
     std::array<ChannelView, 16> view() const;
+    int program(int channel) const { return fTracks[channel & 15].program; }
+    void setProgram(int channel, int program) { fTracks[channel & 15].program = program; }
     int activeVoices() const;
 
 private:

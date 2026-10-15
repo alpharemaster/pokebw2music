@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <string>
+#include <vector>
 
 START_NAMESPACE_DISTRHO
 
@@ -119,6 +120,39 @@ protected:
         return false;
     }
 
+    // The mouse wheel over a channel's program picks the bank's next or previous one, for hosts that don't pass the
+    // MIDI file's program changes
+    bool onScroll(const ScrollEvent& ev) override
+    {
+        const double scale = getScaleFactor();
+        const double x = ev.pos.getX() / scale, y = ev.pos.getY() / scale;
+        const int ch = int((y - TABLE_Y) / ROW) - 1;
+        if (ch < 0 || ch >= 16 || x < COLUMNS[1] || x >= COLUMNS[3] || ev.delta.getY() == 0)
+            return false;
+        NitroPlugin* plugin = this->plugin();
+        if (!plugin)
+            return false;
+        std::vector<int> programs = plugin->programs();
+        if (programs.empty())
+            return false;
+        const int current = fView[ch].program;
+        int next = current;
+        if (ev.delta.getY() > 0) {  // Up: the next program
+            auto it = std::upper_bound(programs.begin(), programs.end(), current);
+            next = it != programs.end() ? *it : programs.front();
+        } else {
+            auto it = std::lower_bound(programs.begin(), programs.end(), current);
+            next = it != programs.begin() ? *(it - 1) : programs.back();
+        }
+        const uint32_t p = kParameterProgram1 + uint32_t(ch);
+        editParameter(p, true);
+        setParameterValue(p, float(next));
+        editParameter(p, false);
+        fView[ch].program = next;
+        repaint();
+        return true;
+    }
+
     bool onMotion(const MotionEvent& ev) override
     {
         if (fDragging < 0)
@@ -141,7 +175,8 @@ protected:
         fillPaint(linearGradient(0, 0, 0, 56, Color(54, 62, 88), Color(36, 40, 56)));
         fill();
         label(16, 22, 20, "NITRO SYNTH", Color(255, 214, 102));
-        label(16, 42, 11, "DS sound driver  -  Pokemon Black 2 / White 2", Color(170, 178, 200));
+        label(16, 42, 11, "DS sound driver  -  Pokemon Black 2 / White 2  -  scroll a program to change it",
+              Color(170, 178, 200));
         std::string bank = plugin ? plugin->bankName() : std::string();
         std::string path = plugin ? plugin->dlsPath() : std::string();
         std::string error = plugin ? plugin->loadError() : std::string();

@@ -31,7 +31,8 @@ enum Parameters {
     kParameterHardware,
     kParameterVoiceLimit,
     kParameterAllChannels,
-    kParameterCount
+    kParameterProgram1,  // Each channel's program, which program changes set too
+    kParameterCount = kParameterProgram1 + 16
 };
 
 #endif  // DISTRHO_PLUGIN_INFO_H_INCLUDED

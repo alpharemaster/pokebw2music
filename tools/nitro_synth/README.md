@@ -37,6 +37,7 @@ The MIDI exports write the driver's commands as these controllers, and the plugi
 | Controller | Command | |
 | --- | --- | --- |
 | 0 | Bank select | Program + 128 per step |
+| 85 | Program | With the bank select, the same as a program change, which the exports write beside each one |
 | 1 | Modulation depth | |
 | 3 | Modulation type | 0 pitch, 1 volume, 2 pan |
 | 5 | Portamento time | 0 slides over the note's length (see below), more over `(time² × semitones × 64) >> 11` frames |
@@ -52,6 +53,11 @@ The MIDI exports write the driver's commands as these controllers, and the plugi
 | 121 | Reset | The track's settings, as a new track has them |
 
 Pitch bend is the driver's: 14-bit bends are cut to its 256 steps.
+
+VST3 has no MIDI program change event: a host passes program changes as a parameter that the plugin maps to
+controller 130. DPF leaves that out, so `patch_dpf.py` adds it to the build's copy of DPF. Since a host may still not
+pass them, the exports also write each program as controller 85, and each channel has a **Program** parameter, which
+host automation can set and which the mouse wheel over a channel's program in the UI steps through the bank's.
 
 ## What it emulates
 
