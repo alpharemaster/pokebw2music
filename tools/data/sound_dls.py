@@ -8,6 +8,10 @@ Without names it exports the banks of the music and jingles (SEQ_BGM_*, SEQ_ME_*
 banks of those sequences; with --all, every bank. Each bank becomes OUT_DIR/<bank>.dls, and OUT_DIR/songs.txt says
 which file each music sequence's .mid plays with.
 
+Each region also has a "dsrg" chunk with what the sound driver plays, which other players skip: its type (1 PCM,
+2 PSG, 3 noise), the PSG duty, the base key, the attack, decay, sustain, release and pan, and the wave's timer
+(struct <8BHH, the last halfword 0). tools/nitro_synth plays the banks from it.
+
 A bank's program N is the DLS instrument N of bank N // 128 (the MIDI files' bank select), once as a melodic
 instrument and once more as a drum kit, so that a General MIDI synthesizer finds it on channel 10 too; a drum set
 and a key split are one instrument with a region for each key or range. The samples are decoded to PCM16 at their
@@ -234,7 +238,7 @@ class Waves:
         for wave in raw:
             timer = WAVE.unpack_from(wave)[3]
             _, samples, loop_start = decode(wave)
-            waves.append((ARM7_CLOCK / timer, samples, loop_start))
+            waves.append((ARM7_CLOCK / timer, samples, loop_start, timer))
         return waves
 
 
@@ -255,14 +259,21 @@ def bank_dls(name: str, bank: dict, waves: Waves) -> tuple[bytes, list[str]]:
             if wave is None:
                 problems.append(f"{where}: wave {note['wave']} of wave archive slot {slot} is missing")
                 return None
-            index = pool.add((archive, note["wave"]), *wave)
+            index = pool.add((archive, note["wave"]), *wave[:3])
+            timer, code = wave[3], 1
         elif kind == "psg":
             index = pool.add(("psg", note["wave"]), *psg_wave(min(6, note["wave"])), 0)
+            timer, code = PSG_TIMER, 2
         else:
             index = pool.add(("noise",), *noise_wave(), 0)
+            timer, code = PSG_TIMER, 3
         header = struct.pack("<HHHHHH", low, high, 0, 127, 0, 0)
+        # The region as the sound driver has it, for players that emulate it (tools/nitro_synth)
+        native = struct.pack("<8BHH", code, note["wave"] if code == 2 else 0, key, note["attack"], note["decay"],
+                             note["sustain"], note["release"], note["pan"], timer, 0)
         return riff_list(b"rgn ", chunk(b"rgnh", header), wave_sample(key, pool.fine(index), pool.loop(index)),
-                         chunk(b"wlnk", struct.pack("<HHII", 0, 0, 1, index)), articulation(note))
+                         chunk(b"wlnk", struct.pack("<HHII", 0, 0, 1, index)), articulation(note),
+                         chunk(b"dsrg", native))
 
     instruments = []
     for i, instrument in enumerate(bank.get("instruments", [])):
