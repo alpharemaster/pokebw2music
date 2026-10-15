@@ -41,6 +41,9 @@ from tools.data.datajson import DataError  # noqa: E402
 from tools.data.sound_data import CRY_WAVE_ARCHIVES, cry_swar, file_name, load_list, swar_waves, swav_wave  # noqa: E402
 from tools.data.pokemon_cries import cry_folder  # noqa: E402
 from tools.data.sound_waves import WAVE, decode, wav_wave  # noqa: E402
+from tools.data.sound_data import sequence_source  # noqa: E402
+from tools.data.midi_sseq import convert  # noqa: E402
+from tools.data.sseq_preview import preview_midi, render  # noqa: E402
 
 ARM7_CLOCK = 16756991
 FRAME = 2728 * 64 / 33513982                   # Seconds between the driver's envelope updates
@@ -56,6 +59,11 @@ PSG_STEPS = 32                                 # Samples per cycle of the export
 SRC_NONE, DST_PAN = 0x0000, 0x0004
 DST_ATTACK, DST_DECAY, DST_RELEASE, DST_SUSTAIN = 0x0206, 0x0207, 0x0209, 0x020A
 DRUMS = 0x80000000
+MUSIC = ("SEQ_BGM_", "SEQ_ME_")
+# The bank selects of the instruments with a track's envelope, and the note fields of the envelope
+VARIANT_BANK = 64
+ENVELOPE = ("attack", "decay", "sustain", "release")
+NO_ENVELOPE = 255
 
 
 # The sound driver's envelope
@@ -238,8 +246,14 @@ class Waves:
         return waves
 
 
-def bank_dls(name: str, bank: dict, waves: Waves) -> tuple[bytes, list[str]]:
-    """Returns a bank's DLS file, and what it couldn't export."""
+def variant_program(number: int) -> tuple[int, int]:
+    """The (bank, program) of a bank's instrument with a track's envelope."""
+    return VARIANT_BANK + number // 128, number % 128
+
+
+def bank_dls(name: str, bank: dict, waves: Waves, variants=()) -> tuple[bytes, list[str]]:
+    """Returns a bank's DLS file, with the variants of its programs that the tracks' envelopes make
+    ((program, attack, decay, sustain, release), 255 for the program's own), and what it couldn't export."""
     pool = Pool()
     problems = []
     slots = bank.get("wave_archives", [])
@@ -264,17 +278,15 @@ def bank_dls(name: str, bank: dict, waves: Waves) -> tuple[bytes, list[str]]:
         return riff_list(b"rgn ", chunk(b"rgnh", header), wave_sample(key, pool.fine(index), pool.loop(index)),
                          chunk(b"wlnk", struct.pack("<HHII", 0, 0, 1, index)), articulation(note))
 
-    instruments = []
-    for i, instrument in enumerate(bank.get("instruments", [])):
-        programs = instrument["program"]
-        programs = [] if programs is None else programs if isinstance(programs, list) else [programs]
-        if not programs:
-            continue
-        where = f"{name} instruments[{i}]"
+    def regions_of(instrument: dict, where: str, envelope: tuple) -> list[bytes]:
+        """An instrument's regions, with the envelope a track sets (255 for the instrument's own) in place of its."""
+        def note(part):
+            override = {field: value for field, value in zip(ENVELOPE, envelope) if value != NO_ENVELOPE}
+            return {**part, **override}
         if instrument["type"] == "drum_set":
             first = instrument["first_key"]
             first = sseq.parse_key(first) if isinstance(first, str) else first
-            regions = [region(first + k, first + k, drum, f"{where}.drums[{k}]")
+            regions = [region(first + k, first + k, note(drum), f"{where}.drums[{k}]")
                        for k, drum in enumerate(instrument["drums"])]
         elif instrument["type"] == "key_split":
             regions, low = [], 0
@@ -282,24 +294,53 @@ def bank_dls(name: str, bank: dict, waves: Waves) -> tuple[bytes, list[str]]:
                 last = part["last_key"]
                 last = sseq.parse_key(last) if isinstance(last, str) else last
                 if last >= low:  # A region after a higher one never plays
-                    regions.append(region(low, last, part, f"{where}.regions[{k}]"))
+                    regions.append(region(low, last, note(part), f"{where}.regions[{k}]"))
                     low = last + 1
         else:
-            regions = [region(0, 127, instrument, where)]
-        regions = [r for r in regions if r]
-        if not regions:
-            continue
+            regions = [region(0, 127, note(instrument), where)]
+        return [r for r in regions if r]
+
+    def add(bank_number: int, program: int, regions: list[bytes], label: str):
+        for drums in (0, DRUMS):
+            header = struct.pack("<III", len(regions), drums | bank_number << 8, program)
+            instruments.append(riff_list(b"ins ", chunk(b"insh", header), riff_list(b"lrgn", *regions),
+                                         info(label + (" (drums)" if drums else ""))))
+
+    instruments = []
+    by_program = {}
+    for i, instrument in enumerate(bank.get("instruments", [])):
+        programs = instrument["program"]
+        programs = [] if programs is None else programs if isinstance(programs, list) else [programs]
         for program in programs:
-            for drums in (0, DRUMS):
-                header = struct.pack("<III", len(regions), drums | (program // 128) << 8, program % 128)
-                label = f"{name} program {program}" + (" (drums)" if drums else "")
-                instruments.append(riff_list(b"ins ", chunk(b"insh", header), riff_list(b"lrgn", *regions),
-                                             info(label)))
+            by_program[program] = (instrument, f"{name} instruments[{i}]")
+        regions = regions_of(instrument, f"{name} instruments[{i}]", (NO_ENVELOPE,) * 4) if programs else []
+        for program in programs:
+            if regions:
+                add(program // 128, program % 128, regions, f"{name} program {program}")
+    # The envelopes that tracks set, as instruments of their own in banks from VARIANT_BANK
+    for number, (program, *envelope) in enumerate(variants):
+        if program in by_program:
+            instrument, where = by_program[program]
+            regions = regions_of(instrument, where, tuple(envelope))
+            if regions:
+                bank_number, slot = variant_program(number)
+                add(bank_number, slot, regions, f"{name} program {program} envelope {envelope}")
     table, pool_list = pool.chunks()
     body = (b"DLS " + chunk(b"vers", struct.pack("<II", 1 << 16, 0))
             + chunk(b"colh", struct.pack("<I", len(instruments))) + riff_list(b"lins", *instruments) + table
             + pool_list + info(name))
     return chunk(b"RIFF", body), problems
+
+
+def song_text(root: Path, song: str, infos: dict) -> tuple[str, str]:
+    """The text a sequence is packed from, as the packer chooses it, and its file's name."""
+    seen = []
+    while "shares_data_with" in infos[song] and song not in seen:
+        seen.append(song)
+        song = infos[song]["shares_data_with"]
+    stem = root / "sequences" / file_name(song, "SEQ_")
+    source = sequence_source(stem.with_suffix(".seq"), stem.with_suffix(".mid"))
+    return (source.read_text() if source.suffix == ".seq" else convert(source, infos[song])), str(source)
 
 
 def main():
@@ -310,11 +351,12 @@ def main():
     parser.add_argument("--all", action="store_true", help="export every bank")
     args = parser.parse_args()
     banks = {name: name for name in load_list("BANK").values()}
-    songs = {}
+    songs, infos = {}, {}
     for number, name in load_list("SEQ").items():
         path = args.root / "sequences" / f"{file_name(name, 'SEQ_')}.json"
         if path.exists():
-            songs[name] = json.loads(path.read_text())["bank"]
+            infos[name] = json.loads(path.read_text())
+            songs[name] = infos[name]["bank"]
     if args.all:
         wanted = sorted(banks)
     elif args.names:
@@ -327,7 +369,7 @@ def main():
             else:
                 sys.exit(f"error: {name} is neither a bank nor a sequence")
     else:
-        wanted = sorted({bank for song, bank in songs.items() if song.startswith(("SEQ_BGM_", "SEQ_ME_"))})
+        wanted = sorted({bank for song, bank in songs.items() if song.startswith(MUSIC)})
     args.output.mkdir(parents=True, exist_ok=True)
     waves = Waves(args.root)
     for name in dict.fromkeys(wanted):
@@ -339,15 +381,31 @@ def main():
             shared = json.loads((args.root / "banks" / f"{file_name(bank['shares_data_with'], 'BANK_')}.json")
                                 .read_text())
             bank = {**shared, "wave_archives": bank["wave_archives"]}
+        # The previews of the music that plays the bank, and the envelopes its tracks set
+        renders = {}
+        for song, song_bank in sorted(songs.items()):
+            if song_bank == name and song.startswith(MUSIC):
+                try:
+                    text, source = song_text(args.root, song, infos)
+                    renders[song] = render(text, infos[song]["volume"], source)
+                except (DataError, ValueError) as error:
+                    print(f"warning: no preview of {song}: {error}", file=sys.stderr)
+        variants = sorted({v for conductor, events, used, end in renders.values() for v in used
+                           if v[1:] != (NO_ENVELOPE,) * 4})
         try:
-            data, problems = bank_dls(name, bank, waves)
+            data, problems = bank_dls(name, bank, waves, variants)
         except DataError as error:
             sys.exit(f"error: {error}")
         (args.output / f"{file_name(name, 'BANK_')}.dls").write_bytes(data)
         for problem in problems:
             print(f"warning: {problem}", file=sys.stderr)
-    lines = [f"{file_name(song, 'SEQ_')}.mid {file_name(bank, 'BANK_')}.dls" for song, bank in sorted(songs.items())
-             if song.startswith(("SEQ_BGM_", "SEQ_ME_")) and bank in wanted]
+        numbers = {v: variant_program(i) for i, v in enumerate(variants)}
+        for song, (conductor, events, used, end) in renders.items():
+            programs = {v: numbers.get(v, (v[0] // 128, v[0] % 128)) for v in used}
+            (args.output / f"{file_name(song, 'SEQ_')}.preview.mid").write_bytes(
+                preview_midi(conductor, events, programs, end))
+    lines = [f"{file_name(song, 'SEQ_')}.mid {file_name(song, 'SEQ_')}.preview.mid {file_name(bank, 'BANK_')}.dls"
+             for song, bank in sorted(songs.items()) if song.startswith(MUSIC) and bank in wanted]
     (args.output / "songs.txt").write_text("\n".join(lines) + "\n")
     print(f"{len(dict.fromkeys(wanted))} banks in {args.output}")
 

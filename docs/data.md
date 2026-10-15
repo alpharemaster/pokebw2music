@@ -867,6 +867,15 @@ true rate and the PSG and noise instruments as the hardware plays them. The enve
 sound driver's own (see the script): the decay, sustain and release exactly, as both are linear in dB, and the attack,
 which DLS ramps in amplitude, by its half-way point.
 
+A synthesizer plays the `.mid` files' portamento, modulation and pitch sweep controllers in its own way, not the DS's,
+so the same command also writes `build/dls/<name>.preview.mid` for each song, which `tools/data/sseq_preview.py`
+renders by running the sequence as the ARM7 driver does, frame by frame: the portamento, sweep, bend and pitch
+modulation become pitch bends, the volume and pan modulation expression and pan, the sequence's and the player's
+volume part of each track's volume, and the envelopes that tracks set instruments of their own in the DLS file
+(bank select 64 and up). Played with the bank's DLS file, a preview sounds as the game does. It is rendered from what
+the build packs, so an edited `.mid` previews with its edits: edit the `.mid`, then export its bank again and play
+the preview. A track that plays several notes at once has one pitch bend, so it follows its newest note.
+
 ### Banks and samples
 
 A sequence's `program` picks an instrument of its bank: `pcm` plays a sample of one of the bank's wave archives,
