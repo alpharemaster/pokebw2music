@@ -859,8 +859,13 @@ uses it and says that the `.mid` is out of date (`.venv/bin/python tools/data/ss
 data/sound/sequences/<name>.seq` exports it again); if both changed, it stops, since it can't tell which to keep.
 To replace a song, save a MIDI over its `.mid`: its JSON stays as it is.
 
-The MIDI's program numbers are the bank's (`banks/<name>.json`), not General MIDI's, so a sequencer plays the
-export with the wrong instruments, though with the right notes, timing and loop.
+The MIDI's program numbers are the bank's (`banks/<name>.json`), not General MIDI's. To hear them with the game's
+instruments, `.venv/bin/python tools/data/sound_dls.py data/sound build/dls` exports the music's banks as DLS files
+(any bank or sequence by name, or `--all`), and `build/dls/songs.txt` says which file each `.mid` plays with. Each
+program is a DLS instrument of the MIDI's bank select, as a drum kit too for channel 10, with the samples at their
+true rate and the PSG and noise instruments as the hardware plays them. The envelopes are converted from the ARM7
+sound driver's own (see the script): the decay, sustain and release exactly, as both are linear in dB, and the attack,
+which DLS ramps in amplitude, by its half-way point.
 
 ### Banks and samples
 
