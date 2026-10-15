@@ -1,11 +1,11 @@
-// Nitro Synth: the DS sound driver (see NitroEngine.hpp)
-#include "NitroEngine.hpp"
+// NDS Synth: the DS sound driver (see NdsEngine.hpp)
+#include "NdsEngine.hpp"
 
 #include <algorithm>
 #include <cmath>
 #include <cstdlib>
 
-namespace nitro {
+namespace nds {
 
 namespace {
 
@@ -600,4 +600,4 @@ void Engine::render(float* left, float* right, uint32_t frames)
     }
 }
 
-}  // namespace nitro
+}  // namespace nds

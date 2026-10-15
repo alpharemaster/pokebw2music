@@ -5,9 +5,10 @@
 
 The export plays the sequence as the sound driver does: it follows calls, starts each track where it is opened, and
 renders each track up to the song's loop, which it marks with the markers "[" and "]". A track that loops on its own
-part repeats it to fill the song's loop. Track N becomes channel N, at the sequence's 48 ticks per quarter note, and
+part repeats it to fill the song's loop. Track N becomes channel N, and
 the commands without a MIDI event of their own become the controllers of midi_sseq.CONTROLLERS, so that converting
-the file back plays the same.
+the file back plays the same. The file has 960 ticks per quarter note, 20 for each of the sequence's, to place the
+settings that the driver reads when a note starts just before or after the note, as the sequence orders them.
 
 The file starts with a text event that gives the hashes of the sequence it was exported from and of the MIDI itself.
 The packer (sound_data.py) uses the .seq file of a sequence while its .mid is that export, and the .mid once it was
@@ -29,6 +30,8 @@ from tools.data.midi_sseq import COMMAND_CONTROLLERS, PROGRAM_CC, SWEEP_PITCH, T
 TRACK_DEFAULTS = {0xC1: 127, 0xC0: 64, 0xD5: 127, 0xC5: 2, 0xC6: 64}
 STAMP = re.compile(rb"pokebw2 sseq=([0-9a-f]{40}) midi=([0-9a-f]{40})")
 NO_HASH = b"0" * 40
+# The export's ticks per sequence tick: 960 per quarter note, which leaves room around a tick (see export())
+FINE = 20
 # The longest song loop the export unrolls the tracks' own loops to, in ticks
 MAX_LOOP = TICKS * 4 * 512
 
@@ -191,13 +194,13 @@ def export(text: str, path="<sequence>") -> bytes:
     end = loop[1] if loop else max(ends, default=0)
 
     # An empty text event ends each track at the song's end
-    finish = (end, b"\xff\x01\0")
+    finish = (end * FINE, b"\xff\x01\0")
     conductor = [(0, b"\xff\x03\x09Conductor")]
     for tick, _, bpm in sorted(tempos):
         if tick < end or (not loop and tick <= end):
-            conductor.append((tick, b"\xff\x51\x03" + (60_000_000 // max(1, bpm)).to_bytes(3, "big")))
+            conductor.append((tick * FINE, b"\xff\x51\x03" + (60_000_000 // max(1, bpm)).to_bytes(3, "big")))
     if loop:
-        conductor += [(loop[0], b"\xff\x06\x01["), (loop[1], b"\xff\x06\x01]")]
+        conductor += [(loop[0] * FINE, b"\xff\x06\x01["), (loop[1] * FINE, b"\xff\x06\x01]")]
     chunks = []
     for track in sorted(tracks, key=lambda t: t.number):
         channel = track.number
@@ -209,45 +212,82 @@ def export(text: str, path="<sequence>") -> bytes:
         own = {e[3] for e in played if e[2] == "control" and e[0] == start}
         defaults = [(start, -1, "control", code, value) for code, value in TRACK_DEFAULTS.items() if code not in own]
         played = defaults + played
+        # The driver reads a note's settings when it starts, and a host may play a setting at a note's time after
+        # the note, so the events of a tick keep the sequence's order in their times (midi_sseq.py rounds them
+        # back): the settings before its first note half a tick earlier, its notes on it, a setting between notes
+        # a step after the ones before it and the notes after that a step later, and the settings after its last
+        # note just under half a tick later. At tick 0 nothing comes earlier, so the notes start 0.3 tick later.
+        by_tick = {}
+        for e in played:
+            by_tick.setdefault(e[0], []).append((e[1], e[2] == "note"))
+        offsets = {}
+        for tick, items in by_tick.items():
+            if not any(is_note for _, is_note in items):
+                continue
+            items.sort()
+            # Each setting between notes takes two steps, and all must stay under half a tick
+            splits = sum(1 for i in range(1, len(items) - 1) if not items[i][1] and any(n for _, n in items[:i])
+                         and any(n for _, n in items[i + 1:]))
+            step = max(1, min(FINE * 3 // 10, FINE // 2 - 2 - 2 * splits)) if tick == 0 and not items[0][1] else 0
+            seen, between = False, []
+            for order, is_note in items:
+                if is_note:
+                    if between:
+                        step = offsets[tick, between[-1]] + 1
+                        between = []
+                    offsets[tick, order] = step
+                    seen = True
+                elif not seen:
+                    offsets[tick, order] = -(FINE // 2) if tick else 0
+                else:
+                    offsets[tick, order] = min(FINE // 2 - 1, step + 1 + len(between))
+                    between.append(order)
+            for order in between:
+                offsets[tick, order] = FINE // 2 - 1
+
+        def when(tick, order, kind):
+            return FINE * tick + offsets.get((tick, order), 0)
+
         for event in played:
-            tick, _, kind = event[:3]
+            tick, order, kind = event[:3]
+            at = when(tick, order, kind)
             if kind == "note":
                 key, velocity, length = event[3:]
                 if not 0 <= key < 0x80:
                     raise DataError(f"{path}: track {channel} plays key {key} after transposing")
                 off = min(tick + max(1, length), end) if loop else tick + max(1, length)
-                events.append((tick, bytes((0x90 | channel, key, max(1, velocity)))))
-                events.append((off, bytes((0x80 | channel, key, 0))))
+                events.append((at, bytes((0x90 | channel, key, max(1, velocity)))))
+                events.append((off * FINE, bytes((0x80 | channel, key, 0))))
             elif kind == "program":
                 program = event[3]
                 if program // 128 != bank:
                     bank = program // 128
-                    events.append((tick, bytes((0xB0 | channel, 0, bank))))
-                events.append((tick, bytes((0xB0 | channel, PROGRAM_CC, program % 128))))
-                events.append((tick, bytes((0xC0 | channel, program % 128))))
+                    events.append((at, bytes((0xB0 | channel, 0, bank))))
+                events.append((at, bytes((0xB0 | channel, PROGRAM_CC, program % 128))))
+                events.append((at, bytes((0xC0 | channel, program % 128))))
             elif kind == "bend":
                 wheel = event[3] * 64 + 8192
-                events.append((tick, bytes((0xE0 | channel, wheel & 0x7F, wheel >> 7))))
+                events.append((at, bytes((0xE0 | channel, wheel & 0x7F, wheel >> 7))))
             elif kind == "sweep":
                 value = max(0, min(0x3FFF, event[3] + 8192))
-                events.append((tick, bytes((0xB0 | channel, SWEEP_PITCH[0], value >> 7))))
-                events.append((tick, bytes((0xB0 | channel, SWEEP_PITCH[1], value & 0x7F))))
+                events.append((at, bytes((0xB0 | channel, SWEEP_PITCH[0], value >> 7))))
+                events.append((at, bytes((0xB0 | channel, SWEEP_PITCH[1], value & 0x7F))))
             else:
                 code, value = event[3:]
                 number = COMMAND_CONTROLLERS[code]
                 if code == 0xC5:  # The bend range, as RPN 0
-                    events += [(tick, bytes((0xB0 | channel, 101, 0))), (tick, bytes((0xB0 | channel, 100, 0))),
-                               (tick, bytes((0xB0 | channel, 6, min(127, value))))]
+                    events += [(at, bytes((0xB0 | channel, 101, 0))), (at, bytes((0xB0 | channel, 100, 0))),
+                               (at, bytes((0xB0 | channel, 6, min(127, value))))]
                     continue
                 if code == 0xCE:
                     value = 127 if value else 0
-                events.append((tick, bytes((0xB0 | channel, number, min(127, value)))))
+                events.append((at, bytes((0xB0 | channel, number, min(127, value)))))
         # Within a tick: the settings, then the notes that end, then the notes that start
         events.sort(key=lambda e: (e[0], {0x80: 1, 0x90: 2}.get(e[1][0] & 0xF0, 0)))
         chunks.append(midi_track(events + [finish]))
     stamp = b"pokebw2 sseq=" + hashlib.sha1(text.encode()).hexdigest().encode() + b" midi=" + NO_HASH
     conductor = [(0, b"\xff\x01" + varlen(len(stamp)) + stamp)] + conductor + [finish]
-    smf = (b"MThd" + struct.pack(">IHHH", 6, 1, len(chunks) + 1, TICKS) + midi_track(conductor)
+    smf = (b"MThd" + struct.pack(">IHHH", 6, 1, len(chunks) + 1, TICKS * FINE) + midi_track(conductor)
            + b"".join(chunks))
     return smf.replace(NO_HASH, hashlib.sha1(smf).hexdigest().encode(), 1)
 

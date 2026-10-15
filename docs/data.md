@@ -847,10 +847,14 @@ sharp: `C4` is 60.
 ### MIDI files
 
 Each BGM and jingle (`SEQ_BGM_*`, `SEQ_ME_*`) has a `.mid` beside its `.seq`, which `tools/data/sseq_midi.py`
-exports from it: track N is MIDI channel N, at 48 ticks per quarter note; the song's loop is between the markers `[`
-and `]`, and the parts that loop on their own are repeated to fill it; and the sound driver's settings that MIDI has
-no event for, such as the envelope, the modulation and the track priority, are controllers (see
-`tools/data/midi_sseq.py`). Converting an export back plays the same as the `.seq`, which every one of the 311 does.
+exports from it: track N is MIDI channel N, at 960 ticks per quarter note (20 for each of the sequence's); the song's
+loop is between the markers `[` and `]`, and the parts that loop on their own are repeated to fill it; and the sound
+driver's settings that MIDI has no event for, such as the envelope, the modulation and the track priority, are
+controllers (see `tools/data/midi_sseq.py`). The driver reads a note's program and portamento, sweep and envelope
+settings when the note starts, and a sequencer may play a setting after a note at the same time, so a setting that
+the sequence gives before a note at its tick is half a tick earlier, one it gives after the note just under half a
+tick later; the importer rounds them back. Converting an export back plays the same as the `.seq`, with every note on
+its instrument at its tick, which every one of the 311 does.
 
 The build packs a sequence from its `.seq` while the `.mid` is that export, so the ROMs still match, and from the
 `.mid` as soon as it is edited or replaced: the export starts with a text event that holds the hashes of the `.seq`
@@ -868,7 +872,7 @@ sound driver's own (see the script): the decay, sustain and release exactly, as 
 which DLS ramps in amplitude, by its half-way point.
 
 A synthesizer plays the `.mid` files' portamento, modulation and pitch sweep controllers in its own way, not the DS's.
-[Nitro Synth](../tools/nitro_synth/README.md) is a VST3 instrument that plays them, with the DLS files, as the game's
+[NDS Synth](../tools/nds_synth/README.md) is a VST3 instrument that plays them, with the DLS files, as the game's
 sound driver does: each region of the files also has a `dsrg` chunk of what the driver plays, which it reads.
 
 ### Banks and samples

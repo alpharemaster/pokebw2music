@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# Builds Nitro Synth's Windows VST3 from WSL with Visual Studio's compiler (the "Desktop development with C++"
+# Builds NDS Synth's Windows VST3 from WSL with Visual Studio's compiler (the "Desktop development with C++"
 # workload), and with --install copies it to C:\Program Files\Common Files\VST3.
 #
-#     tools/nitro_synth/build_windows.sh [--install]
+#     tools/nds_synth/build_windows.sh [--install]
 #
-# DPF is fetched at DPF_COMMIT into build/nitro_synth/dpf. MSVC can't build from a \\wsl$ path, so the sources are
-# copied to %LOCALAPPDATA%\pokebw2\nitro_synth and built there; the bundle comes back to build/nitro_synth/.
+# DPF is fetched at DPF_COMMIT into build/nds_synth/dpf. MSVC can't build from a \\wsl$ path, so the sources are
+# copied to %LOCALAPPDATA%\pokebw2\nds_synth and built there; the bundle comes back to build/nds_synth/.
 set -euo pipefail
 
 DPF_COMMIT=4238e1c7f0351bbe488d79f0899c540543ac7583
 ROOT=$(cd "$(dirname "$0")/../.." && pwd)
-OUT=$ROOT/build/nitro_synth
+OUT=$ROOT/build/nds_synth
 VSWHERE="/mnt/c/Program Files (x86)/Microsoft Visual Studio/Installer/vswhere.exe"
 
 if [ ! -d "$OUT/dpf/.git" ]; then
@@ -32,14 +32,14 @@ if [ -z "$VS" ]; then
 fi
 
 LOCAL=$(cd /mnt/c && cmd.exe /c "echo %LOCALAPPDATA%" 2>/dev/null | tr -d '\r')
-WIN_DIR="$LOCAL\\pokebw2\\nitro_synth"
+WIN_DIR="$LOCAL\\pokebw2\\nds_synth"
 DIR=$(wslpath -u "$WIN_DIR")
 mkdir -p "$DIR"
 rm -rf "$DIR/src" "$DIR/dpf"
-cp -r "$ROOT/tools/nitro_synth" "$DIR/src"
+cp -r "$ROOT/tools/nds_synth" "$DIR/src"
 cp -r "$OUT/dpf" "$DIR/dpf"
 rm -rf "$DIR/dpf/.git"
-python3 "$ROOT/tools/nitro_synth/patch_dpf.py" "$DIR/dpf"  # VST3 program changes
+python3 "$ROOT/tools/nds_synth/patch_dpf.py" "$DIR/dpf"  # VST3 program changes
 
 cat > "$DIR/build.bat" <<EOF
 @echo off
@@ -54,10 +54,10 @@ if [ -z "$BUNDLE" ]; then
     echo "error: the build made no .vst3 bundle" >&2
     exit 1
 fi
-rm -rf "$OUT/NitroSynth.vst3"
-cp -r "$BUNDLE" "$OUT/NitroSynth.vst3"
-echo "Built $OUT/NitroSynth.vst3"
-echo "  Windows path: $(wslpath -w "$OUT/NitroSynth.vst3")"
+rm -rf "$OUT/NDSSynth.vst3"
+cp -r "$BUNDLE" "$OUT/NDSSynth.vst3"
+echo "Built $OUT/NDSSynth.vst3"
+echo "  Windows path: $(wslpath -w "$OUT/NDSSynth.vst3")"
 
 if [ "${1:-}" = "--install" ]; then
     TARGET="/mnt/c/Program Files/Common Files/VST3"

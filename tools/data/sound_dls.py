@@ -10,7 +10,7 @@ which file each music sequence's .mid plays with.
 
 Each region also has a "dsrg" chunk with what the sound driver plays, which other players skip: its type (1 PCM,
 2 PSG, 3 noise), the PSG duty, the base key, the attack, decay, sustain, release and pan, and the wave's timer
-(struct <8BHH, the last halfword 0). tools/nitro_synth plays the banks from it.
+(struct <8BHH, the last halfword 0). tools/nds_synth plays the banks from it.
 
 A bank's program N is the DLS instrument N of bank N // 128 (the MIDI files' bank select), once as a melodic
 instrument and once more as a drum kit, so that a General MIDI synthesizer finds it on channel 10 too; a drum set
@@ -268,7 +268,7 @@ def bank_dls(name: str, bank: dict, waves: Waves) -> tuple[bytes, list[str]]:
             index = pool.add(("noise",), *noise_wave(), 0)
             timer, code = PSG_TIMER, 3
         header = struct.pack("<HHHHHH", low, high, 0, 127, 0, 0)
-        # The region as the sound driver has it, for players that emulate it (tools/nitro_synth)
+        # The region as the sound driver has it, for players that emulate it (tools/nds_synth)
         native = struct.pack("<8BHH", code, note["wave"] if code == 2 else 0, key, note["attack"], note["decay"],
                              note["sustain"], note["release"], note["pan"], timer, 0)
         return riff_list(b"rgn ", chunk(b"rgnh", header), wave_sample(key, pool.fine(index), pool.loop(index)),

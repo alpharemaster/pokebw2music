@@ -134,7 +134,8 @@ def convert(path: Path, info: dict) -> str:
     options = info.get("midi", {})
     where = label(path)
     division, events = read_midi(path)
-    scale = lambda tick: round(tick * TICKS / division)  # noqa: E731
+    # Rounding halves up, as the export puts a setting that comes before a note half a tick earlier
+    scale = lambda tick: (tick * TICKS * 2 + division) // (2 * division)  # noqa: E731
     transpose = options.get("transpose", 0)
     curve = options.get("velocity_curve", 1)
 
@@ -167,11 +168,12 @@ def convert(path: Path, info: dict) -> str:
     last_program = {}
     rpn = {}
     sweeps = {}
-    order = 0
+    count = 0
     for event in events:
         tick, _, kind, channel = event[:4]
         at = scale(tick)
-        order += 1
+        count += 1
+        order = (tick, count)  # The event's time in the file, then its place
         if kind == "tempo":
             bpm = max(1, min(0xFFFF, round(60_000_000 / event[4])))
             tempos.append((at, order, f"tempo {bpm}", "tempo", bpm))
@@ -221,7 +223,8 @@ def convert(path: Path, info: dict) -> str:
     for track in used:
         channel = track
         commands = channels.get(channel, []) + (tempos if track == 0 else [])
-        commands.sort(key=lambda command: (command[0], isinstance(command[2], tuple), command[1]))
+        # In the MIDI file's order, and where two events have the same time, the settings before the notes
+        commands.sort(key=lambda command: (command[0], command[1][0], isinstance(command[2], tuple), command[1][1]))
         if track:
             lines.append(f"Track_{track}:")
         # MIDI's defaults, where the track doesn't set its own at the start

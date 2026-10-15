@@ -1,4 +1,4 @@
-// Nitro Synth: an instrument bank, read from a DLS file that tools/data/sound_dls.py exported.
+// NDS Synth: an instrument bank, read from a DLS file that tools/data/sound_dls.py exported.
 //
 // Each region of those files has a "dsrg" chunk with what the DS sound driver plays: the wave's type, the PSG duty,
 // the base key, the envelope and pan, and the wave's timer. A DLS file without it plays too, with its regions'
@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-namespace nitro {
+namespace nds {
 
 enum class WaveType : uint8_t { Pcm = 1, Psg = 2, Noise = 3 };
 
@@ -48,4 +48,4 @@ struct Bank {
 
 std::unique_ptr<Bank> loadDls(const std::string& path, std::string& error);
 
-}  // namespace nitro
+}  // namespace nds

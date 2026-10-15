@@ -1,7 +1,7 @@
-# Nitro Synth, a VST3 instrument that plays the DS sound banks as the game's sound driver does. build_windows.sh
+# NDS Synth, a VST3 instrument that plays the DS sound banks as the game's sound driver does. build_windows.sh
 # builds it with Visual Studio's compiler, from DPF (the DISTRHO Plugin Framework) at DPF_DIR.
 cmake_minimum_required(VERSION 3.15)
-project(nitro_synth CXX C)
+project(nds_synth CXX C)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,14 +12,14 @@ if(NOT DPF_DIR)
 endif()
 add_subdirectory(${DPF_DIR} dpf)
 
-dpf_add_plugin(NitroSynth
+dpf_add_plugin(NDSSynth
   TARGETS vst3
   USE_FILE_BROWSER
   FILES_DSP
-    src/NitroPlugin.cpp
-    src/NitroEngine.cpp
-    src/NitroBank.cpp
+    src/NdsPlugin.cpp
+    src/NdsEngine.cpp
+    src/NdsBank.cpp
   FILES_UI
-    src/NitroUI.cpp)
+    src/NdsUI.cpp)
 
-target_include_directories(NitroSynth PUBLIC src)
+target_include_directories(NDSSynth PUBLIC src)

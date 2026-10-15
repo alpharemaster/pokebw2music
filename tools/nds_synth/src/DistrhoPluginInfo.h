@@ -1,10 +1,10 @@
-// Nitro Synth's description for DPF (the DISTRHO Plugin Framework)
+// NDS Synth's description for DPF (the DISTRHO Plugin Framework)
 #ifndef DISTRHO_PLUGIN_INFO_H_INCLUDED
 #define DISTRHO_PLUGIN_INFO_H_INCLUDED
 
 #define DISTRHO_PLUGIN_BRAND "pokebw2"
-#define DISTRHO_PLUGIN_NAME  "Nitro Synth"
-#define DISTRHO_PLUGIN_URI   "https://github.com/alpharemaster/pokebw2music#nitro-synth"
+#define DISTRHO_PLUGIN_NAME  "NDS Synth"
+#define DISTRHO_PLUGIN_URI   "https://github.com/alpharemaster/pokebw2music#nds-synth"
 #define DISTRHO_PLUGIN_BRAND_ID Pkbw
 #define DISTRHO_PLUGIN_UNIQUE_ID NtSy
 

@@ -1,8 +1,8 @@
-// Nitro Synth's plugin: the engine (NitroEngine.hpp) as a DPF instrument, with the DLS file it plays as its state
+// NDS Synth's plugin: the engine (NdsEngine.hpp) as a DPF instrument, with the DLS file it plays as its state
 #pragma once
 
 #include "DistrhoPlugin.hpp"
-#include "NitroEngine.hpp"
+#include "NdsEngine.hpp"
 
 #include <mutex>
 #include <string>
@@ -10,12 +10,12 @@
 
 START_NAMESPACE_DISTRHO
 
-class NitroPlugin : public Plugin {
+class NdsPlugin : public Plugin {
 public:
-    NitroPlugin();
+    NdsPlugin();
 
     // What the UI reads directly
-    std::array<nitro::ChannelView, 16> channelView() const { return fEngine.view(); }
+    std::array<nds::ChannelView, 16> channelView() const { return fEngine.view(); }
     std::string bankName() const;
     std::string instrumentName(int program) const;
     std::vector<int> programs() const;  // The loaded bank's programs, in order
@@ -23,7 +23,7 @@ public:
     std::string loadError() const { return fError; }
 
 protected:
-    const char* getLabel() const override { return "NitroSynth"; }
+    const char* getLabel() const override { return "NDSSynth"; }
     const char* getDescription() const override
     {
         return "Plays the DS sound banks of Pokemon Black 2 and White 2, exported as DLS files, as the game's sound "
@@ -46,11 +46,11 @@ protected:
     void run(const float**, float** outputs, uint32_t frames, const MidiEvent* events, uint32_t count) override;
 
 private:
-    nitro::Engine fEngine;
+    nds::Engine fEngine;
     mutable std::mutex fLock;  // Held while a DLS file replaces the bank
     std::string fPath, fError;
 
-    DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NitroPlugin)
+    DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NdsPlugin)
 };
 
 END_NAMESPACE_DISTRHO

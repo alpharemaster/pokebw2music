@@ -6,7 +6,7 @@
 VST3 has no MIDI program change event: a host sends program changes as the parameter that the plugin's MIDI
 mapping gives for controller 130 (kCtrlProgramChange), as it sends controllers. DPF maps controllers 0 to 129
 (129 the pitch bend) on each channel to MIDI events, and leaves 130 out (its "TODO how do we deal with program
-changes??"), so Nitro Synth never hears a program change. This maps 130 too, and turns it into a program change.
+changes??"), so NDS Synth never hears a program change. This maps 130 too, and turns it into a program change.
 build_windows.sh runs it on its copy of DPF; it stops if DPF's code isn't the one it was written for.
 """
 import sys

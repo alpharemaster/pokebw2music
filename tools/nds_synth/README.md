@@ -1,4 +1,4 @@
-# Nitro Synth
+# NDS Synth
 
 A VST3 instrument that plays the game's sound banks the way Pokémon Black 2 and White 2's sound driver does. Its
 layout follows Fruity LSD's: load a DLS file, then each of the 16 MIDI channels plays a track with that bank. It
@@ -11,19 +11,19 @@ It is built with Visual Studio's compiler (2022 or later; 2026 builds it). Add t
 workload in the Visual Studio Installer, then run this from WSL:
 
 ```sh
-tools/nitro_synth/build_windows.sh            # build/nitro_synth/NitroSynth.vst3
-tools/nitro_synth/build_windows.sh --install  # and copy it to C:\Program Files\Common Files\VST3
+tools/nds_synth/build_windows.sh            # build/nds_synth/NDSSynth.vst3
+tools/nds_synth/build_windows.sh --install  # and copy it to C:\Program Files\Common Files\VST3
 ```
 
 The script fetches [DPF](https://github.com/DISTRHO/DPF) (the DISTRHO Plugin Framework, ISC) at a pinned commit.
 Installing to `Program Files` needs administrator rights; without them, copy the bundle there by hand or add
-`build\nitro_synth` to FL Studio's plugin search paths.
+`build\nds_synth` to FL Studio's plugin search paths.
 
 ## Playing a song
 
 1. Export the banks: `python3 tools/data/sound_dls.py data/sound build/dls`. `build/dls/songs.txt` says which bank
    each song plays.
-2. In FL Studio, add Nitro Synth, click **Load DLS...** and pick the song's bank, such as `mus_wb_pokecen.dls`.
+2. In FL Studio, add NDS Synth, click **Load DLS...** and pick the song's bank, such as `mus_wb_pokecen.dls`.
 3. Import the song's MIDI, such as `data/sound/sequences/bgm_pokecen.mid`, and route its channels to the plugin
    (MIDI channel N is the game's track N - 1).
 4. Set **Song volume** to the song's `"volume"` in its JSON (66 for the Pokémon Center; 90, the BGMs' median, by
@@ -54,6 +54,10 @@ The MIDI exports write the driver's commands as these controllers, and the plugi
 
 Pitch bend is the driver's: 14-bit bends are cut to its 256 steps.
 
+The driver picks a note's instrument, portamento, sweep and envelope when the note starts, so the exports place the
+settings that come before a note at its tick half a tick earlier (one tick of FL Studio's at 96 PPQ), and the plugin
+plays the controllers and program changes of a sample before its notes.
+
 VST3 has no MIDI program change event: a host passes program changes as a parameter that the plugin maps to
 controller 130. DPF leaves that out, so `patch_dpf.py` adds it to the build's copy of DPF. Since a host may still not
 pass them, the exports also write each program as controller 85, and each channel has a **Program** parameter, which
@@ -61,7 +65,7 @@ host automation can set and which the mouse wheel over a channel's program in th
 
 ## What it emulates
 
-Everything below is taken from the game's ARM7 sound driver (the addresses are in `src/NitroEngine.hpp`):
+Everything below is taken from the game's ARM7 sound driver (the addresses are in `src/NdsEngine.hpp`):
 
 - Every frame (2728 × 64 cycles, about 5.2 ms) each note's envelope, modulation, sweep and portamento move as the
   driver moves them, and its timer, volume and pan are set again.
@@ -82,10 +86,10 @@ Two things differ from the game:
 
 ## Sources
 
-- `src/NitroEngine.*`: the sound driver.
-- `src/NitroBank.*`: reading the DLS files, with each region's `dsrg` chunk of what the driver plays (the wave
+- `src/NdsEngine.*`: the sound driver.
+- `src/NdsBank.*`: reading the DLS files, with each region's `dsrg` chunk of what the driver plays (the wave
   type, PSG duty, base key, envelope, pan and timer). Other DLS files play too, with the envelope nearest to their
   articulation.
-- `src/NitroPlugin.*`, `src/NitroUI.cpp`: the DPF plugin and its UI.
+- `src/NdsPlugin.*`, `src/NdsUI.cpp`: the DPF plugin and its UI.
 - `test/render.cpp`: plays a MIDI file with a DLS file into a WAV file without a host, to test the engine on Linux:
-  `g++ -std=c++17 -O2 test/render.cpp src/NitroEngine.cpp src/NitroBank.cpp -o render`.
+  `g++ -std=c++17 -O2 test/render.cpp src/NdsEngine.cpp src/NdsBank.cpp -o render`.

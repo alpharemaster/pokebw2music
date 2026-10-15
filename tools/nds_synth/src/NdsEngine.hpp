@@ -1,4 +1,4 @@
-// Nitro Synth: the DS sound driver, as Pokémon Black 2 and White 2's ARM7 runs it, playing MIDI.
+// NDS Synth: the DS sound driver, as Pokémon Black 2 and White 2's ARM7 runs it, playing MIDI.
 //
 // Each MIDI channel is a track of the driver, and the controllers are the commands that tools/data/sseq_midi.py
 // exports them as (midi_sseq.CONTROLLERS):
@@ -20,7 +20,7 @@
 // interpolated.
 #pragma once
 
-#include "NitroBank.hpp"
+#include "NdsBank.hpp"
 
 #include <array>
 #include <atomic>
@@ -28,7 +28,7 @@
 #include <memory>
 #include <vector>
 
-namespace nitro {
+namespace nds {
 
 constexpr double SYSTEM_CLOCK = 33513982.0;
 constexpr double ARM7_CLOCK = SYSTEM_CLOCK / 2;           // The sound timers' clock
@@ -148,4 +148,4 @@ private:
     int fMixerUntilFrame = 0;    // Mixer samples' cycles (1024 each) to the next frame
 };
 
-}  // namespace nitro
+}  // namespace nds

@@ -1,6 +1,6 @@
-// Nitro Synth: reading DLS files (see NitroBank.hpp)
-#include "NitroBank.hpp"
-#include "NitroEngine.hpp"
+// NDS Synth: reading DLS files (see NdsBank.hpp)
+#include "NdsBank.hpp"
+#include "NdsEngine.hpp"
 
 #include <algorithm>
 #include <climits>
@@ -8,7 +8,7 @@
 #include <cstring>
 #include <fstream>
 
-namespace nitro {
+namespace nds {
 
 const Region* Instrument::find(int key) const
 {
@@ -74,8 +74,10 @@ const Chunk* find(const std::vector<Chunk>& chunks, const char* tag, const char*
 std::string infoName(const std::vector<Chunk>& chunks)
 {
     if (const Chunk* info = find(chunks, "LIST", "INFO"))
-        if (const Chunk* name = find(children(info->data, info->size), "INAM"))
-            return std::string(reinterpret_cast<const char*>(name->data), strnlen(reinterpret_cast<const char*>(name->data), name->size));
+        if (const Chunk* name = find(children(info->data, info->size), "INAM")) {
+            const char* text = reinterpret_cast<const char*>(name->data);
+            return std::string(text, strnlen(text, name->size));
+        }
     return {};
 }
 
@@ -135,7 +137,8 @@ std::unique_ptr<Bank> loadDls(const std::string& path, std::string& error)
         Wave wave;
         if (offset + 12 <= pool->size && !std::memcmp(pool->data + offset, "LIST", 4)) {
             uint32_t length = u32(pool->data + offset + 4);
-            std::vector<Chunk> parts = children(pool->data + offset + 12, std::min(length - 4, pool->size - offset - 12));
+            uint32_t size = std::min(length - 4, pool->size - offset - 12);
+            std::vector<Chunk> parts = children(pool->data + offset + 12, size);
             const Chunk* fmt = find(parts, "fmt ");
             const Chunk* data = find(parts, "data");
             if (fmt && data && fmt->size >= 16 && u16(fmt->data) == 1) {
@@ -239,9 +242,12 @@ std::unique_ptr<Bank> loadDls(const std::string& path, std::string& error)
                             else if (destination == 0x020A) {
                                 double level = std::clamp(scale / 65536.0 / 1000.0, 0.0, 1.0);
                                 double db = (level - 1) * 96;  // DLS's 96 dB range
-                                region.sustain = uint8_t(std::clamp(std::lround(127 * std::pow(10.0, db / 40)), 0L, 127L));
-                            } else if (destination == 0x0004)
-                                region.pan = uint8_t(std::clamp(64 + std::lround(scale / 65536.0 * 64 / 500), 0L, 127L));
+                                long sustain = std::lround(127 * std::pow(10.0, db / 40));
+                                region.sustain = uint8_t(std::clamp(sustain, 0L, 127L));
+                            } else if (destination == 0x0004) {
+                                long pan = 64 + std::lround(scale / 65536.0 * 64 / 500);
+                                region.pan = uint8_t(std::clamp(pan, 0L, 127L));
+                            }
                         }
                     }
             }
@@ -262,4 +268,4 @@ std::unique_ptr<Bank> loadDls(const std::string& path, std::string& error)
     return bank;
 }
 
-}  // namespace nitro
+}  // namespace nds

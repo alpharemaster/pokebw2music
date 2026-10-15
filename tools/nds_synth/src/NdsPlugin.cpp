@@ -1,34 +1,34 @@
-// Nitro Synth's plugin (see NitroPlugin.hpp)
-#include "NitroPlugin.hpp"
+// NDS Synth's plugin (see NdsPlugin.hpp)
+#include "NdsPlugin.hpp"
 
 #include <algorithm>
 #include <cstring>
 
 START_NAMESPACE_DISTRHO
 
-NitroPlugin::NitroPlugin() : Plugin(kParameterCount, 0, 1)
+NdsPlugin::NdsPlugin() : Plugin(kParameterCount, 0, 1)
 {
     fEngine.setSampleRate(getSampleRate());
 }
 
-std::string NitroPlugin::bankName() const
+std::string NdsPlugin::bankName() const
 {
     std::lock_guard<std::mutex> lock(fLock);
     auto bank = fEngine.bank();
     return bank ? bank->name : std::string();
 }
 
-std::string NitroPlugin::instrumentName(int program) const
+std::string NdsPlugin::instrumentName(int program) const
 {
     std::lock_guard<std::mutex> lock(fLock);
     auto bank = fEngine.bank();
     if (!bank)
         return {};
-    const nitro::Instrument* instrument = bank->find(program);
+    const nds::Instrument* instrument = bank->find(program);
     return instrument ? instrument->name : std::string("(none)");
 }
 
-std::vector<int> NitroPlugin::programs() const
+std::vector<int> NdsPlugin::programs() const
 {
     std::lock_guard<std::mutex> lock(fLock);
     std::vector<int> out;
@@ -43,7 +43,7 @@ std::vector<int> NitroPlugin::programs() const
     return out;
 }
 
-void NitroPlugin::initParameter(uint32_t index, Parameter& p)
+void NdsPlugin::initParameter(uint32_t index, Parameter& p)
 {
     p.hints = kParameterIsAutomatable;
     if (index >= kParameterProgram1) {
@@ -94,11 +94,11 @@ void NitroPlugin::initParameter(uint32_t index, Parameter& p)
     }
 }
 
-float NitroPlugin::getParameterValue(uint32_t index) const
+float NdsPlugin::getParameterValue(uint32_t index) const
 {
     if (index >= kParameterProgram1)
         return float(fEngine.program(int(index - kParameterProgram1)));
-    const nitro::Settings& s = fEngine.settings;
+    const nds::Settings& s = fEngine.settings;
     switch (index) {
     case kParameterMasterVolume: return s.masterVolume;
     case kParameterSongVolume: return s.songVolume;
@@ -110,13 +110,13 @@ float NitroPlugin::getParameterValue(uint32_t index) const
     return 0;
 }
 
-void NitroPlugin::setParameterValue(uint32_t index, float value)
+void NdsPlugin::setParameterValue(uint32_t index, float value)
 {
     if (index >= kParameterProgram1) {
         fEngine.setProgram(int(index - kParameterProgram1), int(value + 0.5f));
         return;
     }
-    nitro::Settings& s = fEngine.settings;
+    nds::Settings& s = fEngine.settings;
     switch (index) {
     case kParameterMasterVolume: s.masterVolume = value; break;
     case kParameterSongVolume: s.songVolume = value; break;
@@ -127,46 +127,46 @@ void NitroPlugin::setParameterValue(uint32_t index, float value)
     }
 }
 
-void NitroPlugin::initState(uint32_t, State& state)
+void NdsPlugin::initState(uint32_t, State& state)
 {
     state.key = "dls";
     state.label = "DLS File";
     state.hints = kStateIsFilenamePath;
 }
 
-String NitroPlugin::getState(const char* key) const
+String NdsPlugin::getState(const char* key) const
 {
     return std::strcmp(key, "dls") == 0 ? String(fPath.c_str()) : String();
 }
 
-void NitroPlugin::setState(const char* key, const char* value)
+void NdsPlugin::setState(const char* key, const char* value)
 {
     if (std::strcmp(key, "dls") != 0)
         return;
     std::string error;
-    std::shared_ptr<const nitro::Bank> bank;
+    std::shared_ptr<const nds::Bank> bank;
     if (value && *value)
-        bank = nitro::loadDls(value, error);
+        bank = nds::loadDls(value, error);
     std::lock_guard<std::mutex> lock(fLock);
     fPath = value ? value : "";
     fError = error;
     fEngine.setBank(std::move(bank));
 }
 
-void NitroPlugin::activate()
+void NdsPlugin::activate()
 {
     std::lock_guard<std::mutex> lock(fLock);
     fEngine.setSampleRate(getSampleRate());
     fEngine.reset();
 }
 
-void NitroPlugin::sampleRateChanged(double rate)
+void NdsPlugin::sampleRateChanged(double rate)
 {
     std::lock_guard<std::mutex> lock(fLock);
     fEngine.setSampleRate(rate);
 }
 
-void NitroPlugin::run(const float**, float** outputs, uint32_t frames, const MidiEvent* events, uint32_t count)
+void NdsPlugin::run(const float**, float** outputs, uint32_t frames, const MidiEvent* events, uint32_t count)
 {
     std::unique_lock<std::mutex> lock(fLock, std::try_to_lock);
     if (!lock.owns_lock()) {
@@ -178,20 +178,32 @@ void NitroPlugin::run(const float**, float** outputs, uint32_t frames, const Mid
     const TimePosition& time = getTimePosition();
     if (time.bbt.valid)
         fEngine.setTempo(time.bbt.beatsPerMinute);
+    // The events of a frame with its controllers and program changes first: the driver reads a note's settings when
+    // it starts, and the host may give a setting at a note's time after the note
+    auto isNote = [](const MidiEvent& e) {
+        return e.size >= 1 && ((e.data[0] & 0xF0) == 0x90 || (e.data[0] & 0xF0) == 0x80);
+    };
     uint32_t done = 0;
-    for (uint32_t i = 0; i < count; i++) {
-        const MidiEvent& event = events[i];
-        uint32_t at = std::min(event.frame, frames);
+    for (uint32_t i = 0; i < count;) {
+        uint32_t at = std::min(events[i].frame, frames);
         if (at > done) {
             fEngine.render(outputs[0] + done, outputs[1] + done, at - done);
             done = at;
         }
-        fEngine.midi(event.size > MidiEvent::kDataSize ? event.dataExt : event.data, event.size);
+        uint32_t end = i;
+        while (end < count && std::min(events[end].frame, frames) == at)
+            end++;
+        for (int pass = 0; pass < 2; pass++)
+            for (uint32_t j = i; j < end; j++)
+                if (isNote(events[j]) == (pass == 1))
+                    fEngine.midi(events[j].size > MidiEvent::kDataSize ? events[j].dataExt : events[j].data,
+                                 events[j].size);
+        i = end;
     }
     if (frames > done)
         fEngine.render(outputs[0] + done, outputs[1] + done, frames - done);
 }
 
-Plugin* createPlugin() { return new NitroPlugin(); }
+Plugin* createPlugin() { return new NdsPlugin(); }
 
 END_NAMESPACE_DISTRHO

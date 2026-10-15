@@ -1,7 +1,7 @@
-// Nitro Synth's UI: the DLS file, the output settings, and what each of the 16 channels plays, as Fruity LSD lays
+// NDS Synth's UI: the DLS file, the output settings, and what each of the 16 channels plays, as Fruity LSD lays
 // out a DLS player's channels
 #include "DistrhoUI.hpp"
-#include "NitroPlugin.hpp"
+#include "NdsPlugin.hpp"
 
 #include <algorithm>
 #include <cstdio>
@@ -34,9 +34,9 @@ const char* const HEADERS[] = {"Ch", "Prog", "Instrument", "Vol", "Exp", "Pan", 
 
 }  // namespace
 
-class NitroUI : public UI {
+class NdsUI : public UI {
 public:
-    NitroUI() : UI(DISTRHO_UI_DEFAULT_WIDTH, DISTRHO_UI_DEFAULT_HEIGHT)
+    NdsUI() : UI(DISTRHO_UI_DEFAULT_WIDTH, DISTRHO_UI_DEFAULT_HEIGHT)
     {
         loadSharedResources();
         const double scale = getScaleFactor();
@@ -65,7 +65,7 @@ protected:
     void uiIdle() override
     {
         // The channels change with the music
-        if (NitroPlugin* plugin = this->plugin()) {
+        if (NdsPlugin* plugin = this->plugin()) {
             auto view = plugin->channelView();
             if (std::memcmp(&view, &fView, sizeof view) != 0) {
                 fView = view;
@@ -129,7 +129,7 @@ protected:
         const int ch = int((y - TABLE_Y) / ROW) - 1;
         if (ch < 0 || ch >= 16 || x < COLUMNS[1] || x >= COLUMNS[3] || ev.delta.getY() == 0)
             return false;
-        NitroPlugin* plugin = this->plugin();
+        NdsPlugin* plugin = this->plugin();
         if (!plugin)
             return false;
         std::vector<int> programs = plugin->programs();
@@ -155,10 +155,32 @@ protected:
 
     bool onMotion(const MotionEvent& ev) override
     {
-        if (fDragging < 0)
-            return false;
-        drag(ev.pos.getX() / getScaleFactor());
-        return true;
+        const double scale = getScaleFactor();
+        const double x = ev.pos.getX() / scale, y = ev.pos.getY() / scale;
+        if (fDragging >= 0) {
+            drag(x);
+            return true;
+        }
+        // What the mouse is over: the cursor points at what can be clicked, and the buttons glow
+        int hover = kHoverNone;
+        if (LOAD_BUTTON.contains(x, y))
+            hover = kHoverLoad;
+        for (int i = 0; i < 3; i++) {
+            if (TOGGLES[i].contains(x, y))
+                hover = kHoverToggle + i;
+            if (SLIDERS[i].contains(x, y))
+                hover = kHoverSlider + i;
+        }
+        const int ch = int((y - TABLE_Y) / ROW) - 1;
+        if (hover == kHoverNone && y >= TABLE_Y && ch >= 0 && ch < 16 && x >= COLUMNS[1] && x < COLUMNS[3])
+            hover = kHoverProgram;
+        if (hover != fHover) {
+            fHover = hover;
+            setCursor(hover == kHoverNone ? kMouseCursorArrow
+                      : hover == kHoverProgram ? kMouseCursorUpDown : kMouseCursorHand);
+            repaint();
+        }
+        return false;
     }
 
     void onNanoDisplay() override
@@ -166,7 +188,7 @@ protected:
         const float s = float(getScaleFactor());
         scale(s, s);
         fontFace(NANOVG_DEJAVU_SANS_TTF);
-        NitroPlugin* plugin = this->plugin();
+        NdsPlugin* plugin = this->plugin();
 
         // The panel and header
         background(0, 0, W, H, Color(30, 33, 41));
@@ -174,7 +196,7 @@ protected:
         rect(0, 0, W, 56);
         fillPaint(linearGradient(0, 0, 0, 56, Color(54, 62, 88), Color(36, 40, 56)));
         fill();
-        label(16, 22, 20, "NITRO SYNTH", Color(255, 214, 102));
+        label(16, 22, 20, "NDS SYNTH", Color(255, 214, 102));
         label(16, 42, 11, "DS sound driver  -  Pokemon Black 2 / White 2  -  scroll a program to change it",
               Color(170, 178, 200));
         std::string bank = plugin ? plugin->bankName() : std::string();
@@ -188,13 +210,13 @@ protected:
         fontSize(12);
         fillColor(error.empty() ? Color(220, 224, 236) : Color(255, 120, 110));
         text(LOAD_BUTTON.x - 12, 29, shown.c_str(), nullptr);
-        button(LOAD_BUTTON, "Load DLS...", true);
+        button(LOAD_BUTTON, "Load DLS...", true, fHover == kHoverLoad);
 
         // The settings
         for (int i = 0; i < 3; i++)
-            button(TOGGLES[i], TOGGLE_LABELS[i], fValues[TOGGLE_PARAMETERS[i]] > 0.5f);
+            button(TOGGLES[i], TOGGLE_LABELS[i], fValues[TOGGLE_PARAMETERS[i]] > 0.5f, fHover == kHoverToggle + i);
         for (int i = 0; i < 3; i++)
-            slider(SLIDERS[i], SLIDER_LABELS[i], fValues[SLIDER_PARAMETERS[i]]);
+            slider(SLIDERS[i], SLIDER_LABELS[i], fValues[SLIDER_PARAMETERS[i]], fHover == kHoverSlider + i);
 
         // The channels
         background(10, TABLE_Y - 8, W - 20, ROW * 17 + 12, Color(22, 24, 30));
@@ -205,7 +227,7 @@ protected:
             text(COLUMNS[c], TABLE_Y + ROW / 2, HEADERS[c], nullptr);
         char buffer[64];
         for (int ch = 0; ch < 16; ch++) {
-            const nitro::ChannelView& v = fView[ch];
+            const nds::ChannelView& v = fView[ch];
             const float y = TABLE_Y + ROW * (ch + 1);
             if (ch & 1)
                 background(12, y, W - 24, ROW, Color(28, 31, 39));
@@ -246,7 +268,7 @@ protected:
     }
 
 private:
-    NitroPlugin* plugin() const { return static_cast<NitroPlugin*>(getPluginInstancePointer()); }
+    NdsPlugin* plugin() const { return static_cast<NdsPlugin*>(getPluginInstancePointer()); }
 
     void drag(double x)
     {
@@ -277,23 +299,38 @@ private:
         text(x, y, string, nullptr);
     }
 
-    void button(const Box& b, const char* string, bool on)
+    // A green glow around a box the mouse is over
+    void glow(const Box& b)
     {
+        beginPath();
+        rect(b.x - 12, b.y - 12, b.w + 24, b.h + 24);
+        roundedRect(b.x, b.y, b.w, b.h, 5);
+        pathWinding(NanoVG::CW);
+        fillPaint(boxGradient(b.x, b.y, b.w, b.h, 6, 14, Color(80, 255, 130, 0.55f), Color(80, 255, 130, 0.0f)));
+        fill();
+    }
+
+    void button(const Box& b, const char* string, bool on, bool hover)
+    {
+        if (hover)
+            glow(b);
         beginPath();
         roundedRect(b.x, b.y, b.w, b.h, 5);
         fillColor(on ? Color(74, 110, 196) : Color(52, 56, 68));
         fill();
-        strokeColor(on ? Color(130, 165, 240) : Color(80, 86, 100));
+        strokeColor(hover ? Color(110, 255, 150) : on ? Color(130, 165, 240) : Color(80, 86, 100));
+        strokeWidth(hover ? 1.5f : 1.0f);
         stroke();
+        strokeWidth(1.0f);
         textAlign(ALIGN_CENTER | ALIGN_MIDDLE);
         fontSize(12);
         fillColor(Color(240, 242, 248));
         text(b.x + b.w / 2, b.y + b.h / 2, string, nullptr);
     }
 
-    void slider(const Box& b, const char* string, float value)
+    void slider(const Box& b, const char* string, float value, bool hover)
     {
-        label(b.x, b.y + b.h / 2, 12, string, Color(200, 206, 222));
+        label(b.x, b.y + b.h / 2, 12, string, hover ? Color(140, 255, 170) : Color(200, 206, 222));
         const float x = b.x + 110, w = b.w - 120;
         beginPath();
         roundedRect(x, b.y + 9, w, 8, 4);
@@ -311,13 +348,17 @@ private:
         text(b.x + b.w, b.y + 3, buffer, nullptr);
     }
 
+    // What the mouse is over
+    enum { kHoverNone = -1, kHoverLoad, kHoverToggle, kHoverSlider = kHoverToggle + 3,
+           kHoverProgram = kHoverSlider + 3 };
+    int fHover = kHoverNone;
     float fValues[kParameterCount];
-    std::array<nitro::ChannelView, 16> fView{};
+    std::array<nds::ChannelView, 16> fView{};
     int fDragging = -1;
 
-    DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NitroUI)
+    DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NdsUI)
 };
 
-UI* createUI() { return new NitroUI(); }
+UI* createUI() { return new NdsUI(); }
 
 END_NAMESPACE_DISTRHO

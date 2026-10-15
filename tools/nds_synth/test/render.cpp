@@ -1,7 +1,7 @@
-// Nitro Synth's engine outside a host: plays a MIDI file with a DLS file into a WAV file, to test the engine.
+// NDS Synth's engine outside a host: plays a MIDI file with a DLS file into a WAV file, to test the engine.
 //
 //     render BANK.dls SONG.mid OUT.wav [--clean] [--seconds N] [--rate HZ]
-#include "../src/NitroEngine.hpp"
+#include "../src/NdsEngine.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -124,7 +124,7 @@ int main(int argc, char** argv)
             rate = std::atoi(argv[++i]);
     }
     std::string error;
-    auto bank = nitro::loadDls(argv[1], error);
+    auto bank = nds::loadDls(argv[1], error);
     if (!bank) {
         std::fprintf(stderr, "error: %s\n", error.c_str());
         return 1;
@@ -132,7 +132,7 @@ int main(int argc, char** argv)
     std::printf("%s: %zu instruments, %zu samples\n", argv[1], bank->instruments.size(), bank->samples.size());
     double bpm;
     std::vector<Event> events = readMidi(argv[2], bpm);
-    nitro::Engine engine;
+    nds::Engine engine;
     engine.setSampleRate(rate);
     engine.settings.hardware = !clean;
     engine.setBank(std::move(bank));
