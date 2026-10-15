@@ -7,8 +7,8 @@ plays the DLS files that `tools/data/sound_dls.py` exports to `build/dls/`, and 
 
 ## Building
 
-It is built with Visual Studio's compiler. Add the "Desktop development with C++" workload to Visual Studio 2022 in
-the Visual Studio Installer, then run this from WSL:
+It is built with Visual Studio's compiler (2022 or later; 2026 builds it). Add the "Desktop development with C++"
+workload in the Visual Studio Installer, then run this from WSL:
 
 ```sh
 tools/nitro_synth/build_windows.sh            # build/nitro_synth/NitroSynth.vst3
