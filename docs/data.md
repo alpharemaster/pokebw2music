@@ -867,6 +867,10 @@ true rate and the PSG and noise instruments as the hardware plays them. The enve
 sound driver's own (see the script): the decay, sustain and release exactly, as both are linear in dB, and the attack,
 which DLS ramps in amplitude, by its half-way point.
 
+A synthesizer plays the `.mid` files' portamento, modulation and pitch sweep controllers in its own way, not the DS's.
+[Nitro Synth](../tools/nitro_synth/README.md) is a VST3 instrument that plays them, with the DLS files, as the game's
+sound driver does: each region of the files also has a `dsrg` chunk of what the driver plays, which it reads.
+
 ### Banks and samples
 
 A sequence's `program` picks an instrument of its bank: `pcm` plays a sample of one of the bank's wave archives,
