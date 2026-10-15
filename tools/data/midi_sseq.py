@@ -5,14 +5,19 @@ the GBA.
     midi_sseq.py IN.mid OUT.seq [SEQUENCE.json]
 
 The packer (sound_data.py) converts a sequence's <name>.mid with the options of its JSON's "midi" field. Each MIDI
-channel that plays becomes a track, in channel order, and the program numbers pick the instruments of the sequence's
-bank, a bank select (controller 0) adding 128 for each step. The conversion keeps:
+channel with events becomes the track of its number (channel 1 track 0, and so on; track 0 is always there to open
+the others), and the program numbers pick the instruments of the sequence's bank, a bank select (controller 0)
+adding 128 for each step. The conversion keeps:
 
 - notes, with their velocities and lengths, and the tempo, at the sequence's 48 ticks per quarter note;
-- program changes, volume (7), pan (10), expression (11), modulation (1), portamento time (5) and switch (65),
-  pitch bend and its range (RPN 0);
-- the loop: from a marker "[" (or "loopStart", or controller 111) to a marker "]" (or "loopEnd"), or else the whole
-  song, unless the options turn looping off. The tracks jump back to the start of the loop at its end, and set again
+- program changes, pitch bend and its range (RPN 0), and the controllers of CONTROLLERS: volume (7), pan (10),
+  expression (11), modulation (1), portamento time (5), switch (65) and key (84), and for the sound driver's own
+  settings, which sseq_midi.py exports, track priority (14), modulation type (3), speed (76), range (77) and delay
+  (78), the envelope's attack (73), decay (75), sustain (79) and release (72), and the pitch sweep (102 and 103, the
+  high and low 7 bits of the sweep plus 8192);
+- the loop: from a marker "[" (or "loopStart", or controller 111) to a marker "]" (or "loopEnd"), the start or the
+  end of the song where one is missing. A song without markers plays once, unless the option "loop" loops all of it,
+  and "loop": false turns the markers off. The tracks jump back to the start of the loop at its end, and set again
   there whatever changes inside it.
 """
 import json
@@ -22,16 +27,23 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from tools.data.datajson import DataError, label  # noqa: E402
-from tools.data.sseq import key_name  # noqa: E402
+from tools.data.sseq import CODES, key_name  # noqa: E402
 
 TICKS = 48  # A sequence's ticks per quarter note
 LOOP_START = {"[", "loopstart", "loop_start", "loop start"}
 LOOP_END = {"]", "loopend", "loop_end", "loop end"}
 # The controllers kept, and the commands they become
-CONTROLLERS = {1: "mod_depth", 5: "portamento_time", 7: "volume", 10: "pan", 11: "expression", 65: "portamento_on"}
+CONTROLLERS = {1: "mod_depth", 3: "mod_type", 5: "portamento_time", 7: "volume", 10: "pan", 11: "expression",
+               14: "priority", 65: "portamento_on", 72: "release", 73: "attack", 75: "decay", 76: "mod_speed",
+               77: "mod_range", 78: "mod_delay", 79: "sustain", 84: "portamento"}
+# The controller of each of those commands, by code, and the bend range's, which is RPN 0's data entry
+COMMAND_CONTROLLERS = {CODES[name]: number for number, name in CONTROLLERS.items()} | {CODES["bend_range"]: 6}
+# The controllers of the high and low 7 bits of the pitch sweep, plus 8192
+SWEEP_PITCH = (102, 103)
 # The state that a loop sets again at its start, in order
-STATE = ["tempo", "program", "volume", "pan", "expression", "mod_depth", "portamento_time", "portamento_on",
-         "bend_range", "pitch_bend"]
+STATE = ["tempo", "program", "volume", "pan", "expression", "priority", "mod_depth", "mod_type", "mod_speed",
+         "mod_range", "mod_delay", "attack", "decay", "sustain", "release", "portamento_time", "portamento_on",
+         "portamento", "bend_range", "pitch_bend", "sweep_pitch"]
 
 
 def read_varlen(data: bytes, pos: int) -> tuple[int, int]:
@@ -118,7 +130,6 @@ def convert(path: Path, info: dict) -> str:
     where = label(path)
     division, events = read_midi(path)
     scale = lambda tick: round(tick * TICKS / division)  # noqa: E731
-    loop = options.get("loop", True)
     transpose = options.get("transpose", 0)
     curve = options.get("velocity_curve", 1)
 
@@ -133,6 +144,7 @@ def convert(path: Path, info: dict) -> str:
         elif kind == "cc" and event[4] == 111 and loop_start is None:
             loop_start = scale(tick)
         song_end = max(song_end, scale(tick))
+    loop = options.get("loop", loop_start is not None or loop_end is not None)
     if not loop:
         loop_start = loop_end = None
     else:
@@ -148,6 +160,7 @@ def convert(path: Path, info: dict) -> str:
     pending: dict[tuple[int, int], list] = {}
     banks = {}
     rpn = {}
+    sweeps = {}
     order = 0
     for event in events:
         tick, _, kind, channel = event[:4]
@@ -176,6 +189,11 @@ def convert(path: Path, info: dict) -> str:
                 rpn[channel, number] = value
             elif number == 6 and rpn.get((channel, 101)) == 0 and rpn.get((channel, 100)) == 0:
                 commands.append((at, order, f"bend_range {value}", "bend_range", value))
+            elif number == SWEEP_PITCH[0]:
+                sweeps[channel] = value
+            elif number == SWEEP_PITCH[1]:
+                value = (sweeps.get(channel, 64) << 7 | value) - 8192
+                commands.append((at, order, f"sweep_pitch {value}", "sweep_pitch", value))
             elif number in CONTROLLERS:
                 name = CONTROLLERS[number]
                 if name == "portamento_on":
@@ -188,23 +206,30 @@ def convert(path: Path, info: dict) -> str:
         for start, start_order, velocity in starts:
             channels[channel].append((start, start_order, ("note", key, velocity, end), None, None))
 
-    used = sorted(c for c, commands in channels.items() if any(isinstance(t[2], tuple) for t in commands))
-    if not used:
-        raise DataError(f"{where}: the MIDI file has no notes")
-    if len(used) > 16:
-        raise DataError(f"{where}: a sequence has at most 16 tracks")
-    lines = [f"\talloc_tracks 0x{(1 << len(used)) - 1:04X}"]
-    lines += [f"\topen_track {track}, Track_{track}" for track in range(1, len(used))]
-    for track, channel in enumerate(used):
-        commands = channels[channel] + (tempos if track == 0 else [])
+    used = sorted({0} | {channel for channel, commands in channels.items() if commands})
+    lines = [f"\talloc_tracks 0x{sum(1 << channel for channel in used):04X}"]
+    lines += [f"\topen_track {track}, Track_{track}" for track in used[1:]]
+    for track in used:
+        channel = track
+        commands = channels.get(channel, []) + (tempos if track == 0 else [])
         commands.sort(key=lambda command: (command[0], isinstance(command[2], tuple), command[1]))
         if track:
             lines.append(f"Track_{track}:")
-        lines += ["\tnote_wait 0", f"\tpriority {options.get('priority', 64)}",
-                  f"\tbend_range {options.get('bend_range', 2)}", "\tvolume 100", "\tpan 64", "\texpression 127"]
-        state = {}
+        # MIDI's defaults, where the track doesn't set its own at the start
+        lines.append("\tnote_wait 0")
+        first = {key for tick, _, _, key, _ in commands if key and tick == 0}
+        defaults = {"priority": options.get("priority", 64), "bend_range": options.get("bend_range", 2),
+                    "volume": 100, "pan": 64, "expression": 127}
+        lines += [f"\t{key} {value}" for key, value in defaults.items() if key not in first]
         now = 0
         looped = False
+
+        def values_before(tick):
+            values = dict(defaults)
+            for at, _, _, key, value in commands:
+                if key and at < tick:
+                    values[key] = value
+            return values
 
         def wait_until(tick):
             nonlocal now
@@ -216,10 +241,12 @@ def convert(path: Path, info: dict) -> str:
             nonlocal looped
             wait_until(loop_start)
             lines.append(f"Loop_{track}:")
-            changed = {key for tick, _, _, key, _ in commands if key and loop_start <= tick < end}
+            # What the loop leaves changed, which the commands at its start don't set again
+            before, after = values_before(loop_start), values_before(end)
+            again = {key for at, _, _, key, _ in commands if key and at == loop_start}
             for key in STATE:
-                if key in changed and key in state:
-                    lines.append(f"\t{key} {state[key]}")
+                if key in before and after.get(key) != before[key] and key not in again:
+                    lines.append(f"\t{key} {before[key]}")
             looped = True
 
         for tick, _, command, key, value in commands:
@@ -238,8 +265,6 @@ def convert(path: Path, info: dict) -> str:
                 lines.append(f"\tnote {key_name(note)}, {velocity}, {length}")
             else:
                 lines.append(f"\t{command}")
-                if key:
-                    state[key] = value
         if loop:
             if not looped:
                 start_loop()

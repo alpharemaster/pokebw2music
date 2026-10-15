@@ -10,7 +10,9 @@ the banks' samples, its players, groups and stream. The sources:
 - data/constants/sound.txt numbers the sequences, sound_banks.txt the banks and sound_wave_archives.txt the wave
   archives, so adding one is adding its constant and its files.
 - data/sound/sequences/<name>.json gives a sequence's bank, volume, priorities and player, and <name>.seq is its
-  text (tools/data/sseq.py), or <name>.mid a MIDI file converted to it (tools/data/midi_sseq.py).
+  text (tools/data/sseq.py). The music and jingles also have <name>.mid, their export as MIDI (sseq_midi.py): the
+  packer uses the .seq while the .mid is that export, and converts the .mid (midi_sseq.py) once it is edited or
+  replaced. A sequence can also have a .mid alone.
 - data/sound/banks/<name>.json gives a bank's wave archives and its instruments, in the order of their data.
 - data/sound/wave_archives/<name>/ holds a wave archive's samples, 000 and up: .swav files, the original samples
   as they are, or .wav files, which the packer encodes (see wave_archive.schema.json for the options).
@@ -33,6 +35,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import tools.data.sseq as sseq  # noqa: E402
 from tools.data.midi_sseq import convert  # noqa: E402
 from tools.data.sound_waves import wav_wave  # noqa: E402
+from tools.data.sseq_midi import export as export_midi, midi_state  # noqa: E402
 from tools.data.datajson import DataError, label, load, load_schema  # noqa: E402
 from tools.data.gen_constants import LISTS_DIR, parse  # noqa: E402
 from tools.data.narc import read_narc, write_narc  # noqa: E402
@@ -66,6 +69,8 @@ CRY_WAVE_ARCHIVES = range(1, 691)
 # A wave's header, and the clock that its timer, from its sample rate, divides
 WAVE = struct.Struct("<BBHHHI")           # Encoding, loops, rate, timer, loop start and length after it, in words
 ARM7_CLOCK = 16756991
+# The sequences that the extract also writes as MIDI files: the music and the jingles
+MIDI_PREFIXES = ("SEQ_BGM_", "SEQ_ME_")
 # The interactive sound subsystems a BGM can use (ISS_SUBSYSTEM_*, iss_sys.h); 1 and 6 do nothing
 ISS_SUBSYSTEMS = {2: "road", 3: "city", 4: "3d_sound", 5: "dungeon", 7: "switch", 8: "zone"}
 
@@ -498,7 +503,10 @@ def extract(root: Path):
             info["shares_data_with"] = first
         else:
             stem.parent.mkdir(parents=True, exist_ok=True)
-            stem.with_suffix(".seq").write_text(sseq.disassemble(files[file_id]))
+            text = sseq.disassemble(files[file_id])
+            stem.with_suffix(".seq").write_text(text)
+            if name.startswith(MIDI_PREFIXES):
+                stem.with_suffix(".mid").write_bytes(export_midi(text, label(stem.with_suffix(".seq"))))
         write_json(stem.with_suffix(".json"), info)
     print(f"{sum(r is not None for r in records)} sequences", flush=True)
 
@@ -599,6 +607,23 @@ def extract(root: Path):
 # Packing
 
 
+def sequence_source(seq: Path, mid: Path) -> Path:
+    """Returns the file a sequence is packed from: its .seq, unless its .mid was edited or replaced since it was
+    exported from it (sseq_midi.midi_state())."""
+    if not mid.exists():
+        return seq
+    if not seq.exists():
+        return mid
+    state = midi_state(mid.read_bytes(), seq.read_text())
+    if state == "conflict":
+        raise DataError(f"{label(mid)} and {label(seq)} were both changed since the MIDI was exported: delete the one "
+                        "to drop, or export the MIDI again with tools/data/sseq_midi.py")
+    if state == "stale":
+        print(f"note: {label(seq)} changed since {mid.name} was exported from it, so it is packed from the .seq; "
+              f"export the MIDI again with tools/data/sseq_midi.py {label(seq)}", file=sys.stderr)
+    return mid if state == "edited" else seq
+
+
 def pack_bgm_info(root: Path) -> bytes:
     """Returns the BGM info archive: the count of BGMs with interactive sound, then each one's sequence and
     subsystem."""
@@ -656,15 +681,15 @@ def pack(root: Path, output: Path, bgm_info_output: Path):
                 raise DataError(f"{where}: a sequence that shares another's data has no {sources[0].suffix} file")
             find("SEQ", info["shares_data_with"], where)
             shares["SEQ"][name] = info["shares_data_with"]
-        elif len(sources) != 1:
-            raise DataError(f"{where}: needs one {stem.name}.seq or {stem.name}.mid beside it")
-        elif sources[0].suffix == ".seq":
+        elif not sources:
+            raise DataError(f"{where}: needs {stem.name}.seq or {stem.name}.mid beside it")
+        else:
+            source = sequence_source(*(stem.with_suffix(suffix) for suffix in (".seq", ".mid")))
             try:
-                contents["SEQ"][name] = sseq.assemble(sources[0].read_text(), label(sources[0]))
+                text = source.read_text() if source.suffix == ".seq" else convert(source, info)
+                contents["SEQ"][name] = sseq.assemble(text, label(source))
             except ValueError as error:
                 raise DataError(str(error)) from None
-        else:
-            contents["SEQ"][name] = sseq.assemble(convert(sources[0], info), label(sources[0]))
 
     for number, name in sorted(lists["BANK"].items()):
         path = root / "banks" / f"{file_name(name, 'BANK_')}.json"

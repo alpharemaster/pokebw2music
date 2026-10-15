@@ -17,7 +17,7 @@
             "type": "object", "additionalProperties": false,
             "description": "Options for converting <sequence>.mid (tools/data/midi_sseq.py)",
             "properties": {
-                "loop": { "type": "boolean", "description": "Whether the sequence loops: between the MIDI markers \"[\" and \"]\" (or \"loopStart\" and \"loopEnd\"), or else over the whole song. Default true" },
+                "loop": { "type": "boolean", "description": "Whether the sequence loops: between the MIDI markers \"[\" and \"]\" (or \"loopStart\" and \"loopEnd\"), or over the whole song if it has none. Default: whether it has a marker" },
                 "priority": { "type": "integer", "minimum": 0, "maximum": 127, "description": "Each track's priority, which adds to channel_priority. Default 64" },
                 "bend_range": { "type": "integer", "minimum": 0, "maximum": 127, "description": "The pitch bend range in semitones, unless the MIDI sets it with RPN 0. Default 2" },
                 "transpose": { "type": "integer", "minimum": -64, "maximum": 63, "description": "Semitones to add to every note. Default 0" },

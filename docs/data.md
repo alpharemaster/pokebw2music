@@ -804,7 +804,8 @@ lower case.
 | Source | Contents |
 | --- | --- |
 | `sequences/<name>.json` | A sequence's bank, volume, priorities and player (`sequence.schema.json`) |
-| `sequences/<name>.seq` | Its notes, in the text below, or `<name>.mid`, a MIDI file that the build converts |
+| `sequences/<name>.seq` | Its notes, in the text below |
+| `sequences/<name>.mid` | The music's and jingles' notes as a MIDI file, to play, edit or replace (see [MIDI files](#midi-files)) |
 | `banks/<name>.json` | A bank's wave archives and instruments, one per line like a voicegroup (`bank.schema.json`) |
 | `wave_archives/<name>/000.swav`… | A wave archive's samples, numbered from 000: `.swav` as the game has them, or `.wav` |
 | `wave_archives/<name>/data.json` | A wave archive's options, such as the encoding of its WAVs (`wave_archive.schema.json`) |
@@ -843,6 +844,24 @@ envelope, call and return from subroutines, loop a number of times (`loop_start`
 sequence variables (`setvar`, `cmp_eq` and the `if` prefix). Keys run from `Cm1` (0) to `G9` (127), with `s` for
 sharp: `C4` is 60.
 
+### MIDI files
+
+Each BGM and jingle (`SEQ_BGM_*`, `SEQ_ME_*`) has a `.mid` beside its `.seq`, which `tools/data/sseq_midi.py`
+exports from it: track N is MIDI channel N, at 48 ticks per quarter note; the song's loop is between the markers `[`
+and `]`, and the parts that loop on their own are repeated to fill it; and the sound driver's settings that MIDI has
+no event for, such as the envelope, the modulation and the track priority, are controllers (see
+`tools/data/midi_sseq.py`). Converting an export back plays the same as the `.seq`, which every one of the 311 does.
+
+The build packs a sequence from its `.seq` while the `.mid` is that export, so the ROMs still match, and from the
+`.mid` as soon as it is edited or replaced: the export starts with a text event that holds the hashes of the `.seq`
+and of the MIDI itself, and an edited or foreign MIDI no longer matches them. If only the `.seq` changed, the build
+uses it and says that the `.mid` is out of date (`.venv/bin/python tools/data/sseq_midi.py
+data/sound/sequences/<name>.seq` exports it again); if both changed, it stops, since it can't tell which to keep.
+To replace a song, save a MIDI over its `.mid`: its JSON stays as it is.
+
+The MIDI's program numbers are the bank's (`banks/<name>.json`), not General MIDI's, so a sequencer plays the
+export with the wrong instruments, though with the right notes, timing and loop.
+
 ### Banks and samples
 
 A sequence's `program` picks an instrument of its bank: `pcm` plays a sample of one of the bank's wave archives,
@@ -866,7 +885,11 @@ and `3d_sound`, `switch` and `zone` play or mute tracks by place, from archives 
 those slots either keeps its tracks to that layout, such as a route's song on tracks 0 to 7 and the parts that
 should fade on 8 and 9, or comes off the list.
 
-### Adding music
+### Replacing and adding music
+
+To replace a song, save your MIDI over its `.mid`, such as `data/sound/sequences/bgm_pokecen.mid` for the Pokémon
+Centers, and build. It plays with the song's bank, so its programs should be the ones the original uses: the
+original's `.mid` shows which, by channel. For a bank of its own, see step 3 below.
 
 Adding a song works as in pokeemerald: a MIDI file, a line in a list and an instrument bank.
 
@@ -890,7 +913,8 @@ Adding a song works as in pokeemerald: a MIDI file, a line in a list and an inst
    Each MIDI channel that plays becomes a track, and its program numbers pick the bank's instruments: a MIDI that
    uses the programs of an existing song's bank, such as the Pokémon Center's here, plays with it as it is. The
    converter (`tools/data/midi_sseq.py`) keeps the notes, tempo, program changes, volume, pan, expression,
-   modulation, portamento and pitch bend, and loops from the marker `[` to the marker `]` (or the whole song).
+   modulation, portamento and pitch bend, and loops from the marker `[` to the marker `]`; `"loop": true` loops a
+   song without markers from its start, and without either it plays once.
    `midi_sseq.py song.mid song.seq` shows what it writes; a `.seq` file in place of the `.mid` can then be edited by
    hand.
 3. For instruments of its own, add `BANK_MY_SONG = 0x8f2` at the end of `sound_banks.txt` and
