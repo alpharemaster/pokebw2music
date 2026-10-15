@@ -19,6 +19,12 @@ The script fetches [DPF](https://github.com/DISTRHO/DPF) (the DISTRHO Plugin Fra
 Installing to `Program Files` needs administrator rights; without them, copy the bundle there by hand or add
 `build\nds_synth` to FL Studio's plugin search paths.
 
+## Installer
+
+`tools/nds_synth/make_installer.sh` builds `build/nds_synth/NDSSynth-1.0.0-Setup.exe` from the VST3, with
+[NSIS](https://nsis.sourceforge.io) 3.10, which it fetches (`installer.nsi` is the script). The installer puts
+`NDSSynth.vst3` into `C:\Program Files\Common Files\VST3` and adds an uninstaller to Windows' apps.
+
 ## Playing a song
 
 1. Export the banks: `python3 tools/data/sound_dls.py data/sound build/dls`. `build/dls/songs.txt` says which bank
